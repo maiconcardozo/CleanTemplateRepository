@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<!-- WARNING: Never revert to .NET 8.0 - Project requires .NET 9.0 for all dependencies and features -->
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\Solution</DockerfileContext>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="publish\**" />
+		<Content Remove="publish\**" />
+		<EmbeddedResource Remove="publish\**" />
+		<None Remove="publish\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Package versions updated for .NET 9.0 compatibility - Never downgrade to 8.x versions -->
+		<PackageReference Include="AutoMapper" Version="15.0.1" />
+		<PackageReference Include="FluentValidation" Version="12.0.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
+		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.14.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MySqlConnector" Version="2.4.0" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.4" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="9.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="9.0.4" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.4" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.4" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.4" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Authentication.Login\Authentication.Login.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resource\Resource.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resource.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resource\ResourceAPI.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ResourceAPI.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resource\ResourceRoutesAPI.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ResourceRoutesAPI.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Resource\ResourceStartup.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ResourceStartup.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resource\Resource.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resource.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resource\ResourceAPI.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>ResourceAPI.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resource\ResourceRoutesAPI.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>ResourceRoutesAPI.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resource\ResourceStartup.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>ResourceStartup.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="wwwroot\Style\custom-swagger.css" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Migrations\Development\" />
+	  <Folder Include="Migrations\Production\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
+	  <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
+	  <PackageReference Update="SonarAnalyzer.CSharp" Version="10.15.0.120848" />
+	</ItemGroup>
+
+</Project>
