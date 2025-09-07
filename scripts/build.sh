@@ -123,6 +123,7 @@ case "${1:-debug}" in
         echo ""
         echo "🎉 Verificação completa bem-sucedida!"
         echo "✅ Projeto compila corretamente"
+        ;;
     
     "help"|"-h"|"--help")
         show_help
