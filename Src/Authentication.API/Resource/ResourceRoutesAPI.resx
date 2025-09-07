@@ -195,4 +195,19 @@
   <data name="DeleteAccountClaimAction" xml:space="preserve">
     <value>DeleteAccountClaimAction/{id}</value>
   </data>
+  <data name="GetCleanEntities" xml:space="preserve">
+    <value>GetCleanEntities</value>
+  </data>
+  <data name="GetCleanEntityById" xml:space="preserve">
+    <value>GetCleanEntityById/{id}</value>
+  </data>
+  <data name="AddCleanEntity" xml:space="preserve">
+    <value>AddCleanEntity</value>
+  </data>
+  <data name="UpdateCleanEntity" xml:space="preserve">
+    <value>UpdateCleanEntity/{id}</value>
+  </data>
+  <data name="DeleteCleanEntity" xml:space="preserve">
+    <value>DeleteCleanEntity/{id}</value>
+  </data>
 </root>

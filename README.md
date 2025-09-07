@@ -1,44 +1,37 @@
-# Authentication - .NET Authentication Service
+# Clean Template Repository - .NET Clean Architecture Template
 
-[![CI/CD Pipeline](https://github.com/maiconcardozo/Authentication/actions/workflows/ci.yml/badge.svg)](https://github.com/maiconcardozo/Authentication/actions/workflows/ci.yml)
+[![CI/CD Pipeline](https://github.com/maiconcardozo/CleanTemplateRepository/actions/workflows/ci.yml/badge.svg)](https://github.com/maiconcardozo/CleanTemplateRepository/actions/workflows/ci.yml)
 [![.NET 9.0](https://img.shields.io/badge/.NET-9.0-blue.svg)](https://dotnet.microsoft.com/download/dotnet/9.0)
 [![Entity Framework Core](https://img.shields.io/badge/EF%20Core-9.0.7-blue.svg)](https://docs.microsoft.com/en-us/ef/core/)
-[![JWT](https://img.shields.io/badge/JWT-8.14.0-green.svg)](https://jwt.io/)
 
 ## 📋 Overview
 
-**Authentication** is a .NET service that provides secure authentication and authorization for applications following Domain-Driven Design (DDD) principles. This service implements JWT authentication, secure password hashing with Argon2, and a complete **Role-Based Access Control (RBAC)** system with claims, actions, and user permissions management.
+**Clean Template Repository** is a pre-configured .NET template that provides a complete Clean Architecture foundation for building modern web applications. This template follows Domain-Driven Design (DDD) principles and includes a fully functional example entity (`CleanEntity`) demonstrating all layers and patterns.
 
 ### 🔐 Key Features
 
-- **JWT Authentication**: Secure token generation and validation
-- **User Management**: Account creation and administration with duplicate username prevention
-- **Complete RBAC System**: 
-  - **Claims**: Permission and role definitions
-  - **Actions**: Available system actions
-  - **ClaimActions**: Permission to action mapping
-  - **AccountClaimActions**: User permission assignments
-- **Complete RESTful API**: CRUD endpoints for all entities with proper HTTP status codes
-- **REST API Standards Compliance**: Proper status codes (409 Conflict, 404 Not Found, 401 Unauthorized, 400 Bad Request, 500 Internal Server Error)
-- **Advanced Security**: Argon2 hashing, input validation, security middleware, username uniqueness validation
-- **Internationalization**: Error messages and API documentation in English and Portuguese with culture-aware Swagger UI
-- **Language Switching**: Support for `?culture=en` and `?culture=pt-BR` query parameters with persistent cookie storage
+- **Clean Architecture**: Well-organized layers with proper separation of concerns
+- **Example Entity**: Complete `CleanEntity` implementation showing all patterns
+- **Repository Pattern**: Generic repository with Entity Framework implementation
+- **Unit of Work**: Transaction management and consistency
+- **Service Layer**: Business logic separation with proper error handling
+- **RESTful API**: Complete CRUD endpoints with proper HTTP status codes
+- **AutoMapper Integration**: DTO mapping configuration
+- **Entity Framework**: Database configuration and migrations
+- **Dependency Injection**: Proper IoC container setup
+- **Unit Testing**: Comprehensive test coverage with FluentAssertions
+- **JWT Infrastructure**: Token generation and validation ready for implementation
 
 ## 🏗️ Architecture
 
-The service is organized in well-defined layers following Clean Architecture principles:
+The template is organized in well-defined layers following Clean Architecture principles:
 
 ```
-Authentication/
+CleanTemplateRepository/
 ├── Src/
 │   ├── Authentication.API/           # API Layer
 │   │   ├── Controllers/             # API Controllers
-│   │   │   ├── AuthenticationController.cs  # Basic authentication
-│   │   │   ├── AccountController.cs         # Account management
-│   │   │   ├── ClaimController.cs          # Claims management
-│   │   │   ├── ActionController.cs         # Actions management
-│   │   │   ├── ClaimActionController.cs    # Claim-action mapping
-│   │   │   └── AccountClaimActionController.cs # User permissions
+│   │   │   └── CleanEntityController.cs  # Example CRUD controller
 │   │   ├── Middleware/              # Custom middleware
 │   │   ├── Swagger/                 # API documentation
 │   │   └── Data/                    # Database contexts
@@ -46,19 +39,23 @@ Authentication/
 │   └── Authentication.Login/        # Domain & Business Logic
 │       ├── Domain/                  # Domain entities
 │       │   ├── Implementation/      # Concrete implementations
-│       │   │   ├── Account.cs      # User entity
-│       │   │   ├── Claim.cs        # Claims/Permissions
-│       │   │   ├── Action.cs       # System actions
-│       │   │   ├── ClaimAction.cs  # Claim-action relationship
-│       │   │   └── AccountClaimAction.cs # User permissions
+│       │   │   ├── CleanEntity.cs   # Example entity
+│       │   │   ├── Token.cs         # JWT token (optional)
+│       │   │   └── JwtSettings.cs   # JWT configuration (optional)
 │       │   └── Interface/          # Domain interfaces
 │       ├── Services/               # Business services
 │       │   ├── Implementation/     # Service implementations
+│       │   │   └── CleanEntityService.cs
 │       │   └── Interface/         # Service contracts
+│       │       └── ICleanEntityService.cs
 │       ├── Repository/             # Data access layer
 │       │   ├── Implementation/     # Repository implementations
+│       │   │   └── CleanEntityRepository.cs
 │       │   └── Interface/         # Repository contracts
+│       │       └── ICleanEntityRepository.cs
 │       ├── DTO/                   # Data transfer objects
+│       │   ├── CleanEntityPayLoadDTO.cs
+│       │   └── CleanEntityResponseDTO.cs
 │       ├── Infrastructure/        # Entity configurations
 │       │   ├── Implementation/    # EF Core mappings
 │       │   └── Interface/        # Context contracts
