@@ -270,21 +270,6 @@
   <data name="DocumentationDeleteAccount" xml:space="preserve">
     <value>Removes a user account from the system by its unique identifier.</value>
   </data>
-  <data name="AddAccount" xml:space="preserve">
-    <value>Add a new account.</value>
-  </data>
-  <data name="GetAccounts" xml:space="preserve">
-    <value>Get all accounts</value>
-  </data>
-  <data name="GetAccountById" xml:space="preserve">
-    <value>Get account by ID</value>
-  </data>
-  <data name="UpdateAccount" xml:space="preserve">
-    <value>Update account</value>
-  </data>
-  <data name="DeleteAccount" xml:space="preserve">
-    <value>Delete account</value>
-  </data>
   <data name="APIManagement" xml:space="preserve">
     <value>API for user authentication and account management.</value>
   </data>
@@ -494,21 +479,6 @@
   </data>
   <data name="RequestConflictsWithCurrentState" xml:space="preserve">
     <value>The request conflicts with the current state of the resource.</value>
-  </data>
-  <data name="ActionControllerDescription" xml:space="preserve">
-    <value>Controller responsible for managing actions in the system. Provides CRUD operations for actions that can be combined with claims to form permissions. Actions define what operations can be performed on resources in the RBAC system.</value>
-  </data>
-  <data name="AccountControllerDescription" xml:space="preserve">
-    <value>Controller responsible for managing user accounts in the system. Provides CRUD operations for user accounts, including account creation, retrieval, updates, and deletion. Handles account management operations with proper authentication and authorization controls.</value>
-  </data>
-  <data name="AccountClaimActionControllerDescription" xml:space="preserve">
-    <value>Controller responsible for managing account-claim-action associations in the RBAC system. Provides CRUD operations for linking user accounts with specific claim-action permissions. Enables fine-grained access control by assigning specific permissions to individual accounts.</value>
-  </data>
-  <data name="ClaimActionControllerDescription" xml:space="preserve">
-    <value>Controller responsible for managing claim-action associations in the RBAC system. Provides CRUD operations for linking claims with actions to create specific permissions. Claim-actions define what operations (actions) can be performed on specific resources (claims).</value>
-  </data>
-  <data name="ClaimControllerDescription" xml:space="preserve">
-    <value>Controller for managing claims in the Role-Based Access Control (RBAC) system. Provides CRUD operations for claims (permissions/roles) that can be assigned to users. Claims are fundamental building blocks for the authorization system.</value>
   </data>
   <data name="AuthenticationControllerDescription" xml:space="preserve">
     <value>Controller responsible for handling authentication operations. Provides endpoints for JWT token generation and user authentication.</value>
