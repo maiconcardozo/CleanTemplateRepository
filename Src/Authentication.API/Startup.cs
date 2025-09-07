@@ -111,13 +111,7 @@ namespace Authentication.API
                 // Use CHAVES do resource nas definições de SwaggerDoc!
                 options.SwaggerDoc(ApplicationConstants.Api.SwaggerDefinitions.Authentication, new Microsoft.OpenApi.Models.OpenApiInfo
                 {
-                    Title = "ResourceStartup.AuthenticationApiDisplayName",
-                    Version = ApplicationConstants.Api.Version
-                });
-
-                options.SwaggerDoc(ApplicationConstants.Api.SwaggerDefinitions.AccessControl, new Microsoft.OpenApi.Models.OpenApiInfo
-                {
-                    Title = "ResourceStartup.AccessControlApiDisplayName",
+                    Title = "CleanEntity API",
                     Version = ApplicationConstants.Api.Version
                 });
 
@@ -127,13 +121,7 @@ namespace Authentication.API
                     return docName switch
                     {
                         ApplicationConstants.Api.SwaggerDefinitions.Authentication =>
-                            controllerName?.Equals(ResourceStartup.AuthenticationController, StringComparison.OrdinalIgnoreCase) == true,
-                        ApplicationConstants.Api.SwaggerDefinitions.AccessControl =>
-                            controllerName?.Equals(ResourceStartup.AccountController, StringComparison.OrdinalIgnoreCase) == true ||
-                            controllerName?.Equals(ResourceStartup.AccountClaimActionController, StringComparison.OrdinalIgnoreCase) == true ||
-                            controllerName?.Equals(ResourceStartup.ActionController, StringComparison.OrdinalIgnoreCase) == true ||
-                            controllerName?.Equals(ResourceStartup.ClaimActionController, StringComparison.OrdinalIgnoreCase) == true ||
-                            controllerName?.Equals(ResourceStartup.ClaimController, StringComparison.OrdinalIgnoreCase) == true,
+                            controllerName?.Equals("CleanEntity", StringComparison.OrdinalIgnoreCase) == true,
                         _ => false
                     };
                 });
@@ -203,11 +191,7 @@ namespace Authentication.API
             {
                 options.SwaggerEndpoint(
                     ApplicationConstants.Api.SwaggerDefinitions.AuthenticationEndpoint,
-                    ResourceStartup.AuthenticationApiDisplayName
-                );
-                options.SwaggerEndpoint(
-                    ApplicationConstants.Api.SwaggerDefinitions.AccessControlEndpoint,
-                    ResourceStartup.AccessControlApiDisplayName
+                    "CleanEntity API"
                 );
                 options.RoutePrefix = ApplicationConstants.Api.EmptyRoutePrefix;
                 options.InjectStylesheet(ApplicationConstants.Api.CustomStylePath);

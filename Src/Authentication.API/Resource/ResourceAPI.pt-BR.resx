@@ -618,4 +618,59 @@
   <data name="ResponseAccountUsernameAlreadyExists" xml:space="preserve">
     <value>Nome de usuário da conta já existe</value>
   </data>
+  <!-- CleanEntity API Resources (Portuguese) -->
+  <data name="CleanEntityControllerDescription" xml:space="preserve">
+    <value>Controlador responsável pelo gerenciamento de recursos CleanEntity no sistema. Fornece operações CRUD para objetos CleanEntity, incluindo criação, recuperação, atualizações e exclusão.</value>
+  </data>
+  <data name="DocumentationGetCleanEntities" xml:space="preserve">
+    <value>Recupera todos os objetos CleanEntity no sistema.</value>
+  </data>
+  <data name="ReturnsListOfCleanEntityObjectsWithTheirNamesAndDescriptionsOnSuccessValidationErrorsUnauthorizedAccessOrInternalServerError" xml:space="preserve">
+    <value>Retorna uma lista de objetos CleanEntity com seus nomes e descrições em caso de sucesso (200), erros de validação (400), acesso não autorizado (401) ou erro interno do servidor (500)</value>
+  </data>
+  <data name="CleanEntitiesRetrievedSuccessfully" xml:space="preserve">
+    <value>CleanEntities recuperadas com sucesso.</value>
+  </data>
+  <data name="DocumentationGetCleanEntityById" xml:space="preserve">
+    <value>Recupera uma CleanEntity específica por seu identificador único.</value>
+  </data>
+  <data name="ReturnsCleanEntityMatchingTheSpecifiedID" xml:space="preserve">
+    <value>CleanEntity correspondente ao ID especificado</value>
+  </data>
+  <data name="CleanEntityRetrievedSuccessfully" xml:space="preserve">
+    <value>CleanEntity recuperada com sucesso.</value>
+  </data>
+  <data name="CleanEntityNotFound" xml:space="preserve">
+    <value>CleanEntity não encontrada.</value>
+  </data>
+  <data name="DocumentationAddCleanEntity" xml:space="preserve">
+    <value>Cria uma nova CleanEntity com as informações fornecidas.</value>
+  </data>
+  <data name="ReturnsCreatedCleanEntityOnSuccessValidationErrorsUnauthorizedAccessOrInternalServerError" xml:space="preserve">
+    <value>Retorna informações da CleanEntity criada em caso de sucesso (201), erros de validação (400), acesso não autorizado (401), conflito (409) ou erro interno do servidor (500)</value>
+  </data>
+  <data name="CleanEntityCreatedSuccessfully" xml:space="preserve">
+    <value>CleanEntity criada com sucesso.</value>
+  </data>
+  <data name="CleanEntityAlreadyExists" xml:space="preserve">
+    <value>CleanEntity já existe.</value>
+  </data>
+  <data name="DocumentationUpdateCleanEntity" xml:space="preserve">
+    <value>Atualiza uma CleanEntity existente com as informações fornecidas.</value>
+  </data>
+  <data name="ReturnsUpdatedCleanEntityOnSuccessValidationErrorsUnauthorizedAccessOrInternalServerError" xml:space="preserve">
+    <value>Retorna informações da CleanEntity atualizada em caso de sucesso (200), erros de validação (400), acesso não autorizado (401), não encontrada (404) ou erro interno do servidor (500)</value>
+  </data>
+  <data name="CleanEntityUpdatedSuccessfully" xml:space="preserve">
+    <value>CleanEntity atualizada com sucesso.</value>
+  </data>
+  <data name="DocumentationDeleteCleanEntity" xml:space="preserve">
+    <value>Remove uma CleanEntity do sistema por seu identificador único.</value>
+  </data>
+  <data name="ReturnsConfirmationMessageOnSuccessValidationErrorsUnauthorizedAccessOrInternalServerError" xml:space="preserve">
+    <value>Retorna mensagem de confirmação em caso de sucesso (200), erros de validação (400), acesso não autorizado (401), não encontrada (404) ou erro interno do servidor (500)</value>
+  </data>
+  <data name="CleanEntityDeletedSuccessfully" xml:space="preserve">
+    <value>CleanEntity excluída com sucesso.</value>
+  </data>
 </root>
