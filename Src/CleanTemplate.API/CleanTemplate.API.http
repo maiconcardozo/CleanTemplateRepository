@@ -1,6 +1,102 @@
-@CleanTemplate.API_HostAddress = http://localhost:5247
+# CleanTemplate API - Product CRUD Examples
+# This file contains sample HTTP requests to test all Product API endpoints
+# You can use this with VS Code REST Client extension or similar tools
 
-GET {{CleanTemplate.API_HostAddress}}/weatherforecast/
-Accept: application/json
+@baseUrl = http://localhost:5247
+@contentType = application/json
 
 ###
+
+# 1. Get all products (initially empty)
+GET {{baseUrl}}/api/Product
+Accept: {{contentType}}
+
+###
+
+# 2. Create a new product
+POST {{baseUrl}}/api/Product
+Content-Type: {{contentType}}
+
+{
+  "name": "Smartphone X1",
+  "description": "Latest flagship smartphone with amazing features",
+  "price": 899.99,
+  "stock": 50,
+  "isActive": true,
+  "createdBy": "admin"
+}
+
+###
+
+# 3. Create another product
+POST {{baseUrl}}/api/Product
+Content-Type: {{contentType}}
+
+{
+  "name": "Wireless Headphones",
+  "description": "Premium noise-cancelling wireless headphones",
+  "price": 299.99,
+  "stock": 25,
+  "isActive": true,
+  "createdBy": "admin"
+}
+
+###
+
+# 4. Get all products (should now show created products)
+GET {{baseUrl}}/api/Product
+Accept: {{contentType}}
+
+###
+
+# 5. Get specific product by ID (replace with actual ID from creation response)
+GET {{baseUrl}}/api/Product/{product-id}
+Accept: {{contentType}}
+
+###
+
+# 6. Update a product (replace with actual ID from creation response)
+PUT {{baseUrl}}/api/Product/{product-id}
+Content-Type: {{contentType}}
+
+{
+  "name": "Smartphone X1 Pro",
+  "description": "Latest flagship smartphone with amazing features - Updated model",
+  "price": 999.99,
+  "stock": 45,
+  "isActive": true,
+  "createdBy": "admin",
+  "updatedBy": "admin"
+}
+
+###
+
+# 7. Create a product with validation errors (to test validation)
+POST {{baseUrl}}/api/Product
+Content-Type: {{contentType}}
+
+{
+  "name": "",
+  "description": "This will fail validation because name is required",
+  "price": -10,
+  "stock": -5,
+  "isActive": true,
+  "createdBy": ""
+}
+
+###
+
+# 8. Get non-existent product (should return 404)
+GET {{baseUrl}}/api/Product/00000000-0000-0000-0000-000000000000
+Accept: {{contentType}}
+
+###
+
+# 9. Delete a product (replace with actual ID from creation response)
+DELETE {{baseUrl}}/api/Product/{product-id}
+
+###
+
+# 10. Try to get deleted product (should return 404)
+GET {{baseUrl}}/api/Product/{product-id}
+Accept: {{contentType}}
