@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Authentication Tests Runner
-# Este script facilita a execução dos testes do projeto Authentication
+# CleanTemplate Tests Runner
+# Este script facilita a execução de testes em projetos .NET
 
 set -e
 
-echo "🧪 Authentication Tests Runner"
-echo "================================"
+echo "🧪 CleanTemplate Tests Runner"
+echo "=============================="
 
 # Função para mostrar ajuda
 show_help() {
@@ -31,17 +31,26 @@ show_help() {
 # Navegar para o diretório raiz do projeto
 cd "$(dirname "$0")/.."
 
-# Verificar se o projeto de testes existe
-if [ ! -f "Src/Authentication.Tests/Authentication.Tests.csproj" ]; then
-    echo "❌ Projeto de testes não encontrado!"
-    echo "Verifique se você está na raiz do projeto Authentication."
+# Verificar se existem projetos de teste
+TEST_PROJECTS=$(find Src -name "*.Tests.csproj" 2>/dev/null)
+if [ -z "$TEST_PROJECTS" ]; then
+    echo "❌ Nenhum projeto de testes encontrado!"
+    echo "Crie um projeto de teste primeiro usando 'dotnet new xunit' em Src/"
     exit 1
 fi
 
-# Restaurar dependências se necessário
-if [ ! -d "Src/Authentication.Tests/bin" ]; then
+echo "📁 Projetos de teste encontrados:"
+echo "$TEST_PROJECTS" | sed 's/^/  - /'
+
+# Verificar se existe alguma solução
+SOLUTION_FILE=$(find Solution -name "*.sln" 2>/dev/null | head -1)
+if [ -n "$SOLUTION_FILE" ]; then
+    echo "📁 Usando solução: $SOLUTION_FILE"
+    # Restaurar dependências se necessário
     echo "📦 Restaurando dependências..."
-    dotnet restore Solution/Authentication.sln
+    dotnet restore "$SOLUTION_FILE"
+else
+    echo "ℹ️ Nenhuma solução encontrada, testando projetos individualmente"
 fi
 
 # Função para executar testes
@@ -60,26 +69,54 @@ run_tests() {
     fi
 }
 
+# Função para executar testes em todos os projetos
+run_all_tests() {
+    local filter="$1"
+    local description="$2"
+    
+    echo "$description"
+    
+    if [ -n "$SOLUTION_FILE" ]; then
+        if [ -n "$filter" ]; then
+            run_tests "dotnet test \"$SOLUTION_FILE\" --filter \"$filter\""
+        else
+            run_tests "dotnet test \"$SOLUTION_FILE\""
+        fi
+    else
+        # Executar em cada projeto individualmente
+        echo "$TEST_PROJECTS" | while read -r project; do
+            if [ -n "$filter" ]; then
+                run_tests "dotnet test \"$project\" --filter \"$filter\""
+            else
+                run_tests "dotnet test \"$project\""
+            fi
+        done
+    fi
+}
+
 # Processar argumentos
 case "${1:-all}" in
     "all")
-        echo "🎯 Executando todos os testes..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj"
+        run_all_tests "" "🎯 Executando todos os testes..."
         ;;
     
     "integration")
-        echo "🔗 Executando testes de integração..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --filter \"FullyQualifiedName~Integration\""
+        run_all_tests "FullyQualifiedName~Integration" "🔗 Executando testes de integração..."
         ;;
     
     "unit")
-        echo "🧩 Executando testes unitários..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --filter \"FullyQualifiedName~Unit\""
+        run_all_tests "FullyQualifiedName~Unit" "🧩 Executando testes unitários..."
         ;;
     
     "coverage")
         echo "📊 Executando testes com cobertura de código..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --collect:\"XPlat Code Coverage\""
+        if [ -n "$SOLUTION_FILE" ]; then
+            run_tests "dotnet test \"$SOLUTION_FILE\" --collect:\"XPlat Code Coverage\""
+        else
+            # Usar o primeiro projeto de teste encontrado
+            FIRST_TEST_PROJECT=$(echo "$TEST_PROJECTS" | head -1)
+            run_tests "dotnet test \"$FIRST_TEST_PROJECT\" --collect:\"XPlat Code Coverage\""
+        fi
         echo ""
         echo "📈 Relatório de cobertura gerado em: TestResults/"
         ;;
@@ -87,20 +124,27 @@ case "${1:-all}" in
     "watch")
         echo "👀 Executando testes em modo watch..."
         echo "Pressione Ctrl+C para parar"
-        dotnet watch test Src/Authentication.Tests/Authentication.Tests.csproj
+        # Usar o primeiro projeto de teste encontrado para watch
+        FIRST_TEST_PROJECT=$(echo "$TEST_PROJECTS" | head -1)
+        dotnet watch test "$FIRST_TEST_PROJECT"
         ;;
     
     "verbose")
-        echo "📝 Executando testes com saída detalhada..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --verbosity normal"
+        run_all_tests "" "📝 Executando testes com saída detalhada..."
         ;;
     
     "clean")
         echo "🧹 Limpando e reconstruindo..."
-        dotnet clean Solution/Authentication.sln
-        dotnet build Solution/Authentication.sln
-        echo "🎯 Executando todos os testes..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj"
+        if [ -n "$SOLUTION_FILE" ]; then
+            dotnet clean "$SOLUTION_FILE"
+            dotnet build "$SOLUTION_FILE"
+        else
+            echo "$TEST_PROJECTS" | while read -r project; do
+                dotnet clean "$project"
+                dotnet build "$project"
+            done
+        fi
+        run_all_tests "" "🎯 Executando todos os testes..."
         ;;
     
     "help"|"-h"|"--help")

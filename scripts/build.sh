@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Authentication Build Script
-# Este script facilita a compilação do projeto Authentication
+# CleanTemplate Build Script
+# Este script facilita a compilação de projetos .NET
 
 set -e
 
-echo "🏗️ Authentication Build Script"
-echo "=============================="
+echo "🏗️ CleanTemplate Build Script"
+echo "============================="
 
 # Função para mostrar ajuda
 show_help() {
@@ -29,12 +29,15 @@ show_help() {
 # Navegar para o diretório raiz do projeto
 cd "$(dirname "$0")/.."
 
-# Verificar se o arquivo de solução existe
-if [ ! -f "Solution/Authentication.sln" ]; then
-    echo "❌ Arquivo de solução não encontrado!"
-    echo "Verifique se você está na raiz do projeto Authentication."
+# Verificar se existe algum arquivo de solução
+SOLUTION_FILE=$(find Solution -name "*.sln" 2>/dev/null | head -1)
+if [ -z "$SOLUTION_FILE" ]; then
+    echo "❌ Nenhum arquivo de solução encontrado no diretório Solution/"
+    echo "Crie um projeto primeiro usando 'dotnet new sln' no diretório Solution/"
     exit 1
 fi
+
+echo "📁 Usando solução: $SOLUTION_FILE"
 
 # Verificar .NET 9.0
 echo "🔍 Verificando versão do .NET..."
@@ -53,7 +56,7 @@ run_build() {
     echo "🏃 Compilando em modo $configuration..."
     echo ""
     
-    if dotnet build Solution/Authentication.sln --configuration "$configuration"; then
+    if dotnet build "$SOLUTION_FILE" --configuration "$configuration"; then
         echo ""
         echo "✅ Compilação concluída com sucesso!"
     else
@@ -67,27 +70,27 @@ run_build() {
 case "${1:-debug}" in
     "debug")
         echo "🛠️ Restaurando dependências..."
-        dotnet restore Solution/Authentication.sln
+        dotnet restore "$SOLUTION_FILE"
         run_build "Debug"
         ;;
     
     "release")
         echo "🛠️ Restaurando dependências..."
-        dotnet restore Solution/Authentication.sln
+        dotnet restore "$SOLUTION_FILE"
         run_build "Release"
         ;;
     
     "clean")
         echo "🧹 Limpando projeto..."
-        dotnet clean Solution/Authentication.sln
+        dotnet clean "$SOLUTION_FILE"
         echo "🛠️ Restaurando dependências..."
-        dotnet restore Solution/Authentication.sln
+        dotnet restore "$SOLUTION_FILE"
         run_build "Debug"
         ;;
     
     "restore")
         echo "📦 Restaurando dependências..."
-        if dotnet restore Solution/Authentication.sln; then
+        if dotnet restore "$SOLUTION_FILE"; then
             echo "✅ Dependências restauradas com sucesso!"
         else
             echo "❌ Falha ao restaurar dependências!"
@@ -101,21 +104,25 @@ case "${1:-debug}" in
         
         # Restaurar
         echo "📦 Restaurando dependências..."
-        dotnet restore Solution/Authentication.sln
+        dotnet restore "$SOLUTION_FILE"
         
         # Compilar Release
         run_build "Release"
         
-        # Executar testes
+        # Executar testes se existirem
         echo ""
-        echo "🧪 Executando testes..."
-        scripts/run-tests.sh all
+        echo "🧪 Verificando se existem testes..."
+        TEST_FILES=$(find Src -name "*.Tests.csproj" 2>/dev/null | head -1)
+        if [ -n "$TEST_FILES" ]; then
+            echo "🧪 Executando testes..."
+            scripts/run-tests.sh all
+        else
+            echo "ℹ️ Nenhum projeto de teste encontrado"
+        fi
         
         echo ""
         echo "🎉 Verificação completa bem-sucedida!"
         echo "✅ Projeto compila corretamente"
-        echo "✅ Todos os testes passaram"
-        ;;
     
     "help"|"-h"|"--help")
         show_help

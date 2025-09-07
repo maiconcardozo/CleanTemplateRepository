@@ -1,30 +1,27 @@
-# 🏗️ Architecture Documentation
+# 🏗️ Architecture Documentation Template
 
 ## Overview
 
-The Authentication service follows **Clean Architecture** principles, ensuring separation of concerns, testability, and maintainability. The architecture is designed to be scalable, secure, and easily extensible. Built on **.NET 9.0** with **Entity Framework Core 9.0.7** for enhanced performance and modern development features.
+This document serves as a template for documenting your .NET application architecture. The template follows **Clean Architecture** principles, ensuring separation of concerns, testability, and maintainability. Built on **.NET 9.0** for modern development features and enhanced performance.
 
 ## Architecture Layers
 
-### 1. Domain Layer (`Authentication.Login/Domain`)
+### 1. Domain Layer (`YourProject.Domain`)
 
 The innermost layer containing business entities and core business rules.
 
 ```
-Authentication.Login/Domain/
-├── Implementation/          # Concrete domain entities
-│   ├── Account.cs          # User account entity
-│   ├── Claim.cs            # Permission claims/roles
-│   ├── Action.cs           # System actions
-│   ├── ClaimAction.cs      # Claim-action relationships
-│   ├── AccountClaimAction.cs # User permissions
-│   ├── Token.cs            # JWT token entity
-│   └── JwtSettings.cs      # JWT configuration
+YourProject.Domain/
+├── Entities/                 # Domain entities
+│   ├── YourEntity.cs        # Your business entities
+│   └── ValueObjects/        # Value objects
 │
-└── Interface/              # Domain interfaces
-    ├── IAccount.cs         # Account contract
-    ├── IJwtSettings.cs     # JWT settings contract
-    └── IToken.cs           # Token contract
+├── Interfaces/              # Domain interfaces
+│   ├── IRepository.cs       # Repository contracts
+│   └── IDomainService.cs    # Domain service contracts
+│
+└── Services/                # Domain services
+    └── YourDomainService.cs # Business logic
 ```
 
 **Key Characteristics:**
@@ -33,21 +30,182 @@ Authentication.Login/Domain/
 - Framework agnostic
 - Highly testable
 
-### 2. Application Layer (`Authentication.Login/Services`)
+### 2. Application Layer (`YourProject.Application`)
 
 Contains business logic and use cases that orchestrate domain entities.
 
 ```
-Authentication.Login/Services/
-├── Interface/              # Service contracts
-│   ├── IAccountService.cs
-│   ├── IAuthenticationService.cs
-│   ├── IClaimService.cs
-│   ├── IActionService.cs
-│   ├── IClaimActionService.cs
-│   └── IAccountClaimActionService.cs
+YourProject.Application/
+├── Interfaces/              # Service contracts
+│   ├── IYourService.cs     # Application service interfaces
+│   └── IUseCase.cs         # Use case interfaces
 │
-└── Implementation/         # Service implementations
+├── Services/                # Service implementations
+│   ├── YourService.cs      # Application services
+│   └── UseCases/           # Use case implementations
+│
+├── DTOs/                    # Data transfer objects
+│   ├── YourRequestDTO.cs   # Request models
+│   └── YourResponseDTO.cs  # Response models
+│
+└── Validators/              # Input validation
+    ├── YourValidator.cs    # FluentValidation validators
+    └── ValidationRules/    # Custom validation rules
+```
+
+**Key Characteristics:**
+- Orchestrates domain entities
+- Contains application-specific business rules
+- Depends only on Domain layer
+- Framework agnostic
+
+### 3. Infrastructure Layer (`YourProject.Infrastructure`)
+
+Implements external concerns like data access, external services, and frameworks.
+
+```
+YourProject.Infrastructure/
+├── Data/                    # Data access
+│   ├── Contexts/           # EF DbContexts
+│   ├── Configurations/     # Entity configurations
+│   └── Repositories/       # Repository implementations
+│
+├── Services/               # External services
+│   ├── EmailService.cs    # Email implementation
+│   └── FileService.cs     # File handling
+│
+└── Extensions/             # Infrastructure extensions
+    └── ServiceExtensions.cs # DI configuration
+```
+
+**Key Characteristics:**
+- Implements infrastructure concerns
+- Contains EF Core configurations
+- Implements repository patterns
+- Handles external service integrations
+
+### 4. Presentation Layer (`YourProject.API`)
+
+The outermost layer that handles HTTP requests and responses.
+
+```
+YourProject.API/
+├── Controllers/             # API Controllers
+│   ├── YourController.cs   # REST endpoints
+│   └── BaseController.cs   # Shared controller logic
+│
+├── Middleware/             # Custom middleware
+│   ├── ErrorHandling.cs   # Global error handling
+│   └── Authentication.cs  # Auth middleware
+│
+├── Extensions/             # API extensions
+│   └── ServiceExtensions.cs # API service configuration
+│
+└── Models/                 # API models
+    ├── Requests/           # Request models
+    └── Responses/          # Response models
+```
+
+**Key Characteristics:**
+- Handles HTTP requests/responses
+- Contains controllers and middleware
+- Depends on Application layer
+- Framework specific (ASP.NET Core)
+
+## Technology Stack Template
+
+### Core Framework
+- **.NET 9.0** - Main framework
+- **ASP.NET Core 9.0** - Web API framework
+- **C# 13** - Programming language
+
+### Data Access
+- **Entity Framework Core 9.0** - ORM
+- **Your Database** - Primary database (SQL Server, PostgreSQL, MySQL, etc.)
+
+### Validation & Mapping
+- **FluentValidation** - Input validation
+- **AutoMapper** - Object mapping
+
+### Testing Framework
+- **xUnit** - Testing framework
+- **FluentAssertions** - Assertion library
+- **Moq** - Mocking framework
+
+### API Documentation
+- **Swagger/OpenAPI** - API documentation
+- **Swashbuckle** - Swagger implementation
+
+## Design Patterns
+
+### Repository Pattern
+Abstracts data access logic and provides a uniform interface for accessing data.
+
+### Unit of Work Pattern
+Manages transactions and coordinates changes across multiple repositories.
+
+### Dependency Injection
+Uses built-in .NET DI container for loose coupling and testability.
+
+### CQRS (Optional)
+Separates read and write operations for complex scenarios.
+
+## Security Architecture
+
+### Authentication
+- **JWT Tokens** - Token-based authentication
+- **Identity Framework** - User management
+- **Custom Authentication** - Project-specific auth logic
+
+### Authorization
+- **Role-based Authorization** - Role permissions
+- **Policy-based Authorization** - Custom policies
+- **Resource-based Authorization** - Context-specific permissions
+
+### Data Protection
+- **Password Hashing** - Secure password storage (bcrypt, Argon2)
+- **Data Encryption** - Sensitive data encryption
+- **HTTPS** - Secure communication
+
+## Configuration Architecture
+
+### Environment Configuration
+- **appsettings.json** - Base configuration
+- **appsettings.{Environment}.json** - Environment-specific settings
+- **Environment Variables** - Runtime configuration
+- **Azure Key Vault** - Secret management (if applicable)
+
+### Dependency Injection Configuration
+```csharp
+// Extension method for clean DI setup
+public static IServiceCollection AddYourProjectServices(
+    this IServiceCollection services, 
+    string connectionString)
+{
+    // Configure your services here
+    return services;
+}
+```
+
+## Performance Considerations
+
+### Database Optimization
+- **Indexing Strategy** - Optimized database indexes
+- **Query Optimization** - Efficient LINQ queries
+- **Connection Pooling** - Database connection management
+
+### Caching Strategy
+- **Memory Caching** - In-memory cache for frequently accessed data
+- **Distributed Caching** - Redis for scalable caching
+- **Response Caching** - HTTP response caching
+
+### Async/Await Pattern
+- **Asynchronous Operations** - Non-blocking I/O operations
+- **Task-based APIs** - Scalable async patterns
+
+---
+
+*This template should be customized for your specific project. Remove this section and update the content with your actual architecture details.*
     ├── AccountService.cs   # User management logic
     ├── AuthenticationService.cs # Authentication/token logic
     ├── ClaimService.cs     # Permission management

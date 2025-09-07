@@ -1,33 +1,103 @@
-# 📋 Documentação Detalhada dos Testes - Authentication.Tests
+# 📋 Testing Documentation Template
 
-## 🎯 Visão Geral
+## 🎯 Overview
 
-Esta documentação fornece uma explicação detalhada de todos os testes implementados no projeto Authentication.Tests. Cada teste é descrito com seu propósito, configuração, execução e verificação, servindo como base para entender como os testes estão funcionando.
+This document serves as a template for documenting tests in your .NET project. Use this structure to document your test suite comprehensively.
 
-**Total de Testes**: 358 testes  
-**Organização**: Testes Unitários + Testes de Integração  
-**Framework**: xUnit com FluentAssertions  
-**Padrão**: Arrange-Act-Assert (AAA)  
+**Total Tests**: [Update with your test count]  
+**Organization**: Unit Tests + Integration Tests  
+**Framework**: xUnit with FluentAssertions (recommended)  
+**Pattern**: Arrange-Act-Assert (AAA)  
 
-## 📚 Índice
+## 📚 Test Categories
 
-- [Testes Unitários](#-testes-unitários)
-  - [AccountEntityTests](#accountentitytests)
-  - [AccountServiceTests](#accountservicetests)
-  - [AccountRepositoryTests](#accountrepositorytests)
-  - [AccountPayLoadDTOTests](#accountpayloaddtotests)
-  - [AccountPayloadValidatorTests](#accountpayloadvalidatortests)
-  - [AccountServiceErrorHandlingTests](#accountserviceerrorhandlingtests)
-  - [TokenTests](#tokentests)
-  - [ValidationTests](#validationtests)
-  - [PasswordHashingTests](#passwordhashingtests)
-  - [LocalizationTests](#localizationtests)
-  - [ActionPayloadValidatorTests](#actionpayloadvalidatortests)
-  - [ClaimPayloadValidatorTests](#claimpayloadvalidatortests)
-  - [ClaimActionPayloadValidatorTests](#claimactionpayloadvalidatortests)
-  - [AccountClaimActionPayloadValidatorTests](#accountclaimactionpayloadvalidatortests)
-  - [LocalizedSwaggerDocumentFilterTests](#localizedswaggerdocumentfiltertests)
-  - [LocalizedSwaggerOperationFilterTests](#localizedswaggeroperationfiltertests)
+### 🧪 Unit Tests
+Document your unit tests that verify individual components in isolation:
+
+- **Entity Tests**: Validate domain entities and their behavior
+- **Service Tests**: Test business logic and service operations  
+- **Repository Tests**: Verify data access layer operations
+- **Validator Tests**: Test input validation and business rules
+- **DTO Tests**: Validate data transfer objects
+
+### 🔗 Integration Tests
+Document your integration tests that verify end-to-end scenarios:
+
+- **Controller Tests**: Test API endpoints and HTTP responses
+- **Database Tests**: Verify database operations and queries
+- **Service Integration**: Test service interactions and workflows
+
+## 🛠️ Test Structure Template
+
+### Test Class Template
+
+```csharp
+public class YourComponentTests
+{
+    private readonly YourComponent _component;
+    private readonly Mock<IDependency> _mockDependency;
+
+    public YourComponentTests()
+    {
+        // Arrange - Setup test dependencies
+        _mockDependency = new Mock<IDependency>();
+        _component = new YourComponent(_mockDependency.Object);
+    }
+
+    [Fact]
+    public void Method_WhenCondition_ShouldExpectedBehavior()
+    {
+        // Arrange
+        var input = new TestInput();
+        _mockDependency.Setup(x => x.Method()).Returns(expectedValue);
+
+        // Act
+        var result = _component.Method(input);
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Property.Should().Be(expectedValue);
+    }
+}
+```
+
+## 📊 Testing Guidelines
+
+### Best Practices
+- Use descriptive test method names
+- Follow Arrange-Act-Assert pattern
+- Test one behavior per test method
+- Use appropriate assertions with FluentAssertions
+- Mock external dependencies
+
+### Naming Conventions
+- `MethodName_WhenCondition_ShouldExpectedBehavior`
+- `MethodName_GivenCondition_ThenExpectedResult`
+
+## 🔧 Test Execution
+
+### Running Tests
+```bash
+# Run all tests
+scripts/run-tests.sh all
+
+# Run specific categories
+scripts/run-tests.sh unit
+scripts/run-tests.sh integration
+
+# Run with coverage
+scripts/run-tests.sh coverage
+```
+
+## 📈 Coverage Targets
+
+- **Unit Tests**: Aim for >80% code coverage
+- **Integration Tests**: Cover critical business workflows
+- **Edge Cases**: Test boundary conditions and error scenarios
+
+---
+
+*This template should be customized for your specific project. Remove this section and update the content with your actual test documentation.*
   - [ResourceStartupTests](#resourcestartuptests)
   - [ApiLocalizationTests](#apilocalizationtests)
 - [Testes de Integração](#-testes-de-integração)

@@ -1,7 +1,0 @@
-﻿/* This targets the operation description in Swagger UI */
-.swagger-ui .opblock-description-wrapper,
-.swagger-ui .opblock-description-wrapper p,
-.swagger-ui .markdown p,
-.swagger-ui .renderedMarkdown p {
-    text-align: justify !important;
-}
