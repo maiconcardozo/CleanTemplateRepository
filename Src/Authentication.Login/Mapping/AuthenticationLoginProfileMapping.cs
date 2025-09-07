@@ -40,6 +40,12 @@ namespace Authentication.Login.Mapping
             CreateMap<AccountClaimAction, AccountClaimActionPayLoadDTO>();
             CreateMap<AccountClaimAction, AccountClaimActionResponseDTO>();
             CreateMap<AccountClaimActionResponseDTO, AccountClaimAction>();
+
+            // CleanEntity mappings
+            CreateMap<CleanEntityPayLoadDTO, CleanEntity>();
+            CreateMap<CleanEntity, CleanEntityPayLoadDTO>();
+            CreateMap<CleanEntity, CleanEntityResponseDTO>();
+            CreateMap<CleanEntityResponseDTO, CleanEntity>();
         }
     }
 }
