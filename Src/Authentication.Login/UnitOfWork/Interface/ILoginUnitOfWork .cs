@@ -5,10 +5,6 @@ namespace Authentication.Login.UnitOfWork.Interface
 {
     public interface ILoginUnitOfWork : IBaseUnitOfWork
     {
-        IAccountRepository AccountRepository { get; }
-        IClaimRepository ClaimRepository { get; }
-        IActionRepository ActionRepository { get; }
-        IClaimActionRepository ClaimActionRepository { get; }
-        IAccountClaimActionRepository AccountClaimActionRepository { get; }
+        ICleanEntityRepository CleanEntityRepository { get; }
     }
 }

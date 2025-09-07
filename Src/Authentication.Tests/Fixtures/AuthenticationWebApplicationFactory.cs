@@ -56,25 +56,15 @@ public class AuthenticationWebApplicationFactory : WebApplicationFactory<Program
         context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
 
-        // Adiciona dados de teste
-        context.dbAction.Add(new Authentication.Login.Domain.Implementation.Action
+        // Add test data for CleanEntity
+        context.dbCleanEntity.Add(new CleanEntity
         {
             Id = 1,
-            Name = "Test Action"
-        });
-
-        context.dbClaimAction.Add(new ClaimAction
-        {
-            Id = 1,
-            IdClaim = 1,
-            IdAction = 1
-        });
-
-        context.dbAccountClaimAction.Add(new AccountClaimAction
-        {
-            Id = 1,
-            IdAccount = 1,
-            IdClaimAction = 1
+            Name = "Test CleanEntity",
+            Description = "A test clean entity for demonstration",
+            IsActive = true,
+            DtCreated = DateTime.UtcNow,
+            CreatedBy = "System"
         });
 
         context.SaveChanges();

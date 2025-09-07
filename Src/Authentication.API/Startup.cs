@@ -8,7 +8,6 @@ using Authentication.Login.Domain.Implementation;
 using Authentication.Login.Domain.Interface;
 using Authentication.Login.DTO;
 using Authentication.Login.Extensions;
-using Authentication.Login.Util;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Filters;
@@ -90,11 +89,8 @@ namespace Authentication.API
             // CONTROLLERS & VALIDAÇÃO
             // ==============================
             services.AddControllers();
-            services.AddTransient<FluentValidation.IValidator<AccountPayLoadDTO>, AccountPayloadValidator>();
-            services.AddTransient<FluentValidation.IValidator<AccountClaimActionPayLoadDTO>, AccountClaimActionPayloadValidator>();
-            services.AddTransient<FluentValidation.IValidator<ClaimActionPayLoadDTO>, ClaimActionPayloadValidator>();
-            services.AddTransient<FluentValidation.IValidator<ActionPayLoadDTO>, ActionPayloadValidator>();
-            services.AddTransient<FluentValidation.IValidator<ClaimPayLoadDTO>, ClaimPayloadValidator>();
+            // TODO: Add FluentValidation for CleanEntity when needed
+            // services.AddTransient<FluentValidation.IValidator<CleanEntityPayLoadDTO>, CleanEntityPayloadValidator>();
 
             // ==============================
             // SWAGGER

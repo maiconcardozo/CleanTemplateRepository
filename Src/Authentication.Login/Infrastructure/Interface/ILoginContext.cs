@@ -5,6 +5,6 @@ namespace Authentication.Login.Infrastructure.Interface
 {
     public interface ILoginContext
     {
-        public DbSet<Account> dbAccount { get; set; }
+        public DbSet<CleanEntity> dbCleanEntity { get; set; }
     }
 }

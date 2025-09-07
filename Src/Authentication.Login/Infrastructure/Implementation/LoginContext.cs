@@ -2,7 +2,6 @@
 using Authentication.Login.Infrastructure.Implementation;
 using Authentication.Login.Infrastructure.Interface;
 using Microsoft.EntityFrameworkCore;
-using Action = Authentication.Login.Domain.Implementation.Action;
 
 namespace Authentication.Login.Infrastructure.Data
 {
@@ -12,11 +11,7 @@ namespace Authentication.Login.Infrastructure.Data
         {
         }
 
-        public DbSet<Account> dbAccount { get; set; }
-        public DbSet<Claim> dbClaim { get; set; }
-        public DbSet<Action> dbAction { get; set; }
-        public DbSet<ClaimAction> dbClaimAction { get; set; }
-        public DbSet<AccountClaimAction> dbAccountClaimAction { get; set; }
+        public DbSet<CleanEntity> dbCleanEntity { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,11 +20,7 @@ namespace Authentication.Login.Infrastructure.Data
 
         public static void LoadModel(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AccountMap());
-            modelBuilder.ApplyConfiguration(new ClaimMap());
-            modelBuilder.ApplyConfiguration(new ActionMap());
-            modelBuilder.ApplyConfiguration(new ClaimActionMap());
-            modelBuilder.ApplyConfiguration(new AccountClaimActionMap());
+            modelBuilder.ApplyConfiguration(new CleanEntityMap());
         }
     }
 }

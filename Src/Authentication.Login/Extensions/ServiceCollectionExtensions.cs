@@ -30,18 +30,10 @@ namespace Authentication.Login.Extensions
             services.AddScoped<DbContext>(provider => provider.GetRequiredService<LoginContext>());
 
             // Services
-            services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<IClaimService, ClaimService>();
-            services.AddScoped<IActionService, ActionService>();
-            services.AddScoped<IClaimActionService, ClaimActionService>();
-            services.AddScoped<IAccountClaimActionService, AccountClaimActionService>();
+            services.AddScoped<ICleanEntityService, CleanEntityService>();
 
             // Repositories
-            services.AddScoped<IAccountRepository, AccountRepository>();
-            services.AddScoped<IClaimRepository, ClaimRepository>();
-            services.AddScoped<IActionRepository, ActionRepository>();
-            services.AddScoped<IClaimActionRepository, ClaimActionRepository>();
-            services.AddScoped<IAccountClaimActionRepository, AccountClaimActionRepository>();
+            services.AddScoped<ICleanEntityRepository, CleanEntityRepository>();
 
             // Unit of Work
             services.AddScoped<ILoginUnitOfWork, LoginUnitOfWork>();

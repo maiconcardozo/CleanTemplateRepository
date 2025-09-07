@@ -63,7 +63,7 @@ namespace Authentication.Tests.Unit
             cleanEntity.Name = name;
 
             // Assert
-            cleanEntity.Name.Should().Be(name ?? string.Empty);
+            cleanEntity.Name.Should().Be(name);
         }
 
         [Theory]
@@ -79,7 +79,7 @@ namespace Authentication.Tests.Unit
             cleanEntity.Description = description;
 
             // Assert
-            cleanEntity.Description.Should().Be(description ?? string.Empty);
+            cleanEntity.Description.Should().Be(description);
         }
 
         [Fact]
