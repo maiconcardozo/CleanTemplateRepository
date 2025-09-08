@@ -243,9 +243,7 @@
   <data name="DocumentationGenerateToken" xml:space="preserve">
     <value>Performs the user authentication process using the provided credentials. </value>
   </data>
-  <data name="GeneratesJWTToken" xml:space="preserve">
-    <value>Generates a JWT token</value>
-  </data>
+
   <data name="InvalidDataValidationError" xml:space="preserve">
     <value>Invalid data or validation error.</value>
   </data>
@@ -481,7 +479,7 @@
     <value>The request conflicts with the current state of the resource.</value>
   </data>
   <data name="AuthenticationControllerDescription" xml:space="preserve">
-    <value>Controller responsible for handling authentication operations. Provides endpoints for JWT token generation and user authentication.</value>
+    <value>Controller responsible for handling authentication operations. Provides endpoints for user authentication.</value>
   </data>
   <data name="AuthenticationApiTitle" xml:space="preserve">
     <value>Authentication API</value>
@@ -558,9 +556,7 @@
   <data name="ReturnsDeletedAccountClaimActionDetails" xml:space="preserve">
     <value>Deleted account claim action details</value>
   </data>
-  <data name="ReturnsJWTTokenWithUserInformationOnSuccessValidationErrorsUnauthorizedAccessOrInternalServerError" xml:space="preserve">
-    <value>Returns a JWT token with user information on success (200), validation errors (400), unauthorized access (401), or internal server error (500)</value>
-  </data>
+
   <data name="ReturnsListOfClaimObjectsWithTheirTypesValuesAndDescriptionsOnSuccessValidationErrorsUnauthorizedAccessOrInternalServerError" xml:space="preserve">
     <value>List of claim objects with their types, values, and descriptions on success (200), validation errors (400), unauthorized access (401), or internal server error (500)</value>
   </data>
@@ -577,7 +573,7 @@
     <value>Unauthorized access</value>
   </data>
   <data name="ResponseUnauthorizedAccessValidJWTTokenRequired" xml:space="preserve">
-    <value>Unauthorized access - valid JWT token required</value>
+    <value>Unauthorized access</value>
   </data>
   <data name="ResponseInvalidCredentials" xml:space="preserve">
     <value>Invalid credentials</value>

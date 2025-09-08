@@ -8,10 +8,6 @@ namespace Authentication.Login.Mapping
     {
         public AuthenticationLoginProfileMapping()
         {
-            // Token mappings (keep for JWT functionality)
-            CreateMap<Token, TokenResponseDTO>();
-            CreateMap<TokenResponseDTO, Token>();
-
             // CleanEntity mappings
             CreateMap<CleanEntityPayLoadDTO, CleanEntity>();
             CreateMap<CleanEntity, CleanEntityPayLoadDTO>();

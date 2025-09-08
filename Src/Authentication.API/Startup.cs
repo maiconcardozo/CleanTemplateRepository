@@ -4,12 +4,8 @@ using Authentication.API.Resource;
 using Authentication.API.Services;
 using Authentication.API.Swagger;
 using Authentication.Login.Constants;
-using Authentication.Login.Domain.Implementation;
-using Authentication.Login.Domain.Interface;
-using Authentication.Login.DTO;
 using Authentication.Login.Extensions;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace Authentication.API
@@ -130,11 +126,6 @@ namespace Authentication.API
             services.AddSwaggerExamplesFromAssemblyOf<SucessDetailsExample>();
             services.AddSwaggerExamplesFromAssemblyOf<ProblemDetailsBadRequestExample>();
 
-            // ==============================
-            // JWT
-            // ==============================
-            services.Configure<JwtSettings>(Authentication.API.Helper.Utils.GetJwtSettings(appsettings));
-            services.AddSingleton<IJwtSettings>(sp => sp.GetRequiredService<IOptions<JwtSettings>>().Value);
 
             // ==============================
             // CORS

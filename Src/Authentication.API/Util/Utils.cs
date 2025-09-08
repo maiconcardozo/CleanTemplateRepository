@@ -18,10 +18,6 @@ namespace Authentication.API.Helper
             return configuration.GetConnectionString(connectionName) ?? string.Empty;
         }
 
-        internal static IConfigurationSection GetJwtSettings(IConfigurationBuilder appsettings)
-        {
-            var configuration = appsettings.Build();
-            return configuration.GetSection(ApplicationConstants.JwtSettingsSection);
-        }
+
     }
 }

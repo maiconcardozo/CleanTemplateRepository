@@ -951,15 +951,7 @@ namespace Authentication.API.Resource {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized string similar to Generates a JWT token.
-        /// </summary>
-        public static string GeneratesJWTToken {
-            get {
-                return ResourceManager.GetString("GeneratesJWTToken", resourceCulture);
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Get account claim action by IDs.
         /// </summary>
@@ -1240,7 +1232,7 @@ namespace Authentication.API.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Controller responsible for handling authentication operations. Provides endpoints for JWT token generation and user authentication..
+        ///   Looks up a localized string similar to Controller responsible for handling authentication operations. Provides endpoints for user authentication..
         /// </summary>
         public static string AuthenticationControllerDescription {
             get {

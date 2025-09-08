@@ -91,7 +91,7 @@ namespace Authentication.Tests.Unit
                 var result = ResourceAPI.AuthenticationControllerDescription;
 
                 // Assert
-                Assert.Equal("Controller responsável por operações de autenticação. Fornece endpoints para geração de tokens JWT e autenticação de usuários.", result);
+                Assert.Equal("Controller responsável por operações de autenticação. Fornece endpoints para autenticação de usuários.", result);
             }
             finally
             {
