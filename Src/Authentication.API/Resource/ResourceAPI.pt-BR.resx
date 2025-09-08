@@ -216,9 +216,7 @@
   <data name="DocumentationGenerateToken" xml:space="preserve">
     <value>Executa o processo de autenticação do usuário utilizando as credenciais fornecidas.</value>
   </data>
-  <data name="GeneratesJWTToken" xml:space="preserve">
-    <value>Gera um token JWT</value>
-  </data>
+
   <data name="InvalidDataValidationError" xml:space="preserve">
     <value>Dados inválidos ou erro de validação.</value>
   </data>
@@ -454,7 +452,7 @@
     <value>Controller para gerenciar permissões no sistema de controle de acesso baseado em funções (RBAC). Fornece operações CRUD para permissões (papéis/funções) que podem ser atribuídas aos usuários. As permissões são blocos fundamentais do sistema de autorização.</value>
   </data>
   <data name="AuthenticationControllerDescription" xml:space="preserve">
-    <value>Controller responsável por operações de autenticação. Fornece endpoints para geração de tokens JWT e autenticação de usuários.</value>
+    <value>Controller responsável por operações de autenticação. Fornece endpoints para autenticação de usuários.</value>
   </data>
   <data name="AccountsRetrievedSuccessfully" xml:space="preserve">
     <value>Contas recuperadas com sucesso.</value>
@@ -588,9 +586,7 @@
   <data name="ReturnsDeletedAccountClaimActionDetails" xml:space="preserve">
     <value>Detalhes da ação de permissão da conta excluída</value>
   </data>
-  <data name="ReturnsJWTTokenWithUserInformationOnSuccessValidationErrorsUnauthorizedAccessOrInternalServerError" xml:space="preserve">
-    <value>Retorna um token JWT com informações do usuário em caso de sucesso (200), erros de validação (400), acesso não autorizado (401) ou erro interno do servidor (500)</value>
-  </data>
+
   <data name="ReturnsListOfClaimObjectsWithTheirTypesValuesAndDescriptionsOnSuccessValidationErrorsUnauthorizedAccessOrInternalServerError" xml:space="preserve">
     <value>Lista de objetos de permissão com seus tipos, valores e descrições em caso de sucesso (200), erros de validação (400), acesso não autorizado (401) ou erro interno do servidor (500)</value>
   </data>
@@ -607,7 +603,7 @@
     <value>Acesso não autorizado</value>
   </data>
   <data name="ResponseUnauthorizedAccessValidJWTTokenRequired" xml:space="preserve">
-    <value>Acesso não autorizado - token JWT válido obrigatório</value>
+    <value>Acesso não autorizado</value>
   </data>
   <data name="ResponseInvalidCredentials" xml:space="preserve">
     <value>Credenciais inválidas</value>

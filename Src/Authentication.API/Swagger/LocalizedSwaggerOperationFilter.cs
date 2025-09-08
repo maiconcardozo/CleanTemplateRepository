@@ -23,7 +23,7 @@ public class LocalizedSwaggerOperationFilter : IOperationFilter
                 operation.Description = "Retrieves all CleanEntity objects in the system.";
                 SetResponseDescription(operation, StatusCodes.Status200OK, "CleanEntities retrieved successfully.");
                 SetResponseDescription(operation, StatusCodes.Status400BadRequest, "Invalid request parameters");
-                SetResponseDescription(operation, StatusCodes.Status401Unauthorized, "Unauthorized access - valid JWT token required");
+                SetResponseDescription(operation, StatusCodes.Status401Unauthorized, "Unauthorized access");
                 SetResponseDescription(operation, StatusCodes.Status500InternalServerError, "Internal server error");
                 break;
 

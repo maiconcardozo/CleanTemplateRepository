@@ -7,7 +7,6 @@ namespace Authentication.API.Services
     public interface IConfigurationCache
     {
         string GetConnectionString(string connectionName = ApplicationConstants.DefaultConnectionStringName);
-        IConfigurationSection GetJwtSettings();
     }
 
     public class ConfigurationCache : IConfigurationCache
@@ -33,19 +32,6 @@ namespace Authentication.API.Services
             }
 
             return connectionString ?? string.Empty;
-        }
-
-        public IConfigurationSection GetJwtSettings()
-        {
-            string cacheKey = "JwtSettings";
-            
-            if (!_cache.TryGetValue(cacheKey, out IConfigurationSection? jwtSettings))
-            {
-                jwtSettings = _configuration.GetSection(ApplicationConstants.JwtSettingsSection);
-                _cache.Set(cacheKey, jwtSettings, _cacheExpirationTime);
-            }
-
-            return jwtSettings!;
         }
     }
 }

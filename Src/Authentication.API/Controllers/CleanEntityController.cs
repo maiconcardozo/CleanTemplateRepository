@@ -36,7 +36,7 @@ namespace Authentication.API.Controllers
         /// </returns>
         /// <response code="200">ResourceAPI.CleanEntitiesRetrievedSuccessfully</response>
         /// <response code="400">ResourceAPI.ResponseInvalidRequestParameters</response>
-        /// <response code="401">ResourceAPI.ResponseUnauthorizedAccessValidJWTTokenRequired</response>
+        /// <response code="401">ResourceAPI.ResponseUnauthorized</response>
         /// <response code="500">ResourceAPI.InternalServerError</response>
         [HttpGet(CleanEntityRoutes.GetCleanEntities)]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<CleanEntityResponseDTO>))]
