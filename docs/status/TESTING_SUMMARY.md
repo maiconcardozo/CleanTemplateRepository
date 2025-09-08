@@ -6,7 +6,7 @@ Criei um projeto de testes abrangente seguindo a arquitetura TDD para o projeto 
 
 ### 1. 📁 Estrutura do Projeto
 - **Projeto de Testes**: `Src/Authentication.Tests/Authentication.Tests.csproj`
-- **Padrão Consistente**: Segue o mesmo padrão .csproj (.NET 8.0, mesmas versões de pacotes)
+- **Padrão Consistente**: Segue o mesmo padrão .csproj (.NET 9.0, mesmas versões de pacotes)
 - **Estrutura de Pastas**: Organizados por tipo (Unit, Integration, Fixtures, Helpers)
 - **Adicionado à Solução**: Incluído no `Solution/Authentication.sln`
 

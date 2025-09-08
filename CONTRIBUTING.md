@@ -28,7 +28,7 @@ This project adheres to a Code of Conduct. By participating, you are expected to
 
 ### Prerequisites
 
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - [Git](https://git-scm.com/)
 - [MySQL 8.0+](https://dev.mysql.com/downloads/mysql/)
 - IDE: [Visual Studio 2022](https://visualstudio.microsoft.com/) or [VS Code](https://code.visualstudio.com/)
@@ -53,24 +53,24 @@ We welcome various types of contributions:
 # First, clone the Foundation repository (required dependency)
 git clone https://github.com/maiconcardozo/Foundation.git
 
-# Fork the Authentication repository on GitHub
+# Fork the CleanTemplateRepository repository on GitHub
 # Then clone your fork alongside the Foundation repository
-git clone https://github.com/YOUR_USERNAME/Authentication.git
+git clone https://github.com/YOUR_USERNAME/CleanTemplateRepository.git
 
 # The folder structure should be:
 # Parent Directory/
 # ├── Foundation/
 # │   └── Src/
 # │       └── Foundation.Base/
-# └── Authentication/
+# └── CleanTemplateRepository/
 #     └── Src/
 #         ├── Authentication.API/
 #         └── Authentication.Login/
 
-cd Authentication
+cd CleanTemplateRepository
 
 # Add upstream remote
-git remote add upstream https://github.com/maiconcardozo/Authentication.git
+git remote add upstream https://github.com/maiconcardozo/CleanTemplateRepository.git
 ```
 
 ### 2. Environment Setup

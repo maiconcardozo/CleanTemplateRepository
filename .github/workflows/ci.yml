@@ -37,15 +37,15 @@ jobs:
           ${{ runner.os }}-nuget-
     
     - name: Restore dependencies
-      run: dotnet restore Solution/Authentication.sln
+      run: dotnet restore Solution/CleanTemplate.sln
     
     - name: Build solution
-      run: dotnet build Solution/Authentication.sln --configuration Release --no-restore
+      run: dotnet build Solution/CleanTemplate.sln --configuration Release --no-restore
     
     - name: Run tests with detailed reporting
       run: |
         echo "🧪 Running test suite..."
-        dotnet test Solution/Authentication.sln \
+        dotnet test Solution/CleanTemplate.sln \
           --configuration Release \
           --no-build \
           --verbosity normal \
@@ -87,7 +87,7 @@ jobs:
     - name: Generate coverage report
       run: |
         echo "📈 Generating coverage report..."
-        dotnet test Solution/Authentication.sln \
+        dotnet test Solution/CleanTemplate.sln \
           --configuration Release \
           --no-build \
           --collect:"XPlat Code Coverage" \
@@ -145,16 +145,16 @@ jobs:
           ${{ runner.os }}-nuget-
     
     - name: Restore dependencies
-      run: dotnet restore Solution/Authentication.sln
+      run: dotnet restore Solution/CleanTemplate.sln
       
     - name: Check code formatting
-      run: dotnet format Solution/Authentication.sln --verify-no-changes --verbosity diagnostic
+      run: dotnet format Solution/CleanTemplate.sln --verify-no-changes --verbosity diagnostic
       continue-on-error: true
       
     - name: Build with code analysis (else statement prevention)
       run: |
         echo "🔍 Building with else statement prevention rules..."
-        dotnet build Solution/Authentication.sln \
+        dotnet build Solution/CleanTemplate.sln \
           --configuration Release \
           --verbosity normal \
           /p:TreatWarningsAsErrors=false \
@@ -164,7 +164,7 @@ jobs:
     - name: Check for SOLID principle violations
       run: |
         echo "🏗️ Checking SOLID principles and clean code violations..."
-        dotnet build Solution/Authentication.sln \
+        dotnet build Solution/CleanTemplate.sln \
           --configuration Release \
           --verbosity normal \
           /p:TreatWarningsAsErrors=false \
@@ -194,14 +194,14 @@ jobs:
           ${{ runner.os }}-nuget-
         
     - name: Restore dependencies
-      run: dotnet restore Solution/Authentication.sln
+      run: dotnet restore Solution/CleanTemplate.sln
       
     - name: Check for vulnerable packages
-      run: dotnet list Solution/Authentication.sln package --vulnerable --include-transitive
+      run: dotnet list Solution/CleanTemplate.sln package --vulnerable --include-transitive
       continue-on-error: true
       
     - name: Check for deprecated packages
-      run: dotnet list Solution/Authentication.sln package --deprecated
+      run: dotnet list Solution/CleanTemplate.sln package --deprecated
       continue-on-error: true
 
   build-info:
@@ -235,4 +235,4 @@ jobs:
         find . -name "*.csproj" -type f | head -10
         echo ""
         echo "📦 NuGet packages summary:"
-        dotnet list Solution/Authentication.sln package | head -20
+        dotnet list Solution/CleanTemplate.sln package | head -20

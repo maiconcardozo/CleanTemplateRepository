@@ -16,8 +16,8 @@ This guide provides all the necessary information to set up the development envi
 ### 1. Repository Clone
 
 ```bash
-git clone https://github.com/maiconcardozo/Authentication.git
-cd Authentication
+git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
+cd CleanTemplateRepository
 ```
 
 ### 2. Database Configuration

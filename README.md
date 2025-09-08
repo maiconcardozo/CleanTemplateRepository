@@ -108,8 +108,8 @@ The repository follows a clean, organized structure:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/maiconcardozo/Authentication.git
-cd Authentication
+git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
+cd CleanTemplateRepository
 
 # 2. Install .NET 9.0 SDK (REQUIRED - see requirements section below)
 # Download from: https://dotnet.microsoft.com/download/dotnet/9.0
@@ -148,8 +148,8 @@ dotnet build Solution/Authentication.sln --configuration Release
 # Should complete without errors
 
 # Run all tests  
-./run-tests.sh all        # Linux/Mac
-./run-tests.bat all       # Windows
+scripts/run-tests.sh all        # Linux/Mac
+scripts/run-tests.bat all       # Windows
 # Should show test results
 
 # Start the application
@@ -174,13 +174,13 @@ scripts/build.sh help          # Show all options
 
 **Test Scripts:**
 ```bash
-./run-tests.sh all       # Run all tests
-./run-tests.sh unit      # Run unit tests only
-./run-tests.sh integration  # Run integration tests only
-./run-tests.sh coverage  # Run with code coverage
-./run-tests.sh verbose   # Run with detailed output
-./run-tests.sh watch     # Run in watch mode
-./run-tests.sh clean     # Clean, rebuild, then test
+scripts/run-tests.sh all       # Run all tests
+scripts/run-tests.sh unit      # Run unit tests only
+scripts/run-tests.sh integration  # Run integration tests only
+scripts/run-tests.sh coverage  # Run with code coverage
+scripts/run-tests.sh verbose   # Run with detailed output
+scripts/run-tests.sh watch     # Run in watch mode
+scripts/run-tests.sh clean     # Clean, rebuild, then test
 ```
 
 *Note: Windows users should use `.bat` extensions instead of `.sh`*
