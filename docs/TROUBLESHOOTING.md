@@ -94,7 +94,7 @@ dotnet ef database update --context ApiContextDevelopment
 
 **Erro:**
 ```
-Package 'Package.Name' is incompatible with 'net8.0'
+Package 'Package.Name' is incompatible with 'net9.0'
 Could not load file or assembly 'System.Text.Json'
 ```
 
@@ -317,7 +317,7 @@ if (app.Environment.IsDevelopment())
 <!-- Authentication.API.csproj -->
 <PropertyGroup>
   <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  <DocumentationFile>bin\Debug\net8.0\Authentication.API.xml</DocumentationFile>
+  <DocumentationFile>bin\Debug\net9.0\Authentication.API.xml</DocumentationFile>
 </PropertyGroup>
 ```
 
@@ -518,7 +518,7 @@ Actual: [O que realmente aconteceu]
 ```
 
 ### 🔗 Recursos de Ajuda
-- **GitHub Issues**: [Criar nova issue](https://github.com/maiconcardozo/Authentication/issues)
+- **GitHub Issues**: [Criar nova issue](https://github.com/maiconcardozo/CleanTemplateRepository/issues)
 - **Stack Overflow**: Tag `authentication-service`
 - **Documentation**: [docs/](../docs/)
 - **Community**: Discussões no GitHub

@@ -44,7 +44,7 @@ For first deployment, consider creating default:
 
 ### System Requirements
 
-- **.NET 8.0 Runtime**: Required for running the application
+- **.NET 9.0 Runtime**: Required for running the application
 - **MySQL 8.0+**: Database server
 - **Redis** (Optional): For caching and session storage
 - **Load Balancer** (Production): For high availability
@@ -135,10 +135,10 @@ DROP INDEX IX_Account_UserName ON Account;
 
 ### Development Environment
 
-1. **Install .NET 8.0 SDK**
+1. **Install .NET 9.0 SDK**
 ```bash
 # Windows (using winget)
-winget install Microsoft.DotNet.SDK.8
+winget install Microsoft.DotNet.SDK.9
 
 # macOS (using Homebrew)
 brew install --cask dotnet
@@ -258,7 +258,7 @@ Before building the Docker image, ensure both repositories are cloned to the sam
 ```bash
 # Clone both repositories
 git clone https://github.com/maiconcardozo/Foundation.git
-git clone https://github.com/maiconcardozo/Authentication.git
+git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
 
 # Directory structure should be:
 # Parent Directory/

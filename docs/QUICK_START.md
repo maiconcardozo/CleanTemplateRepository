@@ -7,7 +7,7 @@ Este guia fornece instruções passo a passo para configurar e usar o serviço d
 Antes de começar, certifique-se de ter os seguintes componentes instalados:
 
 ### Obrigatórios
-- **.NET 8.0 SDK** - [Download](https://dotnet.microsoft.com/download/dotnet/8.0)
+- **.NET 9.0 SDK** - [Download](https://dotnet.microsoft.com/download/dotnet/9.0)
 - **MySQL 8.0+** - [Download](https://dev.mysql.com/downloads/mysql/)
 - **Git** - [Download](https://git-scm.com/)
 
@@ -22,8 +22,8 @@ Antes de começar, certifique-se de ter os seguintes componentes instalados:
 
 ```bash
 # Clone o repositório
-git clone https://github.com/maiconcardozo/Authentication.git
-cd Authentication
+git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
+cd CleanTemplateRepository
 
 # Restaure as dependências
 dotnet restore Solution/Authentication.sln
@@ -375,4 +375,4 @@ Access to fetch at 'https://localhost:7001' has been blocked by CORS policy
 
 ---
 
-🎉 **Parabéns!** Você configurou com sucesso o Authentication Service. Para dúvidas, consulte a [documentação completa](../README.md) ou abra uma [issue](https://github.com/maiconcardozo/Authentication/issues).
+🎉 **Parabéns!** Você configurou com sucesso o Authentication Service. Para dúvidas, consulte a [documentação completa](../README.md) ou abra uma [issue](https://github.com/maiconcardozo/CleanTemplateRepository/issues).
