@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- **Documentation Updates**: Fixed critical inconsistencies in documentation
+  - Updated .NET version references from 8.0 to 9.0 across all documentation files
+  - Fixed repository URLs from `maiconcardozo/Authentication` to `maiconcardozo/CleanTemplateRepository`
+  - Corrected script paths in README and documentation files
+  - Updated project references and examples to match current repository structure
 - **CI/CD Pipeline**: Removed problematic test result publishing step that was causing "HttpError: Resource not accessible by integration" errors
   - Removed `dorny/test-reporter@v1` action that required special GitHub permissions
   - Test execution and artifact uploads continue to work normally
