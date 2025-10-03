@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Authentication Build Script
-# Este script facilita a compilação do projeto Authentication
+# CleanTemplateRepository Build Script
+# Este script facilita a compilação do projeto CleanTemplateRepository
 
 set -e
 
-echo "🏗️ Authentication Build Script"
+echo "🏗️ CleanTemplateRepository Build Script"
 echo "=============================="
 
 # Função para mostrar ajuda
@@ -30,9 +30,9 @@ show_help() {
 cd "$(dirname "$0")/.."
 
 # Verificar se o arquivo de solução existe
-if [ ! -f "Solution/Authentication.sln" ]; then
+if [ ! -f "Solution/CleanTemplate.sln" ]; then
     echo "❌ Arquivo de solução não encontrado!"
-    echo "Verifique se você está na raiz do projeto Authentication."
+    echo "Verifique se você está na raiz do projeto CleanTemplateRepository."
     exit 1
 fi
 
@@ -53,7 +53,7 @@ run_build() {
     echo "🏃 Compilando em modo $configuration..."
     echo ""
     
-    if dotnet build Solution/Authentication.sln --configuration "$configuration"; then
+    if dotnet build Solution/CleanTemplate.sln --configuration "$configuration"; then
         echo ""
         echo "✅ Compilação concluída com sucesso!"
     else
@@ -67,27 +67,27 @@ run_build() {
 case "${1:-debug}" in
     "debug")
         echo "🛠️ Restaurando dependências..."
-        dotnet restore Solution/Authentication.sln
+        dotnet restore Solution/CleanTemplate.sln
         run_build "Debug"
         ;;
     
     "release")
         echo "🛠️ Restaurando dependências..."
-        dotnet restore Solution/Authentication.sln
+        dotnet restore Solution/CleanTemplate.sln
         run_build "Release"
         ;;
     
     "clean")
         echo "🧹 Limpando projeto..."
-        dotnet clean Solution/Authentication.sln
+        dotnet clean Solution/CleanTemplate.sln
         echo "🛠️ Restaurando dependências..."
-        dotnet restore Solution/Authentication.sln
+        dotnet restore Solution/CleanTemplate.sln
         run_build "Debug"
         ;;
     
     "restore")
         echo "📦 Restaurando dependências..."
-        if dotnet restore Solution/Authentication.sln; then
+        if dotnet restore Solution/CleanTemplate.sln; then
             echo "✅ Dependências restauradas com sucesso!"
         else
             echo "❌ Falha ao restaurar dependências!"
@@ -101,7 +101,7 @@ case "${1:-debug}" in
         
         # Restaurar
         echo "📦 Restaurando dependências..."
-        dotnet restore Solution/Authentication.sln
+        dotnet restore Solution/CleanTemplate.sln
         
         # Compilar Release
         run_build "Release"

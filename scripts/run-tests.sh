@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Authentication Tests Runner
-# Este script facilita a execução dos testes do projeto Authentication
+# CleanTemplateRepository Tests Runner
+# Este script facilita a execução dos testes do projeto CleanTemplateRepository
 
 set -e
 
-echo "🧪 Authentication Tests Runner"
+echo "🧪 CleanTemplateRepository Tests Runner"
 echo "================================"
 
 # Função para mostrar ajuda
@@ -32,16 +32,16 @@ show_help() {
 cd "$(dirname "$0")/.."
 
 # Verificar se o projeto de testes existe
-if [ ! -f "Src/Authentication.Tests/Authentication.Tests.csproj" ]; then
+if [ ! -f "Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj" ]; then
     echo "❌ Projeto de testes não encontrado!"
-    echo "Verifique se você está na raiz do projeto Authentication."
+    echo "Verifique se você está na raiz do projeto CleanTemplateRepository."
     exit 1
 fi
 
 # Restaurar dependências se necessário
-if [ ! -d "Src/Authentication.Tests/bin" ]; then
+if [ ! -d "Src/CleanTemplate.Tests/bin" ]; then
     echo "📦 Restaurando dependências..."
-    dotnet restore Solution/Authentication.sln
+    dotnet restore Solution/CleanTemplate.sln
 fi
 
 # Função para executar testes
@@ -64,22 +64,22 @@ run_tests() {
 case "${1:-all}" in
     "all")
         echo "🎯 Executando todos os testes..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj"
+        run_tests "dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj"
         ;;
     
     "integration")
         echo "🔗 Executando testes de integração..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --filter \"FullyQualifiedName~Integration\""
+        run_tests "dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --filter \"FullyQualifiedName~Integration\""
         ;;
     
     "unit")
         echo "🧩 Executando testes unitários..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --filter \"FullyQualifiedName~Unit\""
+        run_tests "dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --filter \"FullyQualifiedName~Unit\""
         ;;
     
     "coverage")
         echo "📊 Executando testes com cobertura de código..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --collect:\"XPlat Code Coverage\""
+        run_tests "dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --collect:\"XPlat Code Coverage\""
         echo ""
         echo "📈 Relatório de cobertura gerado em: TestResults/"
         ;;
@@ -87,20 +87,20 @@ case "${1:-all}" in
     "watch")
         echo "👀 Executando testes em modo watch..."
         echo "Pressione Ctrl+C para parar"
-        dotnet watch test Src/Authentication.Tests/Authentication.Tests.csproj
+        dotnet watch test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
         ;;
     
     "verbose")
         echo "📝 Executando testes com saída detalhada..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --verbosity normal"
+        run_tests "dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --verbosity normal"
         ;;
     
     "clean")
         echo "🧹 Limpando e reconstruindo..."
-        dotnet clean Solution/Authentication.sln
-        dotnet build Solution/Authentication.sln
+        dotnet clean Solution/CleanTemplate.sln
+        dotnet build Solution/CleanTemplate.sln
         echo "🎯 Executando todos os testes..."
-        run_tests "dotnet test Src/Authentication.Tests/Authentication.Tests.csproj"
+        run_tests "dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj"
         ;;
     
     "help"|"-h"|"--help")
