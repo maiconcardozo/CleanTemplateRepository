@@ -15,20 +15,20 @@ fi
 
 # Function to check .NET version compatibility
 check_dotnet_version() {
-    local required_version="9.0"
+    local required_version="8.0"
     local current_version=$(dotnet --version 2>/dev/null || echo "not found")
     
     echo "🔧 .NET Version: $current_version"
     
     if [[ "$current_version" == "not found" ]]; then
-        echo "❌ .NET SDK not found. Please install .NET 9.0 SDK."
-        echo "📥 Download from: https://dotnet.microsoft.com/download/dotnet/9.0"
+        echo "❌ .NET SDK not found. Please install .NET 8.0 SDK."
+        echo "📥 Download from: https://dotnet.microsoft.com/download/dotnet/8.0"
         exit 1
     fi
     
-    if [[ ! "$current_version" =~ ^9\. ]]; then
-        echo "⚠️  Warning: This project requires .NET 9.0, but found $current_version"
-        echo "📥 Download .NET 9.0 from: https://dotnet.microsoft.com/download/dotnet/9.0"
+    if [[ ! "$current_version" =~ ^8\. ]]; then
+        echo "⚠️  Warning: This project requires .NET 8.0, but found $current_version"
+        echo "📥 Download .NET 8.0 from: https://dotnet.microsoft.com/download/dotnet/8.0"
         echo "🔄 Attempting to continue with current version..."
     else
         echo "✅ .NET version compatible"

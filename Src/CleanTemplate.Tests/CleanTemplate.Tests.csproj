@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<!-- WARNING: Never revert to .NET 8.0 - Project requires .NET 9.0 for all dependencies and features -->
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
@@ -10,25 +9,24 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!-- Package versions updated for .NET 9.0 compatibility - Never downgrade to 8.x versions -->
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-		<PackageReference Include="xunit" Version="2.9.3" />
-		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+		<PackageReference Include="xunit" Version="2.9.2" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="coverlet.collector" Version="6.0.4">
+		<PackageReference Include="coverlet.collector" Version="6.0.2">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.7" />
 		<PackageReference Include="Moq" Version="4.20.72" />
-		<PackageReference Include="FluentAssertions" Version="8.6.0" />
-		<PackageReference Include="AutoMapper" Version="15.0.1" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.8" />
-		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
+		<PackageReference Include="FluentAssertions" Version="6.12.1" />
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.7" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.1.2" />
 		<PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.3.0" />
 		<PackageReference Include="FluentValidation" Version="12.0.0" />
 	</ItemGroup>
@@ -39,9 +37,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Update="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
-	  <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
-	  <PackageReference Update="SonarAnalyzer.CSharp" Version="10.15.0.120848" />
+	  <PackageReference Update="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
+	  <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" />
+	  <PackageReference Update="SonarAnalyzer.CSharp" Version="9.32.0.97167" />
 	</ItemGroup>
 
 </Project>

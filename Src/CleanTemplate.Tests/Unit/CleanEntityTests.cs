@@ -217,7 +217,7 @@ namespace CleanTemplate.Tests.Unit
             var cleanEntity = new CleanEntity();
 
             // Assert
-            cleanEntity.Should().BeAssignableTo<Foundation.Base.Domain.Implementation.Entity>();
+            cleanEntity.Should().BeAssignableTo<Foundation.Base.Domain.Implemetation.Entity>();
             // Base entity properties should be available
             cleanEntity.Id.Should().Be(0);
             cleanEntity.IsActive.Should().BeTrue(); // Default value from base class
