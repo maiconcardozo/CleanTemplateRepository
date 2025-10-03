@@ -51,25 +51,26 @@ The Authentication project has been significantly enhanced with a complete Found
 
 ### 2. Framework and Package Updates 📦
 
-**Problem**: Mixed .NET versions and outdated packages.
+**Current State**: Standardized to .NET 8.0 LTS across all projects.
 
-**Solution**: Standardized to .NET 9.0 across all projects:
+**Framework Configuration**: Using .NET 8.0 LTS for stability and long-term support:
 
 #### Framework Updates
-- **Target Framework**: Updated from mixed versions to `.NET 9.0`
-- **API Project**: `Authentication.API.csproj` → .NET 9.0
-- **Domain Project**: `Authentication.Login.csproj` → .NET 9.0
-- **Foundation**: `Foundation.Base.csproj` → .NET 9.0
+- **Target Framework**: All projects target `.NET 8.0`
+- **API Project**: `CleanTemplate.API.csproj` → .NET 8.0
+- **Application Project**: `CleanTemplate.Application.csproj` → .NET 8.0
+- **Tests Project**: `CleanTemplate.Tests.csproj` → .NET 8.0
 
-#### Package Version Updates
-- `Microsoft.AspNetCore.Authentication.JwtBearer`: Updated to 9.0.7
-- `Microsoft.AspNetCore.OpenApi`: Updated to 9.0.7
-- `Microsoft.EntityFrameworkCore`: Updated to 9.0.7
-- `Microsoft.EntityFrameworkCore.Abstractions`: Updated to 9.0.7
-- `Microsoft.EntityFrameworkCore.Relational`: Updated to 9.0.7
-- `Microsoft.EntityFrameworkCore.Tools`: Updated to 9.0.7
-- `Pomelo.EntityFrameworkCore.MySql`: Updated to 9.0.0-rc.1.efcore.9.0.0
-- `Swashbuckle.AspNetCore.*`: Updated to 6.8.1
+#### Package Version Updates (aligned to .NET 8.0)
+- `Microsoft.AspNetCore.OpenApi`: 8.0.11
+- `Microsoft.EntityFrameworkCore`: 8.0.11
+- `Microsoft.EntityFrameworkCore.Abstractions`: 8.0.11
+- `Microsoft.EntityFrameworkCore.Relational`: 8.0.11
+- `Microsoft.EntityFrameworkCore.Tools`: 8.0.11
+- `Pomelo.EntityFrameworkCore.MySql`: 8.0.2
+- `Swashbuckle.AspNetCore.*`: 6.8.1
+- `AutoMapper`: 13.0.1
+- `FluentValidation`: 11.9.2
 
 ### 3. Database Migration Fixes 🗄️
 

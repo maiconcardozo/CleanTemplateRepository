@@ -15,8 +15,8 @@ REM Navigate to project root
 cd /d "%~dp0\.."
 
 REM Check if solution exists
-if not exist "Solution\Authentication.sln" (
-    echo ❌ Solution file not found at Solution\Authentication.sln
+if not exist "Solution\CleanTemplate.sln" (
+    echo ❌ Solution file not found at Solution\CleanTemplate.sln
     echo 📂 Current directory: %CD%
     echo 📁 Available files:
     dir /b | head -10
@@ -24,7 +24,7 @@ if not exist "Solution\Authentication.sln" (
 )
 
 echo 📦 Restoring packages...
-dotnet restore Solution\Authentication.sln
+dotnet restore Solution\CleanTemplate.sln
 if errorlevel 1 (
     echo ❌ Package restore failed
     exit /b 1
@@ -33,7 +33,7 @@ if errorlevel 1 (
 )
 
 echo 🏗️ Building solution...
-dotnet build Solution\Authentication.sln --configuration Release --no-restore
+dotnet build Solution\CleanTemplate.sln --configuration Release --no-restore
 if errorlevel 1 (
     echo ❌ Build failed
     exit /b 1
@@ -51,7 +51,7 @@ echo.
 REM Create TestResults directory if it doesn't exist
 if not exist "TestResults" mkdir TestResults
 
-dotnet test Solution\Authentication.sln --configuration Release --no-build --verbosity normal --logger trx --results-directory TestResults
+dotnet test Solution\CleanTemplate.sln --configuration Release --no-build --verbosity normal --logger trx --results-directory TestResults
 if errorlevel 1 (
     echo.
     echo ❌ Some tests failed or test execution encountered errors
@@ -86,21 +86,21 @@ echo   • Run 'scripts\run-tests.bat coverage' for coverage analysis
 goto :eof
 
 :check_dotnet_version
-set "required_version=9.0"
+set "required_version=8.0"
 for /f "tokens=*" %%i in ('dotnet --version 2^>nul') do set current_version=%%i
 
 echo 🔧 .NET Version: !current_version!
 
 if "!current_version!"=="ECHO is off." (
-    echo ❌ .NET SDK not found. Please install .NET 9.0 SDK.
-    echo 📥 Download from: https://dotnet.microsoft.com/download/dotnet/9.0
+    echo ❌ .NET SDK not found. Please install .NET 8.0 SDK.
+    echo 📥 Download from: https://dotnet.microsoft.com/download/dotnet/8.0
     exit /b 1
 )
 
-echo !current_version! | findstr /r "^9\." >nul
+echo !current_version! | findstr /r "^8\." >nul
 if errorlevel 1 (
-    echo ⚠️  Warning: This project requires .NET 9.0, but found !current_version!
-    echo 📥 Download .NET 9.0 from: https://dotnet.microsoft.com/download/dotnet/9.0
+    echo ⚠️  Warning: This project requires .NET 8.0, but found !current_version!
+    echo 📥 Download .NET 8.0 from: https://dotnet.microsoft.com/download/dotnet/8.0
     echo 🔄 Attempting to continue with current version...
 ) else (
     echo ✅ .NET version compatible

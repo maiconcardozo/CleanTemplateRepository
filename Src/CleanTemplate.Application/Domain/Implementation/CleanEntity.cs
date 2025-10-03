@@ -1,5 +1,5 @@
 using CleanTemplate.Application.Domain.Interface;
-using Foundation.Base.Domain.Implementation;
+using Foundation.Base.Domain.Implemetation;
 
 namespace CleanTemplate.Application.Domain.Implementation
 {

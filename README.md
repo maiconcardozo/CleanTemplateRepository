@@ -1,8 +1,8 @@
 # Clean Template Repository - .NET Clean Architecture Template
 
 [![CI/CD Pipeline](https://github.com/maiconcardozo/CleanTemplateRepository/actions/workflows/ci.yml/badge.svg)](https://github.com/maiconcardozo/CleanTemplateRepository/actions/workflows/ci.yml)
-[![.NET 9.0](https://img.shields.io/badge/.NET-9.0-blue.svg)](https://dotnet.microsoft.com/download/dotnet/9.0)
-[![Entity Framework Core](https://img.shields.io/badge/EF%20Core-9.0.7-blue.svg)](https://docs.microsoft.com/en-us/ef/core/)
+[![.NET 8.0](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download/dotnet/8.0)
+[![Entity Framework Core](https://img.shields.io/badge/EF%20Core-8.0.11-blue.svg)](https://docs.microsoft.com/en-us/ef/core/)
 
 ## 📋 Overview
 
@@ -92,15 +92,58 @@ The repository follows a clean, organized structure:
 
 ## 🔧 Technologies Used
 
-- **.NET 9.0** - Main framework (REQUIRED - never downgrade to 8.0)
-- **ASP.NET Core 9.0.7** - RESTful API framework
-- **Entity Framework Core 9.0.7** - ORM for data access
-- **JWT Bearer 8.14.0** - Token-based authentication
-- **FluentValidation 12.0.0** - Input validation
+- **.NET 8.0** - Main framework
+- **ASP.NET Core 8.0.11** - RESTful API framework
+- **Entity Framework Core 8.0.11** - ORM for data access
+- **JWT Bearer 8.1.2** - Token-based authentication
+- **FluentValidation 11.9.2** - Input validation
 - **Argon2 1.3.1** - Secure password hashing
-- **MySQL/MariaDB** - Database support (MySqlConnector 2.4.0)
+- **MySQL/MariaDB** - Database support (MySqlConnector 2.3.7, Pomelo.EntityFrameworkCore.MySql 8.0.2)
 - **Swagger/OpenAPI 6.8.1** - API documentation
-- **AutoMapper 15.0.1** - Object mapping
+- **AutoMapper 13.0.1** - Object mapping
+
+### 📦 Recommended NuGet Dependencies
+
+```xml
+<!-- Core ASP.NET Core and EF Core packages -->
+<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
+<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.11" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.11" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.11" />
+
+<!-- Database providers -->
+<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+<PackageReference Include="MySqlConnector" Version="2.3.7" />
+
+<!-- Object mapping and validation -->
+<PackageReference Include="AutoMapper" Version="13.0.1" />
+<PackageReference Include="FluentValidation" Version="11.9.2" />
+<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
+
+<!-- API documentation -->
+<PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
+<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.8.1" />
+<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+
+<!-- Testing packages -->
+<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+<PackageReference Include="xunit" Version="2.9.2" />
+<PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.11" />
+<PackageReference Include="Moq" Version="4.20.72" />
+<PackageReference Include="FluentAssertions" Version="6.12.1" />
+<PackageReference Include="coverlet.collector" Version="6.0.2" />
+
+<!-- Security and authentication -->
+<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.1.2" />
+<PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.3.1" />
+
+<!-- Code analysis -->
+<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" />
+<PackageReference Include="SonarAnalyzer.CSharp" Version="9.32.0.97167" />
+```
 
 ## 🚀 Development (Quick Start)
 
@@ -111,12 +154,12 @@ The repository follows a clean, organized structure:
 git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
 cd CleanTemplateRepository
 
-# 2. Install .NET 9.0 SDK (REQUIRED - see requirements section below)
-# Download from: https://dotnet.microsoft.com/download/dotnet/9.0
+# 2. Install .NET 8.0 SDK (REQUIRED - see requirements section below)
+# Download from: https://dotnet.microsoft.com/download/dotnet/8.0
 
-# 3. Verify .NET 9.0 installation
+# 3. Verify .NET 8.0 installation
 dotnet --version
-# Should output: 9.0.x
+# Should output: 8.0.x
 
 # 4. Restore dependencies
 dotnet restore Solution/Authentication.sln
@@ -203,91 +246,96 @@ dotnet watch run --configuration Debug
 - **Visual Studio Code** with C# Dev Kit extension
 - **JetBrains Rider** 2024.1+
 
-## ⚠️ .NET 9.0 Framework Requirements
+## ⚠️ .NET 8.0 Framework Requirements
 
-**CRITICAL**: This project requires .NET 9.0 and must never be downgraded to .NET 8.0.
+**IMPORTANT**: This project requires .NET 8.0 LTS (Long-Term Support).
 
-### Why .NET 9.0 is Required:
-- **Performance Improvements**: Enhanced runtime performance and memory usage
-- **Package Compatibility**: Latest versions of Entity Framework Core 9.0.7 and related packages
-- **Security Updates**: Latest security patches and improvements
-- **Modern Features**: Access to newest C# language features and framework improvements
+### Why .NET 8.0:
+- **LTS Support**: .NET 8.0 is a Long-Term Support release with support until November 2026
+- **Stability**: Mature framework with extensive production usage
+- **Package Compatibility**: All packages are compatible with Entity Framework Core 8.0.11 and related libraries
+- **Performance**: Excellent runtime performance and memory efficiency
+- **Security**: Regular security patches and updates
 
 ### Installation:
-1. **Download .NET 9.0 SDK**: https://dotnet.microsoft.com/download/dotnet/9.0
-2. **Verify Installation**: `dotnet --version` should show 9.0.x
+1. **Download .NET 8.0 SDK**: https://dotnet.microsoft.com/download/dotnet/8.0
+2. **Verify Installation**: `dotnet --version` should show 8.0.x
 3. **Check Project**: `dotnet build` should complete without framework errors
 
-### Framework Validation:
-The project includes comprehensive protection against .NET version regression:
+### Framework Configuration:
+The project is configured for .NET 8.0:
 
-#### 🔒 Multi-Layer Protection System:
-1. **global.json Enforcement**: Forces .NET 9.0 SDK usage and prevents accidental downgrade to 8.0
-2. **Project File Validation**: All `.csproj` files strictly target `net9.0` framework
-3. **CI/CD Protection**: Automated workflows fail if any .NET 8.0 references are detected
-4. **Documentation Guards**: Clear warnings throughout the codebase about version requirements
+#### 🔒 Configuration System:
+1. **global.json Enforcement**: Specifies .NET 8.0 SDK version (8.0.404)
+2. **Project File Validation**: All `.csproj` files target `net8.0` framework
+3. **CI/CD Configuration**: Automated workflows use .NET 8.0
+4. **Package Alignment**: All NuGet packages are aligned to .NET 8.0 compatible versions
 
-#### 🚨 Automatic Regression Detection:
-- **GitHub Actions Workflow**: `.github/workflows/dotnet-version-check.yml` scans all project files
-- **Build-Time Validation**: The existing build workflow includes framework targeting validation
-- **Pre-commit Protection**: The SDK enforcement in `global.json` prevents local builds with wrong versions
+#### 📦 Package Versions:
+- **EF Core**: 8.0.11 (latest stable for .NET 8.0)
+- **ASP.NET Core**: 8.0.11
+- **AutoMapper**: 13.0.1
+- **FluentValidation**: 11.9.2
+- **Swashbuckle**: 6.8.1
+- **Pomelo MySQL**: 8.0.2
 
-#### 🛡️ Why This Protection Exists:
-- **Package Compatibility**: EF Core 9.0.7 and other dependencies require .NET 9.0
-- **Performance**: .NET 9.0 runtime optimizations are essential for production
-- **Security**: Latest security patches only available in .NET 9.0
-- **Future-Proofing**: Prevents accidental downgrades during development or deployment
-
-### 🔧 Troubleshooting .NET 9.0 Setup
+### 🔧 Troubleshooting .NET 8.0 Setup
 
 #### Common Issues and Solutions:
 
-**Issue**: `NETSDK1045: The current .NET SDK does not support targeting .NET 9.0`
+**Issue**: `NETSDK1045: The current .NET SDK does not support targeting .NET 8.0`
 ```bash
-# Solution: Install .NET 9.0 SDK
-# 1. Download from: https://dotnet.microsoft.com/download/dotnet/9.0
+# Solution: Install .NET 8.0 SDK
+# 1. Download from: https://dotnet.microsoft.com/download/dotnet/8.0
 # 2. Verify installation: dotnet --version
-# 3. Should show: 9.0.x
+# 3. Should show: 8.0.x
 ```
 
 **Issue**: `A compatible .NET SDK was not found`
 ```bash
 # Solution: Check global.json configuration
 cat global.json
-# Should specify version: "9.0.0"
+# Should specify version: "8.0.404" or similar
 
 # Verify SDK installation
 dotnet --list-sdks
-# Should include: 9.0.x
+# Should include: 8.0.x
 ```
 
 **Issue**: Project won't build or restore
 ```bash
 # Solution: Clean and rebuild
-dotnet clean Solution/Authentication.sln
-dotnet restore Solution/Authentication.sln
-dotnet build Solution/Authentication.sln
+dotnet clean Solution/CleanTemplate.sln
+dotnet restore Solution/CleanTemplate.sln
+dotnet build Solution/CleanTemplate.sln
 ```
 
 **Issue**: Tests won't run
 ```bash
 # Solution: Use convenience scripts (they handle dependencies)
-scripts/run-tests.sh clean     # Clean and test
-scripts/run-tests.sh verbose   # Detailed output for debugging
+scripts/test.sh              # Run all tests
+scripts/build.sh verify      # Complete verification
+```
+
+**Issue**: Package version conflicts
+```bash
+# Solution: Ensure all packages are .NET 8.0 compatible
+dotnet list package --outdated
+# Check for packages that need updating to 8.0.x versions
 ```
 
 ## 📦 Production Installation
 
 ### Prerequisites
-- .NET 9.0 SDK or higher (REQUIRED - never use 8.0)
+- .NET 8.0 SDK (LTS version recommended)
 - MySQL 8.0+ or higher
-- Entity Framework Core 9.0.7
+- Entity Framework Core 8.0.11
 
 ### Cloning and Building Locally
 ```bash
-git clone https://github.com/maiconcardozo/Authentication.git
-cd Authentication
-dotnet build Solution/Authentication.sln --configuration Release
+git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
+cd CleanTemplateRepository
+dotnet build Solution/CleanTemplate.sln --configuration Release
 ```
 
 ### 🔍 Project Compilation Verification
@@ -334,13 +382,13 @@ The project includes automated CI/CD pipeline support:
 
 **For GitHub repositories:**
 - Pipeline automatically runs on push/PR
-- Builds with .NET 9.0 in Ubuntu environment
+- Builds with .NET 8.0 in Ubuntu environment
 - Executes all tests and generates reports
 - Provides code coverage and security scanning
 
 **For other CI systems:**
-- Use `./test.sh` (Linux) or `./test.bat` (Windows) as the main test command
-- Ensure .NET 9.0 SDK is installed in the CI environment
+- Use `scripts/test.sh` (Linux) or `scripts/test.bat` (Windows) as the main test command
+- Ensure .NET 8.0 SDK is installed in the CI environment
 - Configure artifact collection for test results in `TestResults/` directory
 
 ## 🚀 Quick Usage (Development)
@@ -791,14 +839,14 @@ Contributions are welcome! Please read the [contribution guide](CONTRIBUTING.md)
 
 ```bash
 # Clone the repository
-git clone https://github.com/maiconcardozo/Authentication.git
-cd Authentication
+git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
+cd CleanTemplateRepository
 
-# Install dependencies (requires .NET 9.0 SDK)
-dotnet restore Solution/Authentication.sln
+# Install dependencies (requires .NET 8.0 SDK)
+dotnet restore Solution/CleanTemplate.sln
 
 # Build the project
-dotnet build Solution/Authentication.sln --configuration Debug
+dotnet build Solution/CleanTemplate.sln --configuration Debug
 
 # Run in development mode
 dotnet run --project Src/Authentication.API
@@ -889,7 +937,7 @@ For comprehensive testing information, see:
 
 The project includes automated testing through GitHub Actions:
 - ✅ Runs on every push and pull request
-- ✅ Uses .NET 9.0 in Ubuntu environment
+- ✅ Uses .NET 8.0 LTS in Ubuntu environment
 - ✅ Generates test reports and coverage analysis
 - ✅ Stores artifacts for 30 days
 - ✅ Enforces quality gates before merge
@@ -901,8 +949,8 @@ The project includes a comprehensive CI/CD pipeline using GitHub Actions that au
 ### 🚀 Automated Pipeline Features
 
 **On every push and pull request:**
-- ✅ **Build Verification**: Compiles the project in Release mode with .NET 9.0
-- ✅ **Test Execution**: Runs all 349 tests and generates reports
+- ✅ **Build Verification**: Compiles the project in Release mode with .NET 8.0
+- ✅ **Test Execution**: Runs all tests and generates reports
 - ✅ **Code Quality**: Enforces coding standards and SOLID principles
 - ✅ **Else Statement Prevention**: Blocks if/else patterns in favor of conditional expressions
 - ✅ **SOLID Principles Enforcement**: Validates adherence to clean code principles
@@ -959,7 +1007,7 @@ The pipeline provides detailed feedback including:
 The CI pipeline is defined in `.github/workflows/ci.yml` and includes:
 
 ```yaml
-# Runs on: Ubuntu Latest with .NET 9.0
+# Runs on: Ubuntu Latest with .NET 8.0
 # Triggers: Push/PR to main and develop branches
 # Steps: Build → Test → Quality Check → Security Scan
 ```

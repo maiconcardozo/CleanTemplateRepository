@@ -7,9 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Framework Downgrade**: Transitioned from .NET 9.0 to .NET 8.0 LTS
+  - Updated `global.json` to .NET 8.0.404 SDK
+  - Updated all `.csproj` files to target `net8.0` framework
+  - Aligned all NuGet package versions to .NET 8.0 compatible versions
+  - Updated CI/CD workflow to use .NET 8.0.x
+  - Comprehensive documentation updates reflecting .NET 8.0 requirements
+  - Updated validation scripts and build scripts for .NET 8.0
+
+### Package Updates (aligned to .NET 8.0)
+- **Entity Framework Core**: 9.0.8 → 8.0.11
+- **ASP.NET Core packages**: 9.0.8 → 8.0.11
+- **AutoMapper**: 15.0.1 → 13.0.1
+- **FluentValidation**: 12.0.0 → 11.9.2
+- **Swashbuckle.AspNetCore**: 9.0.4 → 6.8.1
+- **Pomelo.EntityFrameworkCore.MySql**: 9.0.0 → 8.0.2
+- **MySqlConnector**: 2.4.0 → 2.3.7
+- **System.IdentityModel.Tokens.Jwt**: 8.14.0 → 8.1.2
+- **Microsoft.NET.Test.Sdk**: 17.14.1 → 17.11.1
+- **xunit**: 2.9.3 → 2.9.2
+- **FluentAssertions**: 8.6.0 → 6.12.1
+- **Code Analyzers**: Updated to .NET 8.0 compatible versions
+
+### Documentation
+- **README.md**: Complete update to reflect .NET 8.0 requirements, installation, and troubleshooting
+- **Added recommended dependencies snippet**: Complete list of NuGet packages with versions for .NET 8.0
+- **Framework requirements section**: Updated with .NET 8.0 LTS information and benefits
+- **CI/CD documentation**: Updated to reflect .NET 8.0 Ubuntu environment
+
 ### Fixed
 - **Documentation Updates**: Fixed critical inconsistencies in documentation
-  - Updated .NET version references from 8.0 to 9.0 across all documentation files
   - Fixed repository URLs from `maiconcardozo/Authentication` to `maiconcardozo/CleanTemplateRepository`
   - Corrected script paths in README and documentation files
   - Updated project references and examples to match current repository structure

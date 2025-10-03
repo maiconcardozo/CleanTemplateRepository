@@ -122,11 +122,11 @@ echo "=================================="
 if [ -f ".github/workflows/ci.yml" ]; then
     print_status "PASS" "GitHub Actions workflow exists"
     
-    # Check for .NET 9.0 configuration
-    if grep -q "DOTNET_VERSION.*9.0" .github/workflows/ci.yml; then
-        print_status "PASS" "CI/CD configured for .NET 9.0"
+    # Check for .NET 8.0 configuration
+    if grep -q "DOTNET_VERSION.*8.0" .github/workflows/ci.yml; then
+        print_status "PASS" "CI/CD configured for .NET 8.0"
     else
-        print_status "WARN" "CI/CD may not be configured for .NET 9.0"
+        print_status "WARN" "CI/CD may not be configured for .NET 8.0"
     fi
     
     # Check for test execution
@@ -192,10 +192,10 @@ echo "================================="
 if [ -f "global.json" ]; then
     print_status "PASS" "global.json exists"
     
-    if grep -q '"version": "9.0' global.json; then
-        print_status "PASS" "global.json configured for .NET 9.0"
+    if grep -q '"version": "8.0' global.json; then
+        print_status "PASS" "global.json configured for .NET 8.0"
     else
-        print_status "WARN" "global.json may not be configured for .NET 9.0"
+        print_status "WARN" "global.json may not be configured for .NET 8.0"
     fi
 else
     print_status "WARN" "global.json missing"
@@ -205,10 +205,10 @@ fi
 DOTNET_VERSION=$(dotnet --version 2>/dev/null || echo "not found")
 if [ "$DOTNET_VERSION" = "not found" ]; then
     print_status "WARN" ".NET SDK not found (this is expected in some environments)"
-elif [[ "$DOTNET_VERSION" =~ ^9\. ]]; then
-    print_status "PASS" ".NET 9.0 SDK available ($DOTNET_VERSION)"
+elif [[ "$DOTNET_VERSION" =~ ^8\. ]]; then
+    print_status "PASS" ".NET 8.0 SDK available ($DOTNET_VERSION)"
 else
-    print_status "WARN" ".NET version mismatch (found: $DOTNET_VERSION, expected: 9.0.x)"
+    print_status "WARN" ".NET version mismatch (found: $DOTNET_VERSION, expected: 8.0.x)"
 fi
 
 echo ""

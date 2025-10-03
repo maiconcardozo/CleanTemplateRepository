@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<!-- WARNING: Never revert to .NET 8.0 - Project requires .NET 9.0 for all dependencies and features -->
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
@@ -19,28 +18,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<!-- Package versions updated for .NET 9.0 compatibility - Never downgrade to 8.x versions -->
-		<PackageReference Include="AutoMapper" Version="15.0.1" />
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
 		<PackageReference Include="FluentValidation" Version="12.0.0" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
-		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8" />
-		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.14.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8">
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
+		<PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.11.9" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.7" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.7">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="MySqlConnector" Version="2.4.0" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.4" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="9.0.0" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="9.0.4" />
-		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.4" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.4" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.4" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.8.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="8.0.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.8.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.8.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.8.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.8.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -99,9 +97,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Update="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
-	  <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0" />
-	  <PackageReference Update="SonarAnalyzer.CSharp" Version="10.15.0.120848" />
+	  <PackageReference Update="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
+	  <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" />
+	  <PackageReference Update="SonarAnalyzer.CSharp" Version="9.32.0.97167" />
 	</ItemGroup>
 
 </Project>

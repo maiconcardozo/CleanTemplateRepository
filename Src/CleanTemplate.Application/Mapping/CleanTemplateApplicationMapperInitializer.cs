@@ -10,10 +10,10 @@ namespace CleanTemplate.Application.Mapping
 
         public static void Initialize()
         {
-            var configExpr = new MapperConfigurationExpression();
-            configExpr.AddProfile<CleanTemplateApplicationMapping>();
-
-            _config = new MapperConfiguration(configExpr, NullLoggerFactory.Instance);
+            _config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<CleanTemplateApplicationMapping>();
+            });
             _mapper = _config.CreateMapper();
         }
 
