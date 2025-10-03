@@ -51,7 +51,7 @@ Src/CleanTemplate.Tests/
 ├── Fixtures/                 # Test configurations and test data factories
 ├── Helpers/                  # Test utilities and common helper methods
 ├── Integration/              # End-to-end API endpoint tests
-│   ├── AuthenticationControllerTests.cs
+│   ├── CleanEntityControllerTests.cs
 │   ├── AccountControllerTests.cs
 │   ├── AccountControllerEnhancedTests.cs
 │   ├── ClaimControllerTests.cs
@@ -87,7 +87,7 @@ Src/CleanTemplate.Tests/
 ### 1. 🔗 Integration Tests
 **Location**: `Integration/` - Test complete API workflows
 
-- ✅ **AuthenticationControllerTests**: Token generation and authentication flows
+- ✅ **CleanEntityControllerTests**: Token generation and authentication flows
 - ✅ **AccountControllerTests**: Complete Account CRUD operations
 - ✅ **AccountControllerEnhancedTests**: Advanced scenarios and edge cases
 - ✅ **ClaimControllerTests**: Claims/permissions management

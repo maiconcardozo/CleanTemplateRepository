@@ -31,7 +31,7 @@ Esta documentação fornece uma explicação detalhada de todos os testes implem
   - [ResourceStartupTests](#resourcestartuptests)
   - [ApiLocalizationTests](#apilocalizationtests)
 - [Testes de Integração](#-testes-de-integração)
-  - [AuthenticationControllerTests](#authenticationcontrollertests)
+  - [CleanEntityControllerTests](#authenticationcontrollertests)
   - [AccountControllerTests](#accountcontrollertests)
   - [AccountControllerEnhancedTests](#accountcontrollerenhancedtests)
   - [ActionControllerTests](#actioncontrollertests)
@@ -1026,16 +1026,16 @@ public AccountPayloadValidatorTests()
 
 ## 🔗 Testes de Integração
 
-### AuthenticationControllerTests
+### CleanEntityControllerTests
 
-**Arquivo**: `Src/CleanTemplate.Tests/Integration/AuthenticationControllerTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/CleanEntityControllerTests.cs`  
 **Propósito**: Testa endpoints de autenticação end-to-end  
 **Total de Testes**: 15+ testes  
 **Setup**: WebApplicationFactory para testes de integração
 
 #### Setup do Teste:
 ```csharp
-public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory)
+public CleanEntityControllerTests(AuthenticationWebApplicationFactory factory)
 {
     _factory = factory;
     _client = _factory.CreateClient();
@@ -1487,7 +1487,7 @@ public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory
 - **Cobertura**: Comportamento de DTOs, aceitação de valores Unicode e especiais
 
 ### Testes de Integração (Integration Tests) - 110+ testes
-- **AuthenticationControllerTests**: 15+ testes (geração token, autenticação)
+- **CleanEntityControllerTests**: 15+ testes (geração token, autenticação)
 - **AccountControllerTests**: 25+ testes (CRUD de contas)
 - **AccountControllerEnhancedTests**: 30+ testes (cenários avançados, edge cases)
 - **ActionControllerTests**: 20+ testes (gestão de ações)

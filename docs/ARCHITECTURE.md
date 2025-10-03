@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Authentication service follows **Clean Architecture** principles, ensuring separation of concerns, testability, and maintainability. The architecture is designed to be scalable, secure, and easily extensible. Built on **.NET 9.0** with **Entity Framework Core 9.0.7** for enhanced performance and modern development features.
+The CleanTemplate service follows **Clean Architecture** principles, ensuring separation of concerns, testability, and maintainability. The architecture is designed to be scalable, secure, and easily extensible. Built on **.NET 9.0** with **Entity Framework Core 9.0.7** for enhanced performance and modern development features.
 
 ## Architecture Layers
 
@@ -41,7 +41,7 @@ Contains business logic and use cases that orchestrate domain entities.
 CleanTemplate.Application/Services/
 ├── Interface/              # Service contracts
 │   ├── IAccountService.cs
-│   ├── IAuthenticationService.cs
+│   ├── ICleanEntityService.cs
 │   ├── IClaimService.cs
 │   ├── IActionService.cs
 │   ├── IClaimActionService.cs
@@ -49,7 +49,7 @@ CleanTemplate.Application/Services/
 │
 └── Implementation/         # Service implementations
     ├── AccountService.cs   # User management logic
-    ├── AuthenticationService.cs # Authentication/token logic
+    ├── CleanEntityService.cs # Authentication/token logic
     ├── ClaimService.cs     # Permission management
     ├── ActionService.cs    # Action management
     ├── ClaimActionService.cs # Permission mapping
@@ -115,7 +115,7 @@ The outermost layer handling HTTP requests, responses, and API concerns.
 ```
 CleanTemplate.API/
 ├── Controllers/            # API endpoints
-│   ├── AuthenticationController.cs    # Authentication endpoints
+│   ├── CleanEntityController.cs    # Authentication endpoints
 │   ├── ClaimController.cs             # Claims management
 │   ├── ActionController.cs            # Actions management
 │   ├── ClaimActionController.cs       # Claim-action mappings

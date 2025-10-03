@@ -165,9 +165,9 @@ brew install mysql
 
 3. **Configure Database**
 ```sql
-CREATE DATABASE AuthenticationDB;
+CREATE DATABASE CleanTemplateDB;
 CREATE USER 'authuser'@'localhost' IDENTIFIED BY 'secure_password';
-GRANT ALL PRIVILEGES ON AuthenticationDB.* TO 'authuser'@'localhost';
+GRANT ALL PRIVILEGES ON CleanTemplateDB.* TO 'authuser'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
@@ -175,10 +175,10 @@ FLUSH PRIVILEGES;
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB;Uid=authuser;Pwd=secure_password;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB;Uid=authuser;Pwd=secure_password;"
   },
   "JwtSettings": {
-    "Issuer": "AuthenticationService",
+    "Issuer": "CleanEntityService",
     "Audience": "AuthenticationClients",
     "SecretKey": "your-256-bit-secret-key-here-minimum-32-characters-long",
     "ExpirationMinutes": 60
@@ -212,10 +212,10 @@ dotnet run --project ../Src/CleanTemplate.API
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=prod-db-server;Database=AuthenticationDB;Uid=authuser;Pwd=${DB_PASSWORD};"
+    "DefaultConnection": "Server=prod-db-server;Database=CleanTemplateDB;Uid=authuser;Pwd=${DB_PASSWORD};"
   },
   "JwtSettings": {
-    "Issuer": "AuthenticationService",
+    "Issuer": "CleanEntityService",
     "Audience": "AuthenticationClients", 
     "SecretKey": "${JWT_SECRET_KEY}",
     "ExpirationMinutes": 30
@@ -341,7 +341,7 @@ docker run -d \
   -p 5001:80 \
   -p 5443:443 \
   -e ASPNETCORE_ENVIRONMENT=Production \
-  -e "ConnectionStrings__DefaultConnection=Server=localhost;Database=AuthenticationDB;Uid=root;Pwd=password;" \
+  -e "ConnectionStrings__DefaultConnection=Server=localhost;Database=CleanTemplateDB;Uid=root;Pwd=password;" \
   authentication-api
 ```
 
@@ -363,9 +363,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ConnectionStrings__DefaultConnection=Server=db;Database=AuthenticationDB;Uid=root;Pwd=${MYSQL_ROOT_PASSWORD};
+      - ConnectionStrings__DefaultConnection=Server=db;Database=CleanTemplateDB;Uid=root;Pwd=${MYSQL_ROOT_PASSWORD};
       - JwtSettings__SecretKey=${JWT_SECRET_KEY}
-      - JwtSettings__Issuer=AuthenticationService
+      - JwtSettings__Issuer=CleanEntityService
       - JwtSettings__Audience=AuthenticationClients
       - JwtSettings__ExpirationMinutes=30
     depends_on:
@@ -381,7 +381,7 @@ services:
     image: mysql:8.0
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=AuthenticationDB
+      - MYSQL_DATABASE=CleanTemplateDB
       - MYSQL_USER=authuser
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
@@ -502,7 +502,7 @@ az webapp config connection-string set \
   --name app-authentication \
   --resource-group rg-authentication \
   --connection-string-type MySql \
-  --settings DefaultConnection="Server=mysql-authentication.mysql.database.azure.com;Database=AuthenticationDB;Uid=authuser@mysql-authentication;Pwd=YourSecurePassword123;SslMode=Required;"
+  --settings DefaultConnection="Server=mysql-authentication.mysql.database.azure.com;Database=CleanTemplateDB;Uid=authuser@mysql-authentication;Pwd=YourSecurePassword123;SslMode=Required;"
 
 # Set application settings
 az webapp config appsettings set \
@@ -510,7 +510,7 @@ az webapp config appsettings set \
   --resource-group rg-authentication \
   --settings \
     JwtSettings__SecretKey="your-super-secure-256-bit-jwt-secret-key-here" \
-    JwtSettings__Issuer="AuthenticationService" \
+    JwtSettings__Issuer="CleanEntityService" \
     JwtSettings__Audience="AuthenticationClients" \
     JwtSettings__ExpirationMinutes="30"
 ```

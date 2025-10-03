@@ -23,7 +23,7 @@ Os controllers devem ter documentação XML completa para geração automática 
 /// </summary>
 [ApiController]
 [Route("[controller]")]
-public class AuthenticationController : ControllerBase
+public class CleanEntityController : ControllerBase
 {
     /// <summary>
     /// Generates a JWT token for authenticated users.

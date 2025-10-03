@@ -39,7 +39,7 @@ Based on the Program.cs configuration, the API is structured with two main defin
 
 ### Authentication API
 - **Purpose**: User authentication and token generation
-- **Controllers**: `AuthenticationController`
+- **Controllers**: `CleanEntityController`
 - **Endpoints**: Token generation and authentication-related operations
 - **Swagger Endpoint**: `/swagger/Authentication/swagger.json`
 
@@ -1040,7 +1040,7 @@ The JWT token contains the following claims:
   "jti": "unique-token-id",    // JWT ID
   "iat": 1642680000,           // Issued at (timestamp)
   "exp": 1642683600,           // Expiration (timestamp)
-  "iss": "AuthenticationService",     // Issuer
+  "iss": "CleanEntityService",     // Issuer
   "aud": "AuthenticationClients",     // Audience
   "claims": ["user:read", "user:write"] // User permissions
 }

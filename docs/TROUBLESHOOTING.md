@@ -42,7 +42,7 @@ mysql -h localhost -u authuser -p
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;Database=AuthenticationDB;Uid=authuser;Pwd=password123;SslMode=none;AllowPublicKeyRetrieval=true;"
+    "DefaultConnection": "Server=localhost;Port=3306;Database=CleanTemplateDB;Uid=authuser;Pwd=password123;SslMode=none;AllowPublicKeyRetrieval=true;"
   }
 }
 ```
@@ -51,7 +51,7 @@ mysql -h localhost -u authuser -p
 ```sql
 DROP USER IF EXISTS 'authuser'@'localhost';
 CREATE USER 'authuser'@'localhost' IDENTIFIED BY 'password123';
-GRANT ALL PRIVILEGES ON AuthenticationDB.* TO 'authuser'@'localhost';
+GRANT ALL PRIVILEGES ON CleanTemplateDB.* TO 'authuser'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
@@ -338,7 +338,7 @@ Connection string not found
 // appsettings.Testing.json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB_Test;Uid=authuser;Pwd=password123;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB_Test;Uid=authuser;Pwd=password123;"
   }
 }
 ```

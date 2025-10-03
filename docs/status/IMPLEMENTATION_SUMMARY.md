@@ -9,7 +9,7 @@
 - `AccountClaimActionPayLoadDTO` and `AccountClaimActionResponseDTO` - for AccountClaimAction entity CRUD operations
 
 ### 2. Controllers Created
-Following the exact same pattern as `AuthenticationController`:
+Following the exact same pattern as `CleanEntityController`:
 
 #### ClaimController
 - GET `/Claim/GetClaims` - Get all claims
@@ -56,11 +56,11 @@ All controllers include full Swagger annotations with:
 - Response type documentation
 - Status code documentation  
 - Error response examples
-- Following the exact same pattern as existing `AuthenticationController`
+- Following the exact same pattern as existing `CleanEntityController`
 
 ## Architecture Pattern Followed
 
-The implementation follows the exact same pattern as the existing `AuthenticationController`:
+The implementation follows the exact same pattern as the existing `CleanEntityController`:
 
 1. **Controller Structure**: Same dependency injection pattern, error handling, and response structure
 2. **Route Definition**: Using resource files and route constants like existing code

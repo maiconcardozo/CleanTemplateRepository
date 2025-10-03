@@ -33,9 +33,9 @@ sudo systemctl enable mysql
 
 # Connect and create database
 mysql -u root -p
-CREATE DATABASE AuthenticationDB_Dev;
+CREATE DATABASE CleanTemplateDB_Dev;
 CREATE USER 'dev_user'@'localhost' IDENTIFIED BY 'dev_password';
-GRANT ALL PRIVILEGES ON AuthenticationDB_Dev.* TO 'dev_user'@'localhost';
+GRANT ALL PRIVILEGES ON CleanTemplateDB_Dev.* TO 'dev_user'@'localhost';
 FLUSH PRIVILEGES;
 exit;
 ```
@@ -47,10 +47,10 @@ Create the `appsettings.Development.json` file in the API project:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB_Dev;Uid=dev_user;Pwd=dev_password;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB_Dev;Uid=dev_user;Pwd=dev_password;"
   },
   "JwtSettings": {
-    "Issuer": "AuthenticationService",
+    "Issuer": "CleanEntityService",
     "Audience": "AuthenticationClients", 
     "SecretKey": "development-secret-key-minimum-32-characters-long-for-jwt-signing",
     "ExpirationMinutes": 60
@@ -194,7 +194,7 @@ dotnet ef database update PreviousMigrationName --context ApiContextDevelopment
 sudo systemctl status mysql
 
 # Test connection
-mysql -u dev_user -p -h localhost AuthenticationDB_Dev
+mysql -u dev_user -p -h localhost CleanTemplateDB_Dev
 ```
 
 #### 2. Build Error

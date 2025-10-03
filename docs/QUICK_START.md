@@ -38,9 +38,9 @@ dotnet build Solution/CleanTemplate.sln --configuration Debug
 ```bash
 # Inicie o MySQL e crie um banco
 mysql -u root -p
-CREATE DATABASE AuthenticationDB;
+CREATE DATABASE CleanTemplateDB;
 CREATE USER 'authuser'@'localhost' IDENTIFIED BY 'password123';
-GRANT ALL PRIVILEGES ON AuthenticationDB.* TO 'authuser'@'localhost';
+GRANT ALL PRIVILEGES ON CleanTemplateDB.* TO 'authuser'@'localhost';
 FLUSH PRIVILEGES;
 exit;
 ```
@@ -50,7 +50,7 @@ exit;
 # Execute MySQL em container Docker
 docker run --name mysql-auth \
   -e MYSQL_ROOT_PASSWORD=rootpass \
-  -e MYSQL_DATABASE=AuthenticationDB \
+  -e MYSQL_DATABASE=CleanTemplateDB \
   -e MYSQL_USER=authuser \
   -e MYSQL_PASSWORD=password123 \
   -p 3306:3306 \
@@ -64,7 +64,7 @@ Edite `Src/CleanTemplate.API/appsettings.Development.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB;Uid=authuser;Pwd=password123;SslMode=none;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB;Uid=authuser;Pwd=password123;SslMode=none;"
   },
   "JwtSettings": {
     "Issuer": "Authentication",

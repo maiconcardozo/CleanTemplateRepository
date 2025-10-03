@@ -28,7 +28,7 @@ The Swagger documentation has been significantly enhanced to include:
 - **Endpoint**: `/swagger/Authentication/swagger.json`
 - **Display Name**: "Authentication API"
 - **Description**: "API endpoints for user authentication and token management"
-- **Controllers**: AuthenticationController
+- **Controllers**: CleanEntityController
 - **Endpoints**: `/Authentication/*`
 
 ### 2. Access Control API

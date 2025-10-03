@@ -13,7 +13,7 @@ Criei um projeto de testes abrangente seguindo a arquitetura TDD para o projeto 
 ### 2. 🧪 Testes Implementados
 
 #### Testes de Integração (5 Controladores)
-- **AuthenticationController**: GenerateToken, AddAccount
+- **CleanEntityController**: GenerateToken, AddAccount
 - **AccountController**: Testes abrangentes da entidade Account (AccountControllerTests, AccountControllerEnhancedTests)
 - **ClaimController**: CRUD completo (GetClaims, GetClaimById, AddClaim, UpdateClaim, DeleteClaim)
 - **ActionController**: CRUD completo (GetActions, GetActionById, AddAction, UpdateAction, DeleteAction)

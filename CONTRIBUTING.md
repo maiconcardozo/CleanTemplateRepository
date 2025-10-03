@@ -1,6 +1,6 @@
 # 🤝 Contributing Guide
 
-Thank you for your interest in contributing to the Authentication service! This guide will help you get started with contributing to the project.
+Thank you for your interest in contributing to the CleanTemplate service! This guide will help you get started with contributing to the project.
 
 ## 📋 Table of Contents
 
@@ -81,7 +81,7 @@ dotnet restore Solution/CleanTemplate.sln
 
 # Setup database
 mysql -u root -p
-CREATE DATABASE AuthenticationDB_Dev;
+CREATE DATABASE CleanTemplateDB_Dev;
 exit
 
 # Run migrations
@@ -96,11 +96,11 @@ Create `appsettings.Development.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB_Dev;Uid=root;Pwd=your_password;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB_Dev;Uid=root;Pwd=your_password;"
   },
   "JwtSettings": {
-    "Issuer": "AuthenticationService",
-    "Audience": "AuthenticationClients",
+    "Issuer": "CleanTemplateService",
+    "Audience": "CleanTemplateClients",
     "SecretKey": "development-secret-key-minimum-32-characters-long",
     "ExpirationMinutes": 60
   },
@@ -298,7 +298,7 @@ namespace CleanTemplate.API.Controllers // Namespace matches folder structure
         private readonly IAccountService _accountService;
         
         // Constructor
-        public AuthenticationController(IAccountService accountService)
+        public CleanEntityController(IAccountService accountService)
         {
             _accountService = accountService ?? throw new ArgumentNullException(nameof(accountService));
         }
@@ -419,7 +419,7 @@ public class AccountRepositoryIntegrationTests
 // End-to-end tests - test complete workflows
 [TestFixture]
 [Category("E2E")]
-public class AuthenticationWorkflowTests
+public class CleanTemplateWorkflowTests
 {
     // Test implementations
 }
@@ -583,4 +583,4 @@ Contributors are recognized in:
 - **Release Notes**: Major contributors mentioned
 - **GitHub**: Contributor graphs and statistics
 
-Thank you for contributing to the Authentication service! 🚀
+Thank you for contributing to the CleanTemplate service! 🚀

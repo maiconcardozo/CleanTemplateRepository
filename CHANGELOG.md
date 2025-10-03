@@ -133,7 +133,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-07-23
 
 ### Added
-- Initial release of Authentication service
+- Initial release of CleanTemplate service
 - Basic JWT token generation
 - User account management
 - MySQL database support
