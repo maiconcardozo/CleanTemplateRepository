@@ -536,7 +536,7 @@ jobs:
     - name: Run Security Code Scan
       uses: security-code-scan/security-code-scan-action@v1
       with:
-        project-path: ./Solution/Authentication.sln
+        project-path: ./Solution/CleanTemplate.sln
 ```
 
 ### 3. Penetration Testing

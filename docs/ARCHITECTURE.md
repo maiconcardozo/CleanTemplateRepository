@@ -6,12 +6,12 @@ The Authentication service follows **Clean Architecture** principles, ensuring s
 
 ## Architecture Layers
 
-### 1. Domain Layer (`Authentication.Login/Domain`)
+### 1. Domain Layer (`CleanTemplate.Application/Domain`)
 
 The innermost layer containing business entities and core business rules.
 
 ```
-Authentication.Login/Domain/
+CleanTemplate.Application/Domain/
 ├── Implementation/          # Concrete domain entities
 │   ├── Account.cs          # User account entity
 │   ├── Claim.cs            # Permission claims/roles
@@ -33,12 +33,12 @@ Authentication.Login/Domain/
 - Framework agnostic
 - Highly testable
 
-### 2. Application Layer (`Authentication.Login/Services`)
+### 2. Application Layer (`CleanTemplate.Application/Services`)
 
 Contains business logic and use cases that orchestrate domain entities.
 
 ```
-Authentication.Login/Services/
+CleanTemplate.Application/Services/
 ├── Interface/              # Service contracts
 │   ├── IAccountService.cs
 │   ├── IAuthenticationService.cs
@@ -62,12 +62,12 @@ Authentication.Login/Services/
 - Validation orchestration
 - Domain entity coordination
 
-### 3. Infrastructure Layer (`Authentication.Login/Repository` & `Authentication.Login/Infrastructure`)
+### 3. Infrastructure Layer (`CleanTemplate.Application/Repository` & `CleanTemplate.Application/Infrastructure`)
 
 Handles data persistence, external services, and framework-specific implementations.
 
 ```
-Authentication.Login/
+CleanTemplate.Application/
 ├── Repository/
 │   ├── Interface/          # Repository contracts
 │   │   ├── IAccountRepository.cs
@@ -108,12 +108,12 @@ Authentication.Login/
 - Unit of Work for transaction management
 - Entity Framework configurations
 
-### 4. Presentation Layer (`Authentication.API`)
+### 4. Presentation Layer (`CleanTemplate.API`)
 
 The outermost layer handling HTTP requests, responses, and API concerns.
 
 ```
-Authentication.API/
+CleanTemplate.API/
 ├── Controllers/            # API endpoints
 │   ├── AuthenticationController.cs    # Authentication endpoints
 │   ├── ClaimController.cs             # Claims management
@@ -157,8 +157,8 @@ Parent Directory/
 │           └── Foundation.Base.csproj
 └── Authentication/
     └── Src/
-        ├── Authentication.API/
-        └── Authentication.Login/
+        ├── CleanTemplate.API/
+        └── CleanTemplate.Application/
 ```
 
 Shared library providing common patterns and utilities across all layers.

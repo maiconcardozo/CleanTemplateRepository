@@ -26,10 +26,10 @@ git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
 cd CleanTemplateRepository
 
 # Restaure as dependências
-dotnet restore Solution/Authentication.sln
+dotnet restore Solution/CleanTemplate.sln
 
 # Construa o projeto
-dotnet build Solution/Authentication.sln --configuration Debug
+dotnet build Solution/CleanTemplate.sln --configuration Debug
 ```
 
 ### 2. Configure o Banco de Dados
@@ -59,7 +59,7 @@ docker run --name mysql-auth \
 
 ### 3. Configure a Connection String
 
-Edite `Src/Authentication.API/appsettings.Development.json`:
+Edite `Src/CleanTemplate.API/appsettings.Development.json`:
 
 ```json
 {
@@ -78,7 +78,7 @@ Edite `Src/Authentication.API/appsettings.Development.json`:
 ### 4. Execute as Migrações do Banco
 
 ```bash
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment
 ```
 
@@ -219,7 +219,7 @@ curl -X POST "https://localhost:7001/AccountClaimAction/AddAccountClaimAction" \
 
 ```bash
 # Execute todos os testes
-dotnet test Src/Authentication.Tests/Authentication.Tests.csproj
+dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
 
 # Execute apenas testes unitários
 dotnet test --filter "FullyQualifiedName~Unit"
@@ -349,7 +349,7 @@ Unable to create an object of type 'ApiContextDevelopment'
 ```
 **Solução**: 
 ```bash
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment --verbose
 ```
 

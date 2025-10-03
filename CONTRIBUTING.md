@@ -64,8 +64,8 @@ git clone https://github.com/YOUR_USERNAME/CleanTemplateRepository.git
 # │       └── Foundation.Base/
 # └── CleanTemplateRepository/
 #     └── Src/
-#         ├── Authentication.API/
-#         └── Authentication.Login/
+#         ├── CleanTemplate.API/
+#         └── CleanTemplate.Application/
 
 cd CleanTemplateRepository
 
@@ -77,7 +77,7 @@ git remote add upstream https://github.com/maiconcardozo/CleanTemplateRepository
 
 ```bash
 # Install dependencies
-dotnet restore Solution/Authentication.sln
+dotnet restore Solution/CleanTemplate.sln
 
 # Setup database
 mysql -u root -p
@@ -85,7 +85,7 @@ CREATE DATABASE AuthenticationDB_Dev;
 exit
 
 # Run migrations
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment
 ```
 
@@ -117,13 +117,13 @@ Create `appsettings.Development.json`:
 
 ```bash
 # Build the solution
-dotnet build Solution/Authentication.sln
+dotnet build Solution/CleanTemplate.sln
 
 # Run tests
-dotnet test Solution/Authentication.sln
+dotnet test Solution/CleanTemplate.sln
 
 # Start the application
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet run
 ```
 
@@ -282,17 +282,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;       // Microsoft namespaces
 using Microsoft.EntityFrameworkCore;
                                        // Blank line
-using Authentication.Login.Domain;     // Project namespaces
+using CleanTemplate.Application.Domain;     // Project namespaces
 using Foundation.Base.Util;
 
-namespace Authentication.API.Controllers // Namespace matches folder structure
+namespace CleanTemplate.API.Controllers // Namespace matches folder structure
 {
     /// <summary>
     /// XML documentation for public members
     /// </summary>
     [ApiController]
     [Route("[controller]")]
-    public class AuthenticationController : ControllerBase
+    public class CleanEntityController : ControllerBase
     {
         // Private fields first
         private readonly IAccountService _accountService;
@@ -343,14 +343,14 @@ Dictionary<string, List<Claim>> userClaims = new();
 
 ```
 Src/
-├── Authentication.API/              # Web API Layer
+├── CleanTemplate.API/              # Web API Layer
 │   ├── Controllers/                # API Controllers
 │   ├── Middleware/                # Custom middleware
 │   ├── Extensions/                # Extension methods
 │   ├── Filters/                   # Action filters
 │   └── Program.cs                 # Application entry point
 │
-├── Authentication.Login/           # Domain & Business Logic
+├── CleanTemplate.Application/           # Domain & Business Logic
 │   ├── Domain/                    # Domain entities and interfaces
 │   │   ├── Implementation/        # Concrete entities
 │   │   └── Interface/            # Domain interfaces
@@ -366,8 +366,8 @@ Src/
 │   └── Extensions/               # Extension methods
 │
 └── Tests/                         # Test projects
-    ├── Authentication.API.Tests/  # API tests
-    ├── Authentication.Login.Tests/ # Domain tests
+    ├── CleanTemplate.API.Tests/  # API tests
+    ├── CleanTemplate.Application.Tests/ # Domain tests
     └── Authentication.Integration.Tests/ # Integration tests
 ```
 

@@ -194,14 +194,14 @@ FLUSH PRIVILEGES;
 
 5. **Run Migrations**
 ```bash
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment
 ```
 
 6. **Start Application**
 ```bash
 cd Solution
-dotnet run --project ../Src/Authentication.API
+dotnet run --project ../Src/CleanTemplate.API
 ```
 
 ### Production Environment
@@ -278,25 +278,25 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy project files (paths relative to parent directory)
-COPY ["Authentication/Src/Authentication.API/Authentication.API.csproj", "Authentication/Src/Authentication.API/"]
-COPY ["Authentication/Src/Authentication.Login/Authentication.Login.csproj", "Authentication/Src/Authentication.Login/"]
+COPY ["Authentication/Src/CleanTemplate.API/CleanTemplate.API.csproj", "Authentication/Src/CleanTemplate.API/"]
+COPY ["Authentication/Src/CleanTemplate.Application/CleanTemplate.Application.csproj", "Authentication/Src/CleanTemplate.Application/"]
 COPY ["Foundation/Src/Foundation.Base/Foundation.Base.csproj", "Foundation/Src/Foundation.Base/"]
-COPY ["Authentication/Solution/Authentication.sln", "Authentication/Solution/"]
+COPY ["Authentication/Solution/CleanTemplate.sln", "Authentication/Solution/"]
 
 # Restore dependencies
-RUN dotnet restore "Authentication/Solution/Authentication.sln"
+RUN dotnet restore "Authentication/Solution/CleanTemplate.sln"
 
 # Copy source code
 COPY Authentication/ Authentication/
 COPY Foundation/ Foundation/
 
 # Build application
-WORKDIR "/src/Authentication/Src/Authentication.API"
-RUN dotnet build "Authentication.API.csproj" -c Release -o /app/build
+WORKDIR "/src/Authentication/Src/CleanTemplate.API"
+RUN dotnet build "CleanTemplate.API.csproj" -c Release -o /app/build
 
 # Publish application
 FROM build AS publish
-RUN dotnet publish "Authentication.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "CleanTemplate.API.csproj" -c Release -o /app/publish
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
@@ -321,7 +321,7 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
   CMD curl -f http://localhost:80/health || exit 1
 
 # Start application
-ENTRYPOINT ["dotnet", "Authentication.API.dll"]
+ENTRYPOINT ["dotnet", "CleanTemplate.API.dll"]
 ```
 
 ### Building the Docker Image
@@ -546,7 +546,7 @@ Create `aws-windows-deployment-manifest.json`:
       {
         "name": "authentication-api",
         "parameters": {
-          "appBundle": "Authentication.API.zip",
+          "appBundle": "CleanTemplate.API.zip",
           "iisPath": "/",
           "iisWebSite": "Default Web Site"
         }
@@ -672,13 +672,13 @@ jobs:
         dotnet-version: 9.0.x
         
     - name: Restore dependencies
-      run: dotnet restore Solution/Authentication.sln
+      run: dotnet restore Solution/CleanTemplate.sln
       
     - name: Build
-      run: dotnet build Solution/Authentication.sln --no-restore
+      run: dotnet build Solution/CleanTemplate.sln --no-restore
       
     - name: Test
-      run: dotnet test Solution/Authentication.sln --no-build --verbosity normal
+      run: dotnet test Solution/CleanTemplate.sln --no-build --verbosity normal
 
   build-and-deploy:
     needs: test
@@ -695,7 +695,7 @@ jobs:
         
     - name: Build and publish
       run: |
-        dotnet publish Src/Authentication.API/Authentication.API.csproj \
+        dotnet publish Src/CleanTemplate.API/CleanTemplate.API.csproj \
           -c Release \
           -o ./publish \
           --no-restore
@@ -739,27 +739,27 @@ stages:
       displayName: 'Restore packages'
       inputs:
         command: 'restore'
-        projects: 'Solution/Authentication.sln'
+        projects: 'Solution/CleanTemplate.sln'
         
     - task: DotNetCoreCLI@2
       displayName: 'Build application'
       inputs:
         command: 'build'
-        projects: 'Solution/Authentication.sln'
+        projects: 'Solution/CleanTemplate.sln'
         arguments: '--configuration $(buildConfiguration) --no-restore'
         
     - task: DotNetCoreCLI@2
       displayName: 'Run tests'
       inputs:
         command: 'test'
-        projects: 'Solution/Authentication.sln'
+        projects: 'Solution/CleanTemplate.sln'
         arguments: '--configuration $(buildConfiguration) --no-build'
         
     - task: DotNetCoreCLI@2
       displayName: 'Publish application'
       inputs:
         command: 'publish'
-        projects: 'Src/Authentication.API/Authentication.API.csproj'
+        projects: 'Src/CleanTemplate.API/CleanTemplate.API.csproj'
         arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
         
     - task: PublishBuildArtifacts@1

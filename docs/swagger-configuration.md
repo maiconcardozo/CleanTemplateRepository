@@ -47,13 +47,13 @@ The Swagger documentation has been significantly enhanced to include:
 
 ## Configuration Files Modified
 
-### ApplicationConstants.cs (Authentication.Login project)
+### ApplicationConstants.cs (CleanTemplate.Application project)
 Added `SwaggerDefinitions` nested class with constants for:
 - Definition names
 - Endpoint URLs
 - Display names
 
-### Program.cs (Authentication.API project)
+### Program.cs (CleanTemplate.API project)
 Modified SwaggerGen configuration to:
 - Define two separate SwaggerDoc instances
 - Implement DocInclusionPredicate logic to filter controllers by definition

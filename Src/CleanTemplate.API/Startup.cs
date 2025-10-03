@@ -77,9 +77,9 @@ namespace CleanTemplate.API
             });
 
             // ==============================
-            // AUTENTICAÇÃO & DOMÍNIO
+            // DOMÍNIO & SERVIÇOS
             // ==============================
-            services.AddAuthenticationLoginServices(CleanTemplate.API.Helper.Utils.GetConnectionString(appsettings));
+            services.AddCleanTemplateServices(CleanTemplate.API.Helper.Utils.GetConnectionString(appsettings));
 
             // ==============================
             // CONTROLLERS & VALIDAÇÃO
@@ -105,7 +105,7 @@ namespace CleanTemplate.API
                 options.DocumentFilter<LocalizedSwaggerDocumentFilter>();
 
                 // Use CHAVES do resource nas definições de SwaggerDoc!
-                options.SwaggerDoc(ApplicationConstants.Api.SwaggerDefinitions.Authentication, new Microsoft.OpenApi.Models.OpenApiInfo
+                options.SwaggerDoc(ApplicationConstants.Api.SwaggerDefinitions.CleanTemplate, new Microsoft.OpenApi.Models.OpenApiInfo
                 {
                     Title = "CleanEntity API",
                     Version = ApplicationConstants.Api.Version
@@ -116,7 +116,7 @@ namespace CleanTemplate.API
                     var controllerName = apiDescription.ActionDescriptor.RouteValues["controller"];
                     return docName switch
                     {
-                        ApplicationConstants.Api.SwaggerDefinitions.Authentication =>
+                        ApplicationConstants.Api.SwaggerDefinitions.CleanTemplate =>
                             controllerName?.Equals("CleanEntity", StringComparison.OrdinalIgnoreCase) == true,
                         _ => false
                     };
@@ -181,7 +181,7 @@ namespace CleanTemplate.API
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint(
-                    ApplicationConstants.Api.SwaggerDefinitions.AuthenticationEndpoint,
+                    ApplicationConstants.Api.SwaggerDefinitions.CleanTemplateEndpoint,
                     "CleanEntity API"
                 );
                 options.RoutePrefix = ApplicationConstants.Api.EmptyRoutePrefix;

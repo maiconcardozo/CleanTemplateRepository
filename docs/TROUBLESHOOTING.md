@@ -74,7 +74,7 @@ builder.Services.AddDbContext<ApiContextDevelopment>(options =>
 
 #### 2. Executar Migração com Verbose
 ```bash
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment --verbose
 ```
 
@@ -103,8 +103,8 @@ Could not load file or assembly 'System.Text.Json'
 #### 1. Limpar Cache e Restaurar
 ```bash
 dotnet nuget locals all --clear
-dotnet restore Solution/Authentication.sln --force
-dotnet build Solution/Authentication.sln --no-restore
+dotnet restore Solution/CleanTemplate.sln --force
+dotnet build Solution/CleanTemplate.sln --no-restore
 ```
 
 #### 2. Verificar Versões de Packages
@@ -314,10 +314,10 @@ if (app.Environment.IsDevelopment())
 
 #### 2. Verificar XML Documentation
 ```xml
-<!-- Authentication.API.csproj -->
+<!-- CleanTemplate.API.csproj -->
 <PropertyGroup>
   <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  <DocumentationFile>bin\Debug\net9.0\Authentication.API.xml</DocumentationFile>
+  <DocumentationFile>bin\Debug\net9.0\CleanTemplate.API.xml</DocumentationFile>
 </PropertyGroup>
 ```
 

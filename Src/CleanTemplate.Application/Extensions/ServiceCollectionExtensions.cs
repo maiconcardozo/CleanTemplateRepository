@@ -11,9 +11,9 @@ using Pomelo.EntityFrameworkCore.MySql;
 
 namespace CleanTemplate.Application.Extensions
 {
-    public static class AuthenticationLoginServiceCollectionExtensions
+    public static class CleanTemplateServiceCollectionExtensions
     {
-        public static IServiceCollection AddAuthenticationLoginServices(this IServiceCollection services, string connectionString)
+        public static IServiceCollection AddCleanTemplateServices(this IServiceCollection services, string connectionString)
         {
             // Check if we're in test environment to avoid MySQL connection
             if (string.IsNullOrEmpty(connectionString) || connectionString.Contains("InMemoryDbForTesting"))

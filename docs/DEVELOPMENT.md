@@ -69,14 +69,14 @@ Create the `appsettings.Development.json` file in the API project:
 
 ```bash
 # Restore NuGet packages
-dotnet restore Solution/Authentication.sln
+dotnet restore Solution/CleanTemplate.sln
 
 # Run migrations
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment
 
 # Build and run
-dotnet run --project Src/Authentication.API
+dotnet run --project Src/CleanTemplate.API
 ```
 
 ## 🏃‍♂️ Development Workflow
@@ -85,11 +85,11 @@ dotnet run --project Src/Authentication.API
 
 ```bash
 # Run in watch mode (automatically recompiles)
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet watch run
 
 # In another terminal, run tests automatically
-dotnet watch test Src/Authentication.Tests/Authentication.Tests.csproj
+dotnet watch test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
 ```
 
 ### Functionality Verification
@@ -200,9 +200,9 @@ mysql -u dev_user -p -h localhost AuthenticationDB_Dev
 #### 2. Build Error
 ```bash
 # Clean and rebuild
-dotnet clean Solution/Authentication.sln
-dotnet restore Solution/Authentication.sln  
-dotnet build Solution/Authentication.sln
+dotnet clean Solution/CleanTemplate.sln
+dotnet restore Solution/CleanTemplate.sln  
+dotnet build Solution/CleanTemplate.sln
 ```
 
 #### 3. HTTPS Certificate Error
@@ -213,7 +213,7 @@ dotnet dev-certs https --trust
 
 ### Debug in Visual Studio
 
-1. Set `Authentication.API` as startup project
+1. Set `CleanTemplate.API` as startup project
 2. Configure breakpoints
 3. Press F5 to start debugging
 4. Use Swagger UI to test endpoints
@@ -222,7 +222,7 @@ dotnet dev-certs https --trust
 
 ```bash
 # View logs in real time
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet run --verbosity detailed
 
 # Logs are displayed in console in development mode
@@ -265,7 +265,7 @@ Create a `dev-scripts.sh` file:
 dev-start() {
     echo "🚀 Starting development environment..."
     sudo systemctl start mysql
-    cd Src/Authentication.API
+    cd Src/CleanTemplate.API
     dotnet watch run
 }
 
@@ -278,7 +278,7 @@ dev-test() {
 # Database reset
 dev-reset-db() {
     echo "🗃️ Resetting database..."
-    cd Src/Authentication.API
+    cd Src/CleanTemplate.API
     dotnet ef database drop --context ApiContextDevelopment --force
     dotnet ef database update --context ApiContextDevelopment
 }
@@ -289,7 +289,7 @@ dev-reset-db() {
 #### Visual Studio 2022
 
 1. **Solution Items**: Add `appsettings.Development.json` to Solution Items
-2. **Startup Project**: Set `Authentication.API` as startup project
+2. **Startup Project**: Set `CleanTemplate.API` as startup project
 3. **Debug Profile**: Use "https" profile for development
 
 #### VS Code
@@ -305,9 +305,9 @@ Configure `.vscode/launch.json`:
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build",
-      "program": "${workspaceFolder}/Src/Authentication.API/bin/Debug/net9.0/Authentication.API.dll",
+      "program": "${workspaceFolder}/Src/CleanTemplate.API/bin/Debug/net9.0/CleanTemplate.API.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/Src/Authentication.API",
+      "cwd": "${workspaceFolder}/Src/CleanTemplate.API",
       "stopAtEntry": false,
       "serverReadyAction": {
         "action": "openExternally",

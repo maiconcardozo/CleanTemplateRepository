@@ -5,10 +5,10 @@
 Criei um projeto de testes abrangente seguindo a arquitetura TDD para o projeto Authentication, cumprindo todos os requisitos solicitados:
 
 ### 1. 📁 Estrutura do Projeto
-- **Projeto de Testes**: `Src/Authentication.Tests/Authentication.Tests.csproj`
+- **Projeto de Testes**: `Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj`
 - **Padrão Consistente**: Segue o mesmo padrão .csproj (.NET 9.0, mesmas versões de pacotes)
 - **Estrutura de Pastas**: Organizados por tipo (Unit, Integration, Fixtures, Helpers)
-- **Adicionado à Solução**: Incluído no `Solution/Authentication.sln`
+- **Adicionado à Solução**: Incluído no `Solution/CleanTemplate.sln`
 
 ### 2. 🧪 Testes Implementados
 
@@ -67,7 +67,7 @@ Criei um projeto de testes abrangente seguindo a arquitetura TDD para o projeto 
 #### Como Executar os Testes
 ```bash
 # Executar todos os testes
-dotnet test Src/Authentication.Tests/Authentication.Tests.csproj
+dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
 
 # Executar apenas testes unitários (funcionando)
 dotnet test --filter "FullyQualifiedName~Unit"

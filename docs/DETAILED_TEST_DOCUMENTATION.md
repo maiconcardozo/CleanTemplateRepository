@@ -1,8 +1,8 @@
-# 📋 Documentação Detalhada dos Testes - Authentication.Tests
+# 📋 Documentação Detalhada dos Testes - CleanTemplate.Tests
 
 ## 🎯 Visão Geral
 
-Esta documentação fornece uma explicação detalhada de todos os testes implementados no projeto Authentication.Tests. Cada teste é descrito com seu propósito, configuração, execução e verificação, servindo como base para entender como os testes estão funcionando.
+Esta documentação fornece uma explicação detalhada de todos os testes implementados no projeto CleanTemplate.Tests. Cada teste é descrito com seu propósito, configuração, execução e verificação, servindo como base para entender como os testes estão funcionando.
 
 **Total de Testes**: 358 testes  
 **Organização**: Testes Unitários + Testes de Integração  
@@ -46,7 +46,7 @@ Esta documentação fornece uma explicação detalhada de todos os testes implem
 
 ### AccountEntityTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/AccountEntityTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/AccountEntityTests.cs`  
 **Propósito**: Testa a entidade Account e suas propriedades básicas  
 **Total de Testes**: 20+ testes  
 
@@ -115,7 +115,7 @@ public void Account_WhenCreated_ShouldHaveDefaultValues()
 
 ### AccountServiceTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/AccountServiceTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/AccountServiceTests.cs`  
 **Propósito**: Testa a lógica de negócio do serviço AccountService  
 **Total de Testes**: 50+ testes  
 **Dependências Mockadas**: ILoginUnitOfWork, IAccountRepository, IAccountClaimActionRepository
@@ -248,7 +248,7 @@ public AccountServiceTests()
 
 ### AccountRepositoryTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/AccountRepositoryTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/AccountRepositoryTests.cs`  
 **Propósito**: Testa operações de persistência do repositório AccountRepository  
 **Total de Testes**: 30+ testes  
 **Dependências**: EntityFramework InMemory Database
@@ -372,7 +372,7 @@ public AccountRepositoryTests()
 
 ### AccountPayLoadDTOTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/AccountPayLoadDTOTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/AccountPayLoadDTOTests.cs`  
 **Propósito**: Testa o DTO usado para payload de requisições Account  
 **Total de Testes**: 8 testes  
 
@@ -432,7 +432,7 @@ public AccountRepositoryTests()
 
 ### TokenTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/TokenTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/TokenTests.cs`  
 **Propósito**: Testa a entidade Token utilizada para JWT  
 **Total de Testes**: 15+ testes  
 
@@ -484,7 +484,7 @@ public AccountRepositoryTests()
 
 ### ValidationTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/ValidationTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/ValidationTests.cs`  
 **Propósito**: Testa helper de validação utilizado nos controllers  
 **Total de Testes**: 10+ testes  
 **Dependências Mockadas**: IValidator, IServiceProvider
@@ -527,7 +527,7 @@ public AccountRepositoryTests()
 
 ### AccountPayloadValidatorTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/AccountPayloadValidatorTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/AccountPayloadValidatorTests.cs`  
 **Propósito**: Testa validação de payload para criação/atualização de contas  
 **Total de Testes**: 20+ testes  
 **Framework**: FluentValidation com TestHelper
@@ -610,7 +610,7 @@ public AccountPayloadValidatorTests()
 
 ### AccountServiceErrorHandlingTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/AccountServiceErrorHandlingTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/AccountServiceErrorHandlingTests.cs`  
 **Propósito**: Testa cenários de erro e tratamento de exceções no AccountService  
 **Total de Testes**: 25+ testes  
 **Foco**: Robustez e tratamento de erros
@@ -686,7 +686,7 @@ public AccountPayloadValidatorTests()
 
 ### PasswordHashingTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/PasswordHashingTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/PasswordHashingTests.cs`  
 **Propósito**: Testa funções de hash de senha usando Argon2  
 **Total de Testes**: 12+ testes  
 
@@ -738,7 +738,7 @@ public AccountPayloadValidatorTests()
 
 ### LocalizationTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/LocalizationTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/LocalizationTests.cs`  
 **Propósito**: Testa funcionalidades de internacionalização e localização  
 **Total de Testes**: 15+ testes  
 **Culturas Testadas**: en (inglês), pt-BR (português brasileiro)
@@ -788,7 +788,7 @@ public AccountPayloadValidatorTests()
 
 ### ActionPayloadValidatorTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/ActionPayloadValidatorTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/ActionPayloadValidatorTests.cs`  
 **Propósito**: Testa validação de payload para entidade Action  
 **Total de Testes**: 15+ testes
 
@@ -826,7 +826,7 @@ public AccountPayloadValidatorTests()
 
 ### ClaimPayloadValidatorTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/ClaimPayloadValidatorTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/ClaimPayloadValidatorTests.cs`  
 **Propósito**: Testa validação de payload para entidade Claim  
 **Total de Testes**: 12+ testes
 
@@ -858,7 +858,7 @@ public AccountPayloadValidatorTests()
 
 ### ClaimActionPayloadValidatorTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/ClaimActionPayloadValidatorTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/ClaimActionPayloadValidatorTests.cs`  
 **Propósito**: Testa validação de payload para relacionamento Claim-Action  
 **Total de Testes**: 10+ testes
 
@@ -896,7 +896,7 @@ public AccountPayloadValidatorTests()
 
 ### AccountClaimActionPayloadValidatorTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/AccountClaimActionPayloadValidatorTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/AccountClaimActionPayloadValidatorTests.cs`  
 **Propósito**: Testa validação de payload para relacionamento Account-Claim-Action  
 **Total de Testes**: 12+ testes
 
@@ -934,7 +934,7 @@ public AccountPayloadValidatorTests()
 
 ### LocalizedSwaggerDocumentFilterTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/LocalizedSwaggerDocumentFilterTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/LocalizedSwaggerDocumentFilterTests.cs`  
 **Propósito**: Testa filtro de localização para documentação Swagger  
 **Total de Testes**: 8+ testes
 
@@ -960,7 +960,7 @@ public AccountPayloadValidatorTests()
 
 ### LocalizedSwaggerOperationFilterTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/LocalizedSwaggerOperationFilterTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/LocalizedSwaggerOperationFilterTests.cs`  
 **Propósito**: Testa filtro de localização para operações do Swagger  
 **Total de Testes**: 8+ testes
 
@@ -982,7 +982,7 @@ public AccountPayloadValidatorTests()
 
 ### ResourceStartupTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/ResourceStartupTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/ResourceStartupTests.cs`  
 **Propósito**: Testa recursos utilizados na inicialização da aplicação  
 **Total de Testes**: 5+ testes
 
@@ -1004,7 +1004,7 @@ public AccountPayloadValidatorTests()
 
 ### ApiLocalizationTests
 
-**Arquivo**: `Src/Authentication.Tests/Unit/ApiLocalizationTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Unit/ApiLocalizationTests.cs`  
 **Propósito**: Testa localização específica da API  
 **Total de Testes**: 10+ testes
 
@@ -1028,7 +1028,7 @@ public AccountPayloadValidatorTests()
 
 ### AuthenticationControllerTests
 
-**Arquivo**: `Src/Authentication.Tests/Integration/AuthenticationControllerTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/AuthenticationControllerTests.cs`  
 **Propósito**: Testa endpoints de autenticação end-to-end  
 **Total de Testes**: 15+ testes  
 **Setup**: WebApplicationFactory para testes de integração
@@ -1096,7 +1096,7 @@ public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory
 
 ### AccountControllerTests
 
-**Arquivo**: `Src/Authentication.Tests/Integration/AccountControllerTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/AccountControllerTests.cs`  
 **Propósito**: Testa operações CRUD de contas  
 **Total de Testes**: 25+ testes  
 
@@ -1154,7 +1154,7 @@ public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory
 
 ### AccountControllerEnhancedTests
 
-**Arquivo**: `Src/Authentication.Tests/Integration/AccountControllerEnhancedTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/AccountControllerEnhancedTests.cs`  
 **Propósito**: Testa cenários avançados e edge cases do AccountController  
 **Total de Testes**: 30+ testes  
 
@@ -1208,7 +1208,7 @@ public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory
 
 ### ActionControllerTests
 
-**Arquivo**: `Src/Authentication.Tests/Integration/ActionControllerTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/ActionControllerTests.cs`  
 **Propósito**: Testa endpoints relacionados à entidade Action  
 **Total de Testes**: 20+ testes  
 **Setup**: AuthenticationWebApplicationFactory com dados de teste
@@ -1270,7 +1270,7 @@ public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory
 
 ### ClaimActionControllerTests
 
-**Arquivo**: `Src/Authentication.Tests/Integration/ClaimActionControllerTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/ClaimActionControllerTests.cs`  
 **Propósito**: Testa endpoints do relacionamento Claim-Action  
 **Total de Testes**: 20+ testes
 
@@ -1322,7 +1322,7 @@ public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory
 
 ### AccountClaimActionControllerTests
 
-**Arquivo**: `Src/Authentication.Tests/Integration/AccountClaimActionControllerTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/AccountClaimActionControllerTests.cs`  
 **Propósito**: Testa endpoints de permissões de usuário (Account-Claim-Action)  
 **Total de Testes**: 20+ testes
 
@@ -1379,7 +1379,7 @@ public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory
 
 ### SwaggerLocalizationTests
 
-**Arquivo**: `Src/Authentication.Tests/Integration/SwaggerLocalizationTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/SwaggerLocalizationTests.cs`  
 **Propósito**: Testa localização da documentação Swagger  
 **Total de Testes**: 10+ testes
 
@@ -1425,7 +1425,7 @@ public AuthenticationControllerTests(AuthenticationWebApplicationFactory factory
 
 ### ExampleFixedControllerTests
 
-**Arquivo**: `Src/Authentication.Tests/Integration/ExampleFixedControllerTests.cs`  
+**Arquivo**: `Src/CleanTemplate.Tests/Integration/ExampleFixedControllerTests.cs`  
 **Propósito**: Testa controller de exemplo com correções aplicadas  
 **Total de Testes**: 5+ testes
 
@@ -1546,7 +1546,7 @@ public void Method_Scenario_ExpectedResult()
 
 ### Organização de Arquivos
 ```
-Src/Authentication.Tests/
+Src/CleanTemplate.Tests/
 ├── Unit/                     # Testes unitários isolados
 │   ├── *EntityTests.cs       # Testes de entidades
 │   ├── *ServiceTests.cs      # Testes de serviços
@@ -1646,7 +1646,7 @@ Src/Authentication.Tests/
 
 ## 🎯 Conclusão
 
-Esta documentação cobre todos os **349 testes** implementados no projeto Authentication.Tests, organizados em categorias lógicas e detalhadamente explicados. Cada teste é descrito com seu propósito específico, configuração necessária, execução e critérios de verificação.
+Esta documentação cobre todos os **349 testes** implementados no projeto CleanTemplate.Tests, organizados em categorias lógicas e detalhadamente explicados. Cada teste é descrito com seu propósito específico, configuração necessária, execução e critérios de verificação.
 
 ### ✅ Status Atual dos Testes
 - **Total de Testes**: 349 testes
@@ -1726,4 +1726,4 @@ O projeto Authentication possui uma **infraestrutura de testes robusta e abrange
 
 ---
 
-*Documentação gerada automaticamente baseada na análise completa dos 349 testes implementados no projeto Authentication.Tests.*
+*Documentação gerada automaticamente baseada na análise completa dos 349 testes implementados no projeto CleanTemplate.Tests.*

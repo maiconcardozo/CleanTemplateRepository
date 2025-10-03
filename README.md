@@ -29,14 +29,14 @@ The template is organized in well-defined layers following Clean Architecture pr
 ```
 CleanTemplateRepository/
 ├── Src/
-│   ├── Authentication.API/           # API Layer
+│   ├── CleanTemplate.API/           # API Layer
 │   │   ├── Controllers/             # API Controllers
 │   │   │   └── CleanEntityController.cs  # Example CRUD controller
 │   │   ├── Middleware/              # Custom middleware
 │   │   ├── Swagger/                 # API documentation
 │   │   └── Data/                    # Database contexts
 │   │
-│   └── Authentication.Login/        # Domain & Business Logic
+│   └── CleanTemplate.Application/        # Domain & Business Logic
 │       ├── Domain/                  # Domain entities
 │       │   ├── Implementation/      # Concrete implementations
 │       │   │   ├── CleanEntity.cs   # Example entity
@@ -169,13 +169,13 @@ dotnet --version
 # Should output: 8.0.x
 
 # 4. Restore dependencies
-dotnet restore Solution/Authentication.sln
+dotnet restore Solution/CleanTemplate.sln
 
 # 5. Build in Debug mode (development)
-dotnet build Solution/Authentication.sln --configuration Debug
+dotnet build Solution/CleanTemplate.sln --configuration Debug
 
 # 6. Run the API
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet run --configuration Debug
 ```
 
@@ -194,7 +194,7 @@ scripts/test.bat                # Windows - build and test everything
 
 # 3. Manual verification steps:
 # Verify compilation
-dotnet build Solution/Authentication.sln --configuration Release
+dotnet build Solution/CleanTemplate.sln --configuration Release
 # Should complete without errors
 
 # Run all tests  
@@ -203,7 +203,7 @@ scripts/run-tests.bat all       # Windows
 # Should show test results
 
 # Start the application
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet run
 # Should start on https://localhost:7001
 ```
@@ -360,16 +360,16 @@ scripts/build.bat verify                  # Windows
 
 # Method 3: Manual verification steps
 # 1. Full compilation check (Release mode)
-dotnet clean Solution/Authentication.sln
-dotnet restore Solution/Authentication.sln  
-dotnet build Solution/Authentication.sln --configuration Release
+dotnet clean Solution/CleanTemplate.sln
+dotnet restore Solution/CleanTemplate.sln  
+dotnet build Solution/CleanTemplate.sln --configuration Release
 
 # 2. Test execution verification
 ./run-tests.sh all                  # Linux/Mac
 ./run-tests.bat all                 # Windows
 
 # 3. API startup verification
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet run --configuration Release  # Should start on https://localhost:7001
 
 # 4. Access API documentation
@@ -409,11 +409,11 @@ Update the connection string in `appsettings.Development.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB;Uid=your_user;Pwd=your_password;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB;Uid=your_user;Pwd=your_password;"
   },
   "JwtSettings": {
-    "Issuer": "Authentication",
-    "Audience": "AuthenticationClients",
+    "Issuer": "CleanTemplate",
+    "Audience": "CleanTemplateClients",
     "SecretKey": "your-secret-key-minimum-32-characters",
     "ExpirationMinutes": 60
   }
@@ -423,7 +423,7 @@ Update the connection string in `appsettings.Development.json`:
 ### 2. Initializing the Database
 
 ```bash
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment
 ```
 
@@ -492,8 +492,8 @@ public class Program
 ### 4. Using the Authentication Service (With Debug)
 
 ```csharp
-using Authentication.Login.Services;
-using Authentication.Login.DTO;
+using CleanTemplate.Application.Services;
+using CleanTemplate.Application.DTO;
 using Microsoft.Extensions.Logging;
 
 public class AuthController : ControllerBase
@@ -574,18 +574,18 @@ The selected language is automatically saved as a cookie and will persist for al
 
 ### 🏛️ API Layer
 
-- **`AuthenticationController`**: Main controller for authentication
+- **`CleanEntityController`**: Example CRUD controller
 - **`Middleware`**: Custom middleware for JWT and logging
 
 ### 🔐 Services Layer
 
-- **`IAuthenticationService`**: Interface for authentication services
-- **`AuthenticationService`**: Authentication services implementation
+- **`ICleanEntityService`**: Interface for business services
+- **`CleanEntityService`**: Business services implementation
 
 ### 🗃️ Repository Layer
 
-- **`IUserRepository`**: Interface for user data access
-- **`UserRepository`**: Implementation with user CRUD operations
+- **`ICleanEntityRepository`**: Interface for data access
+- **`CleanEntityRepository`**: Implementation with CRUD operations
 
 ### 🛠️ Utilities
 
@@ -659,7 +659,7 @@ if (validationResult != null) return validationResult;
 
 ```bash
 # 1. Authenticate and get JWT token
-curl -X POST "https://localhost:7001/Authentication/GenerateToken" \
+curl -X POST "https://localhost:7001/CleanEntity/GenerateToken" \
   -H "Content-Type: application/json" \
   -d '{"userName": "admin", "password": "password123"}'
 
@@ -697,12 +697,15 @@ curl -X POST "https://localhost:7001/AccountClaimAction/AddAccountClaimAction" \
 
 ## 🌐 API Endpoints
 
-### Main Authentication Endpoints
+### Main API Endpoints
 
 | Method | Endpoint | Description | Authentication |
 |--------|----------|-------------|----------------|
-| **POST** | `/Authentication/GenerateToken` | 🔑 Generate JWT token | ❌ |
-| **POST** | `/Authentication/AddAccount` | 👤 Create user account | ❌ |
+| **GET** | `/CleanEntity/GetCleanEntities` | 📋 Get all entities | ❌ |
+| **GET** | `/CleanEntity/GetCleanEntityById/{id}` | 🔍 Get entity by ID | ❌ |
+| **POST** | `/CleanEntity/AddCleanEntity` | ➕ Create new entity | ❌ |
+| **PUT** | `/CleanEntity/UpdateCleanEntity/{id}` | ✏️ Update entity | ❌ |
+| **DELETE** | `/CleanEntity/DeleteCleanEntity/{id}` | 🗑️ Delete entity | ❌ |
 | **GET** | `/health` | ❤️ Health check | ❌ |
 
 ### Permission Management Endpoints (RBAC)
@@ -732,7 +735,7 @@ curl -X POST "https://localhost:7001/AccountClaimAction/AddAccountClaimAction" \
 Generates a JWT token for valid user credentials:
 
 ```bash
-curl -X POST "https://localhost:7001/Authentication/GenerateToken" \
+curl -X POST "https://localhost:7001/CleanEntity/GenerateToken" \
   -H "Content-Type: application/json" \
   -d '{
     "userName": "admin",
@@ -762,7 +765,7 @@ curl -X POST "https://localhost:7001/Authentication/GenerateToken" \
   "status": 401,
   "detail": "Invalid username or password",
   "type": "https://tools.ietf.org/html/rfc7231#section-6.3.1",
-  "instance": "/Authentication/GenerateToken"
+  "instance": "/CleanEntity/GenerateToken"
 }
 ```
 
@@ -773,7 +776,7 @@ curl -X POST "https://localhost:7001/Authentication/GenerateToken" \
   "status": 400,
   "detail": "One or more validation errors occurred",
   "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
-  "instance": "/Authentication/GenerateToken"
+  "instance": "/CleanEntity/GenerateToken"
 }
 ```
 
@@ -856,14 +859,14 @@ dotnet restore Solution/CleanTemplate.sln
 dotnet build Solution/CleanTemplate.sln --configuration Debug
 
 # Run in development mode
-dotnet run --project Src/Authentication.API
+dotnet run --project Src/CleanTemplate.API
 
 # Run tests using convenience scripts (recommended)
 scripts/run-tests.sh all          # Linux/Mac - runs all tests
 scripts/run-tests.bat all         # Windows - runs all tests
 
 # Or run tests manually
-dotnet test Src/Authentication.Tests/Authentication.Tests.csproj
+dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
 ```
 
 ## 🧪 Running Tests
@@ -879,7 +882,7 @@ The project includes a comprehensive test suite following TDD architecture with 
 test.bat                    # Windows
 
 # Alternative: Direct dotnet command
-dotnet test Solution/Authentication.sln
+dotnet test Solution/CleanTemplate.sln
 ```
 
 **Using convenience scripts (advanced options):**
@@ -902,10 +905,10 @@ scripts/run-tests.sh watch        # Run in watch mode (continuous)
 
 ```bash
 # Run all tests
-dotnet test Src/Authentication.Tests/Authentication.Tests.csproj
+dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
 
 # Run tests with verbosity
-dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --verbosity normal
+dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --verbosity normal
 
 # Run integration tests only
 dotnet test --filter "FullyQualifiedName~Integration"
@@ -914,7 +917,7 @@ dotnet test --filter "FullyQualifiedName~Integration"
 dotnet test --filter "FullyQualifiedName~Unit"
 
 # Run with code coverage
-dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --collect:"XPlat Code Coverage"
+dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --collect:"XPlat Code Coverage"
 ```
 
 ### 📊 Test Status & Coverage
@@ -1045,14 +1048,14 @@ When developing, follow these practices to avoid CI failures:
 
 ```bash
 # 1. Check code quality before committing
-dotnet build Solution/Authentication.sln /warnaserror:IDE0046,IDE0045
+dotnet build Solution/CleanTemplate.sln /warnaserror:IDE0046,IDE0045
 
 # 2. Fix any else statement violations
 # Replace: if/else return → ternary operator
 # Replace: if/else assignment → ternary operator
 
 # 3. Verify SOLID principle compliance
-dotnet build Solution/Authentication.sln /warnaserror:S3776,S1541,S1200
+dotnet build Solution/CleanTemplate.sln /warnaserror:S3776,S1541,S1200
 
 # 4. Run full test suite
 ./test.sh
@@ -1097,7 +1100,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## 📞 Support
 
 For questions, suggestions, or to report issues:
-- Open an [issue](https://github.com/maiconcardozo/Authentication/issues)
+- Open an [issue](https://github.com/maiconcardozo/CleanEntity/issues)
 - Contact through GitHub
 
 ---

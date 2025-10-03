@@ -13,7 +13,7 @@ This document provides comprehensive instructions for running tests in the Authe
 scripts/test.bat                     # Windows
 
 # Alternative universal command
-dotnet test Solution/Authentication.sln
+dotnet test Solution/CleanTemplate.sln
 ```
 
 ### 🛠️ **Advanced: Using Test Scripts** (Most Features)
@@ -46,7 +46,7 @@ scripts/run-tests.sh help            # Show all options
 Tests are organized in a clean, maintainable structure:
 
 ```
-Src/Authentication.Tests/
+Src/CleanTemplate.Tests/
 ├── Controllers/              # Controller-specific tests (future expansion)
 ├── Fixtures/                 # Test configurations and test data factories
 ├── Helpers/                  # Test utilities and common helper methods
@@ -69,7 +69,7 @@ Src/Authentication.Tests/
 │   ├── PasswordHashingTests.cs
 │   ├── ValidationTests.cs
 │   └── ClaimsAndTokenTests.cs
-└── Authentication.Tests.csproj
+└── CleanTemplate.Tests.csproj
 ```
 
 ## 📊 Test Coverage Summary
@@ -153,13 +153,13 @@ dotnet --version
 cd /home/runner/work/Authentication/Authentication
 
 # 3. Restore dependencies
-dotnet restore Solution/Authentication.sln
+dotnet restore Solution/CleanTemplate.sln
 
 # 4. Build solution
-dotnet build Solution/Authentication.sln --configuration Release
+dotnet build Solution/CleanTemplate.sln --configuration Release
 
 # 5. Run tests
-dotnet test Solution/Authentication.sln
+dotnet test Solution/CleanTemplate.sln
 ```
 
 ## 🔧 Manual Test Commands
@@ -167,22 +167,22 @@ dotnet test Solution/Authentication.sln
 ### 🎯 Basic Test Execution
 ```bash
 # Run all tests (simplest method)
-dotnet test Solution/Authentication.sln
+dotnet test Solution/CleanTemplate.sln
 
 # Run all tests with detailed output
-dotnet test Solution/Authentication.sln --verbosity normal
+dotnet test Solution/CleanTemplate.sln --verbosity normal
 
 # Run tests targeting specific project
-dotnet test Src/Authentication.Tests/Authentication.Tests.csproj
+dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
 ```
 
 ### 🔍 Filtered Test Execution
 ```bash
 # Run only integration tests
-dotnet test Solution/Authentication.sln --filter "FullyQualifiedName~Integration"
+dotnet test Solution/CleanTemplate.sln --filter "FullyQualifiedName~Integration"
 
 # Run only unit tests  
-dotnet test Solution/Authentication.sln --filter "FullyQualifiedName~Unit"
+dotnet test Solution/CleanTemplate.sln --filter "FullyQualifiedName~Unit"
 
 # Run specific test class
 dotnet test --filter "FullyQualifiedName~AccountControllerTests"
@@ -194,17 +194,17 @@ dotnet test --filter "Category=Integration"
 ### 📊 Test Reporting and Analysis
 ```bash
 # Generate TRX test results
-dotnet test Solution/Authentication.sln \
+dotnet test Solution/CleanTemplate.sln \
   --logger trx \
   --results-directory TestResults
 
 # Run tests with code coverage
-dotnet test Solution/Authentication.sln \
+dotnet test Solution/CleanTemplate.sln \
   --collect:"XPlat Code Coverage" \
   --results-directory TestResults/Coverage
 
 # Combined: Tests with coverage and TRX results
-dotnet test Solution/Authentication.sln \
+dotnet test Solution/CleanTemplate.sln \
   --logger trx \
   --collect:"XPlat Code Coverage" \
   --results-directory TestResults \
@@ -214,15 +214,15 @@ dotnet test Solution/Authentication.sln \
 ### 🔄 Continuous Testing
 ```bash
 # Watch mode - automatically re-run tests on file changes
-dotnet watch test --project Src/Authentication.Tests/Authentication.Tests.csproj
+dotnet watch test --project Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
 
 # Build and test in one command
-dotnet build Solution/Authentication.sln && dotnet test Solution/Authentication.sln
+dotnet build Solution/CleanTemplate.sln && dotnet test Solution/CleanTemplate.sln
 ```
 
 ### Running in Visual Studio
 
-1. Open solution `Solution/Authentication.sln`
+1. Open solution `Solution/CleanTemplate.sln`
 2. Build solution (Ctrl+Shift+B)
 3. Open Test Explorer (Test > Test Explorer)
 4. Run all tests or specific tests
@@ -474,7 +474,7 @@ Tests are designed to run in CI/CD pipelines:
 ```yaml
 # Example for GitHub Actions
 - name: Run Tests
-  run: dotnet test Src/Authentication.Tests/Authentication.Tests.csproj --no-build --verbosity normal
+  run: dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --no-build --verbosity normal
 ```
 
 ## Account Entity Test Examples
