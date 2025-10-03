@@ -44,11 +44,11 @@ EOF
 echo "📄 Created test file with else statements..."
 
 # Copy test file to project
-cp /tmp/CodeQualityTestTemp.cs Src/Authentication.Tests/
+cp /tmp/CodeQualityTestTemp.cs Src/CleanTemplate.Tests/
 
 # Test build should fail
 echo "🔥 Testing build failure with else statements..."
-if dotnet build Src/Authentication.Tests/Authentication.Tests.csproj --configuration Release /warnaserror:IDE0046,IDE0045 > /tmp/build_output.txt 2>&1; then
+if dotnet build Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --configuration Release /warnaserror:IDE0046,IDE0045 > /tmp/build_output.txt 2>&1; then
     echo "❌ FAIL: Build should have failed but succeeded"
     exit 1
 else
@@ -57,11 +57,11 @@ else
 fi
 
 # Remove test file
-rm Src/Authentication.Tests/CodeQualityTestTemp.cs
+rm Src/CleanTemplate.Tests/CodeQualityTestTemp.cs
 
 # Test build should succeed  
 echo "✅ Testing build success without else statements..."
-if dotnet build Src/Authentication.Tests/Authentication.Tests.csproj --configuration Release /warnaserror:IDE0046,IDE0045 > /tmp/build_output_clean.txt 2>&1; then
+if dotnet build Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj --configuration Release /warnaserror:IDE0046,IDE0045 > /tmp/build_output_clean.txt 2>&1; then
     echo "✅ PASS: Build succeeded after removing else statements"
 else
     echo "❌ FAIL: Build should have succeeded but failed"

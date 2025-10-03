@@ -42,7 +42,7 @@ mysql -h localhost -u authuser -p
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Port=3306;Database=AuthenticationDB;Uid=authuser;Pwd=password123;SslMode=none;AllowPublicKeyRetrieval=true;"
+    "DefaultConnection": "Server=localhost;Port=3306;Database=CleanTemplateDB;Uid=authuser;Pwd=password123;SslMode=none;AllowPublicKeyRetrieval=true;"
   }
 }
 ```
@@ -51,7 +51,7 @@ mysql -h localhost -u authuser -p
 ```sql
 DROP USER IF EXISTS 'authuser'@'localhost';
 CREATE USER 'authuser'@'localhost' IDENTIFIED BY 'password123';
-GRANT ALL PRIVILEGES ON AuthenticationDB.* TO 'authuser'@'localhost';
+GRANT ALL PRIVILEGES ON CleanTemplateDB.* TO 'authuser'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
@@ -74,7 +74,7 @@ builder.Services.AddDbContext<ApiContextDevelopment>(options =>
 
 #### 2. Executar Migração com Verbose
 ```bash
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment --verbose
 ```
 
@@ -103,8 +103,8 @@ Could not load file or assembly 'System.Text.Json'
 #### 1. Limpar Cache e Restaurar
 ```bash
 dotnet nuget locals all --clear
-dotnet restore Solution/Authentication.sln --force
-dotnet build Solution/Authentication.sln --no-restore
+dotnet restore Solution/CleanTemplate.sln --force
+dotnet build Solution/CleanTemplate.sln --no-restore
 ```
 
 #### 2. Verificar Versões de Packages
@@ -314,10 +314,10 @@ if (app.Environment.IsDevelopment())
 
 #### 2. Verificar XML Documentation
 ```xml
-<!-- Authentication.API.csproj -->
+<!-- CleanTemplate.API.csproj -->
 <PropertyGroup>
   <GenerateDocumentationFile>true</GenerateDocumentationFile>
-  <DocumentationFile>bin\Debug\net9.0\Authentication.API.xml</DocumentationFile>
+  <DocumentationFile>bin\Debug\net9.0\CleanTemplate.API.xml</DocumentationFile>
 </PropertyGroup>
 ```
 
@@ -338,7 +338,7 @@ Connection string not found
 // appsettings.Testing.json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB_Test;Uid=authuser;Pwd=password123;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB_Test;Uid=authuser;Pwd=password123;"
   }
 }
 ```

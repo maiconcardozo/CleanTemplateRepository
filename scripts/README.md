@@ -1,6 +1,6 @@
 # 🛠️ Scripts Directory
 
-This directory contains all build and testing scripts for the Authentication project.
+This directory contains all build and testing scripts for the CleanTemplate project.
 
 ## 📋 Available Scripts
 

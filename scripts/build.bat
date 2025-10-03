@@ -1,10 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
 
-REM Authentication Build Script para Windows
-REM Este script facilita a compilação do projeto Authentication
+REM CleanTemplateRepository Build Script para Windows
+REM Este script facilita a compilação do projeto CleanTemplateRepository
 
-echo 🏗️ Authentication Build Script
+echo 🏗️ CleanTemplateRepository Build Script
 echo ==============================
 
 REM Navegar para o diretório raiz do projeto
@@ -16,9 +16,9 @@ if "%1"=="-h" goto :show_help
 if "%1"=="--help" goto :show_help
 
 REM Verificar se o arquivo de solução existe
-if not exist "Solution\Authentication.sln" (
+if not exist "Solution\CleanTemplate.sln" (
     echo ❌ Arquivo de solução não encontrado!
-    echo Verifique se você está na raiz do projeto Authentication.
+    echo Verifique se você está na raiz do projeto CleanTemplateRepository.
     exit /b 1
 )
 
@@ -57,12 +57,12 @@ goto :show_help
 
 :build_debug
 echo 🛠️ Restaurando dependências...
-dotnet restore Solution\Authentication.sln
+dotnet restore Solution\CleanTemplate.sln
 if %errorlevel% neq 0 exit /b 1
 
 echo 🏃 Compilando em modo Debug...
 echo.
-dotnet build Solution\Authentication.sln --configuration Debug
+dotnet build Solution\CleanTemplate.sln --configuration Debug
 if %errorlevel% equ 0 (
     echo.
     echo ✅ Compilação concluída com sucesso!
@@ -75,12 +75,12 @@ goto :end
 
 :build_release
 echo 🛠️ Restaurando dependências...
-dotnet restore Solution\Authentication.sln
+dotnet restore Solution\CleanTemplate.sln
 if %errorlevel% neq 0 exit /b 1
 
 echo 🏃 Compilando em modo Release...
 echo.
-dotnet build Solution\Authentication.sln --configuration Release
+dotnet build Solution\CleanTemplate.sln --configuration Release
 if %errorlevel% equ 0 (
     echo.
     echo ✅ Compilação concluída com sucesso!
@@ -93,14 +93,14 @@ goto :end
 
 :build_clean
 echo 🧹 Limpando projeto...
-dotnet clean Solution\Authentication.sln
+dotnet clean Solution\CleanTemplate.sln
 echo 🛠️ Restaurando dependências...
-dotnet restore Solution\Authentication.sln
+dotnet restore Solution\CleanTemplate.sln
 if %errorlevel% neq 0 exit /b 1
 
 echo 🏃 Compilando em modo Debug...
 echo.
-dotnet build Solution\Authentication.sln --configuration Debug
+dotnet build Solution\CleanTemplate.sln --configuration Debug
 if %errorlevel% equ 0 (
     echo.
     echo ✅ Compilação concluída com sucesso!
@@ -113,7 +113,7 @@ goto :end
 
 :restore_only
 echo 📦 Restaurando dependências...
-dotnet restore Solution\Authentication.sln
+dotnet restore Solution\CleanTemplate.sln
 if %errorlevel% equ 0 (
     echo ✅ Dependências restauradas com sucesso!
 ) else (
@@ -127,12 +127,12 @@ echo 🔍 Verificação completa do projeto...
 echo.
 
 echo 📦 Restaurando dependências...
-dotnet restore Solution\Authentication.sln
+dotnet restore Solution\CleanTemplate.sln
 if %errorlevel% neq 0 exit /b 1
 
 echo 🏃 Compilando em modo Release...
 echo.
-dotnet build Solution\Authentication.sln --configuration Release
+dotnet build Solution\CleanTemplate.sln --configuration Release
 if %errorlevel% neq 0 (
     echo ❌ Falha na compilação!
     exit /b 1

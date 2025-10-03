@@ -26,10 +26,10 @@ git clone https://github.com/maiconcardozo/CleanTemplateRepository.git
 cd CleanTemplateRepository
 
 # Restaure as dependências
-dotnet restore Solution/Authentication.sln
+dotnet restore Solution/CleanTemplate.sln
 
 # Construa o projeto
-dotnet build Solution/Authentication.sln --configuration Debug
+dotnet build Solution/CleanTemplate.sln --configuration Debug
 ```
 
 ### 2. Configure o Banco de Dados
@@ -38,9 +38,9 @@ dotnet build Solution/Authentication.sln --configuration Debug
 ```bash
 # Inicie o MySQL e crie um banco
 mysql -u root -p
-CREATE DATABASE AuthenticationDB;
+CREATE DATABASE CleanTemplateDB;
 CREATE USER 'authuser'@'localhost' IDENTIFIED BY 'password123';
-GRANT ALL PRIVILEGES ON AuthenticationDB.* TO 'authuser'@'localhost';
+GRANT ALL PRIVILEGES ON CleanTemplateDB.* TO 'authuser'@'localhost';
 FLUSH PRIVILEGES;
 exit;
 ```
@@ -50,7 +50,7 @@ exit;
 # Execute MySQL em container Docker
 docker run --name mysql-auth \
   -e MYSQL_ROOT_PASSWORD=rootpass \
-  -e MYSQL_DATABASE=AuthenticationDB \
+  -e MYSQL_DATABASE=CleanTemplateDB \
   -e MYSQL_USER=authuser \
   -e MYSQL_PASSWORD=password123 \
   -p 3306:3306 \
@@ -59,12 +59,12 @@ docker run --name mysql-auth \
 
 ### 3. Configure a Connection String
 
-Edite `Src/Authentication.API/appsettings.Development.json`:
+Edite `Src/CleanTemplate.API/appsettings.Development.json`:
 
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB;Uid=authuser;Pwd=password123;SslMode=none;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB;Uid=authuser;Pwd=password123;SslMode=none;"
   },
   "JwtSettings": {
     "Issuer": "Authentication",
@@ -78,7 +78,7 @@ Edite `Src/Authentication.API/appsettings.Development.json`:
 ### 4. Execute as Migrações do Banco
 
 ```bash
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment
 ```
 
@@ -219,7 +219,7 @@ curl -X POST "https://localhost:7001/AccountClaimAction/AddAccountClaimAction" \
 
 ```bash
 # Execute todos os testes
-dotnet test Src/Authentication.Tests/Authentication.Tests.csproj
+dotnet test Src/CleanTemplate.Tests/CleanTemplate.Tests.csproj
 
 # Execute apenas testes unitários
 dotnet test --filter "FullyQualifiedName~Unit"
@@ -349,7 +349,7 @@ Unable to create an object of type 'ApiContextDevelopment'
 ```
 **Solução**: 
 ```bash
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment --verbose
 ```
 

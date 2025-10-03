@@ -42,8 +42,8 @@ cd "$(dirname "$0")/.."
 check_dotnet_version
 
 # Check if solution exists
-if [ ! -f "Solution/Authentication.sln" ]; then
-    echo "❌ Solution file not found at Solution/Authentication.sln"
+if [ ! -f "Solution/CleanTemplate.sln" ]; then
+    echo "❌ Solution file not found at Solution/CleanTemplate.sln"
     echo "📂 Current directory: $(pwd)"
     echo "📁 Available files:"
     ls -la | head -10
@@ -51,7 +51,7 @@ if [ ! -f "Solution/Authentication.sln" ]; then
 fi
 
 echo "📦 Restoring packages..."
-if dotnet restore Solution/Authentication.sln; then
+if dotnet restore Solution/CleanTemplate.sln; then
     echo "✅ Package restore successful"
 else
     echo "❌ Package restore failed"
@@ -59,7 +59,7 @@ else
 fi
 
 echo "🏗️ Building solution..."
-if dotnet build Solution/Authentication.sln --configuration Release --no-restore; then
+if dotnet build Solution/CleanTemplate.sln --configuration Release --no-restore; then
     echo "✅ Build successful"
 else
     echo "❌ Build failed"
@@ -76,7 +76,7 @@ echo ""
 # Create TestResults directory if it doesn't exist
 mkdir -p TestResults
 
-if dotnet test Solution/Authentication.sln \
+if dotnet test Solution/CleanTemplate.sln \
     --configuration Release \
     --no-build \
     --verbosity normal \

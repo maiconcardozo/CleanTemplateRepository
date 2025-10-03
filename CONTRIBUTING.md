@@ -1,6 +1,6 @@
 # 🤝 Contributing Guide
 
-Thank you for your interest in contributing to the Authentication service! This guide will help you get started with contributing to the project.
+Thank you for your interest in contributing to the CleanTemplate service! This guide will help you get started with contributing to the project.
 
 ## 📋 Table of Contents
 
@@ -64,8 +64,8 @@ git clone https://github.com/YOUR_USERNAME/CleanTemplateRepository.git
 # │       └── Foundation.Base/
 # └── CleanTemplateRepository/
 #     └── Src/
-#         ├── Authentication.API/
-#         └── Authentication.Login/
+#         ├── CleanTemplate.API/
+#         └── CleanTemplate.Application/
 
 cd CleanTemplateRepository
 
@@ -77,15 +77,15 @@ git remote add upstream https://github.com/maiconcardozo/CleanTemplateRepository
 
 ```bash
 # Install dependencies
-dotnet restore Solution/Authentication.sln
+dotnet restore Solution/CleanTemplate.sln
 
 # Setup database
 mysql -u root -p
-CREATE DATABASE AuthenticationDB_Dev;
+CREATE DATABASE CleanTemplateDB_Dev;
 exit
 
 # Run migrations
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet ef database update --context ApiContextDevelopment
 ```
 
@@ -96,11 +96,11 @@ Create `appsettings.Development.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=AuthenticationDB_Dev;Uid=root;Pwd=your_password;"
+    "DefaultConnection": "Server=localhost;Database=CleanTemplateDB_Dev;Uid=root;Pwd=your_password;"
   },
   "JwtSettings": {
-    "Issuer": "AuthenticationService",
-    "Audience": "AuthenticationClients",
+    "Issuer": "CleanTemplateService",
+    "Audience": "CleanTemplateClients",
     "SecretKey": "development-secret-key-minimum-32-characters-long",
     "ExpirationMinutes": 60
   },
@@ -117,13 +117,13 @@ Create `appsettings.Development.json`:
 
 ```bash
 # Build the solution
-dotnet build Solution/Authentication.sln
+dotnet build Solution/CleanTemplate.sln
 
 # Run tests
-dotnet test Solution/Authentication.sln
+dotnet test Solution/CleanTemplate.sln
 
 # Start the application
-cd Src/Authentication.API
+cd Src/CleanTemplate.API
 dotnet run
 ```
 
@@ -282,23 +282,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;       // Microsoft namespaces
 using Microsoft.EntityFrameworkCore;
                                        // Blank line
-using Authentication.Login.Domain;     // Project namespaces
+using CleanTemplate.Application.Domain;     // Project namespaces
 using Foundation.Base.Util;
 
-namespace Authentication.API.Controllers // Namespace matches folder structure
+namespace CleanTemplate.API.Controllers // Namespace matches folder structure
 {
     /// <summary>
     /// XML documentation for public members
     /// </summary>
     [ApiController]
     [Route("[controller]")]
-    public class AuthenticationController : ControllerBase
+    public class CleanEntityController : ControllerBase
     {
         // Private fields first
         private readonly IAccountService _accountService;
         
         // Constructor
-        public AuthenticationController(IAccountService accountService)
+        public CleanEntityController(IAccountService accountService)
         {
             _accountService = accountService ?? throw new ArgumentNullException(nameof(accountService));
         }
@@ -343,14 +343,14 @@ Dictionary<string, List<Claim>> userClaims = new();
 
 ```
 Src/
-├── Authentication.API/              # Web API Layer
+├── CleanTemplate.API/              # Web API Layer
 │   ├── Controllers/                # API Controllers
 │   ├── Middleware/                # Custom middleware
 │   ├── Extensions/                # Extension methods
 │   ├── Filters/                   # Action filters
 │   └── Program.cs                 # Application entry point
 │
-├── Authentication.Login/           # Domain & Business Logic
+├── CleanTemplate.Application/           # Domain & Business Logic
 │   ├── Domain/                    # Domain entities and interfaces
 │   │   ├── Implementation/        # Concrete entities
 │   │   └── Interface/            # Domain interfaces
@@ -366,9 +366,9 @@ Src/
 │   └── Extensions/               # Extension methods
 │
 └── Tests/                         # Test projects
-    ├── Authentication.API.Tests/  # API tests
-    ├── Authentication.Login.Tests/ # Domain tests
-    └── Authentication.Integration.Tests/ # Integration tests
+    ├── CleanTemplate.API.Tests/  # API tests
+    ├── CleanTemplate.Application.Tests/ # Domain tests
+    └── CleanTemplate.Integration.Tests/ # Integration tests
 ```
 
 ## 🧪 Testing Guidelines
@@ -419,7 +419,7 @@ public class AccountRepositoryIntegrationTests
 // End-to-end tests - test complete workflows
 [TestFixture]
 [Category("E2E")]
-public class AuthenticationWorkflowTests
+public class CleanTemplateWorkflowTests
 {
     // Test implementations
 }
@@ -583,4 +583,4 @@ Contributors are recognized in:
 - **Release Notes**: Major contributors mentioned
 - **GitHub**: Contributor graphs and statistics
 
-Thank you for contributing to the Authentication service! 🚀
+Thank you for contributing to the CleanTemplate service! 🚀

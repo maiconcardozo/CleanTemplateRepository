@@ -25,7 +25,7 @@
 
 3. **⚡ Direct dotnet Command**
    ```bash
-   dotnet test Solution/Authentication.sln
+   dotnet test Solution/CleanTemplate.sln
    ```
 
 4. **🏗️ CI/CD Pipeline**
@@ -113,8 +113,8 @@ dotnet --version
 # Should show: 9.0.x
 
 # 3. Test compatibility
-dotnet restore Solution/Authentication.sln
-dotnet build Solution/Authentication.sln
+dotnet restore Solution/CleanTemplate.sln
+dotnet build Solution/CleanTemplate.sln
 ```
 
 ### 🔧 **Environment Verification**
@@ -129,17 +129,17 @@ cat global.json
 
 # Verify solution structure
 ls -la Solution/
-ls -la Src/Authentication.Tests/
+ls -la Src/CleanTemplate.Tests/
 ```
 
 #### **Compatibility Check**:
 ```bash
 # Test if project can compile
-dotnet restore Solution/Authentication.sln
-dotnet build Solution/Authentication.sln --configuration Release
+dotnet restore Solution/CleanTemplate.sln
+dotnet build Solution/CleanTemplate.sln --configuration Release
 
 # Test basic functionality
-dotnet test Solution/Authentication.sln --verbosity minimal
+dotnet test Solution/CleanTemplate.sln --verbosity minimal
 ```
 
 ## 📈 Execution Performance
@@ -170,22 +170,22 @@ dotnet test Solution/Authentication.sln --verbosity minimal
 #### **"Build failed before tests"**
 ```bash
 # Solution: Clean and rebuild
-dotnet clean Solution/Authentication.sln
-dotnet restore Solution/Authentication.sln
-dotnet build Solution/Authentication.sln
+dotnet clean Solution/CleanTemplate.sln
+dotnet restore Solution/CleanTemplate.sln
+dotnet build Solution/CleanTemplate.sln
 ```
 
 #### **"No tests found"**
 ```bash
 # Solution: Verify paths and use correct solution
 pwd  # Should be in project root
-dotnet test Solution/Authentication.sln  # Use full solution path
+dotnet test Solution/CleanTemplate.sln  # Use full solution path
 ```
 
 #### **"Tests timeout or run slowly"**
 ```bash
 # Solution: Run in Release mode
-dotnet test Solution/Authentication.sln --configuration Release
+dotnet test Solution/CleanTemplate.sln --configuration Release
 ```
 
 ## 📚 Documentation References
@@ -199,8 +199,8 @@ dotnet test Solution/Authentication.sln --configuration Release
 ### 🎯 **Quick Links**
 - **CI/CD Workflow**: `.github/workflows/ci.yml`
 - **Test Scripts**: `scripts/` directory
-- **Test Projects**: `Src/Authentication.Tests/`
-- **Solution File**: `Solution/Authentication.sln`
+- **Test Projects**: `Src/CleanTemplate.Tests/`
+- **Solution File**: `Solution/CleanTemplate.sln`
 
 ## 🏆 Quality Assurance
 

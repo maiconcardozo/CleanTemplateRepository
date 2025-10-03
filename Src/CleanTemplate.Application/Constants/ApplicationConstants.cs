@@ -23,23 +23,23 @@ namespace CleanTemplate.Application.Constants
         
         public static class Api
         {
-            public const string Title = "Authentication API";
+            public const string Title = "CleanTemplate API";
             public const string Version = "v1";
             public const string SwaggerEndpoint = "/swagger/v1/swagger.json";
-            public const string SwaggerDisplayName = "Authentication API V1";
+            public const string SwaggerDisplayName = "CleanTemplate API V1";
             public const string CustomStylePath = "/Style/custom-swagger.css";
             public const string EmptyRoutePrefix = "";
 
             // Swagger definitions
             public static class SwaggerDefinitions
             {
-                public const string Authentication = "Authentication";
+                public const string CleanTemplate = "CleanTemplate";
                 public const string AccessControl = "AccessControl";
                 
-                public const string AuthenticationEndpoint = "/swagger/Authentication/swagger.json";
+                public const string CleanTemplateEndpoint = "/swagger/CleanTemplate/swagger.json";
                 public const string AccessControlEndpoint = "/swagger/AccessControl/swagger.json";
                 
-                public const string AuthenticationDisplayName = "Authentication API";
+                public const string CleanTemplateDisplayName = "CleanTemplate API";
                 public const string AccessControlDisplayName = "Access Control API";
             }
         }
