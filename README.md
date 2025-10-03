@@ -101,7 +101,7 @@ The repository follows a clean, organized structure:
 - **MySQL/MariaDB** - Database support (MySqlConnector 2.4.0, Pomelo.EntityFrameworkCore.MySql 9.0.0)
 - **Swagger/OpenAPI 6.8.1** - API documentation
 - **AutoMapper 13.0.1** - Object mapping
-- **Foundation.Base 1.0.0** - Base infrastructure library (.NET 8.0 compatible)
+- **Foundation.Base 1.2.0** - Base infrastructure library (.NET 8.0 compatible)
 
 ### 📦 Recommended NuGet Dependencies
 
