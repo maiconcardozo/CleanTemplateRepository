@@ -489,23 +489,23 @@ public class Program
 }
 ```
 
-### 4. Using the Authentication Service (With Debug)
+### 4. Using the CleanEntity Service (With Debug)
 
 ```csharp
 using CleanTemplate.Application.Services;
 using CleanTemplate.Application.DTO;
 using Microsoft.Extensions.Logging;
 
-public class AuthController : ControllerBase
+public class CleanEntityController : ControllerBase
 {
-    private readonly IAuthenticationService _authService;
-    private readonly ILogger<AuthController> _logger;
+    private readonly ICleanEntityService _entityService;
+    private readonly ILogger<CleanEntityController> _logger;
     
-    public AuthController(
-        IAuthenticationService authService,
-        ILogger<AuthController> logger)
+    public CleanEntityController(
+        ICleanEntityService entityService,
+        ILogger<CleanEntityController> logger)
     {
-        _authService = authService;
+        _entityService = entityService;
         _logger = logger;
     }
     

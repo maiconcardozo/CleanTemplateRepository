@@ -368,7 +368,7 @@ Src/
 └── Tests/                         # Test projects
     ├── CleanTemplate.API.Tests/  # API tests
     ├── CleanTemplate.Application.Tests/ # Domain tests
-    └── Authentication.Integration.Tests/ # Integration tests
+    └── CleanTemplate.Integration.Tests/ # Integration tests
 ```
 
 ## 🧪 Testing Guidelines
