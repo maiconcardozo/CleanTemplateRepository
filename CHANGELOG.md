@@ -16,25 +16,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Comprehensive documentation updates reflecting .NET 8.0 requirements
   - Updated validation scripts and build scripts for .NET 8.0
 
-### Package Updates (aligned to .NET 8.0)
-- **Entity Framework Core**: 9.0.8 → 8.0.11
+### Package Updates
+- **Framework**: .NET 9.0 → .NET 8.0 (targets net8.0)
+- **Foundation.Base**: 1.1.0 → 1.0.0 (.NET 8.0 compatible version)
+- **Entity Framework Core**: 9.0.8 → 9.0.7 (compatible with .NET 8.0)
 - **ASP.NET Core packages**: 9.0.8 → 8.0.11
 - **AutoMapper**: 15.0.1 → 13.0.1
-- **FluentValidation**: 12.0.0 → 11.9.2
+- **FluentValidation**: 12.0.0 (maintained)
 - **Swashbuckle.AspNetCore**: 9.0.4 → 6.8.1
-- **Pomelo.EntityFrameworkCore.MySql**: 9.0.0 → 8.0.2
-- **MySqlConnector**: 2.4.0 → 2.3.7
+- **Pomelo.EntityFrameworkCore.MySql**: 9.0.0 → 9.0.0 (maintained)
+- **MySqlConnector**: 2.4.0 (maintained)
 - **System.IdentityModel.Tokens.Jwt**: 8.14.0 → 8.1.2
 - **Microsoft.NET.Test.Sdk**: 17.14.1 → 17.11.1
 - **xunit**: 2.9.3 → 2.9.2
 - **FluentAssertions**: 8.6.0 → 6.12.1
+- **Microsoft.Extensions.DependencyInjection**: 9.0.8 → 9.0.7
+- **Microsoft.Extensions.Logging**: 9.0.8 → 9.0.7
 - **Code Analyzers**: Updated to .NET 8.0 compatible versions
+
+### Code Changes
+- **Foundation.Base namespace fix**: Updated from `Foundation.Base.Domain.Implementation` to `Foundation.Base.Domain.Implemetation` (to match v1.0.0)
+- **AutoMapper initialization**: Updated to use lambda-based configuration (v13.0.1 breaking change)
 
 ### Documentation
 - **README.md**: Complete update to reflect .NET 8.0 requirements, installation, and troubleshooting
-- **Added recommended dependencies snippet**: Complete list of NuGet packages with versions for .NET 8.0
+- **Added recommended dependencies snippet**: Complete list of NuGet packages with exact versions
 - **Framework requirements section**: Updated with .NET 8.0 LTS information and benefits
 - **CI/CD documentation**: Updated to reflect .NET 8.0 Ubuntu environment
+- **Important note**: Documented the EF Core 9.0.7 usage with .NET 8.0 framework
 
 ### Fixed
 - **Documentation Updates**: Fixed critical inconsistencies in documentation

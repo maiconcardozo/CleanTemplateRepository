@@ -92,35 +92,39 @@ The repository follows a clean, organized structure:
 
 ## 🔧 Technologies Used
 
-- **.NET 8.0** - Main framework
+- **.NET 8.0** - Main framework (targets net8.0)
 - **ASP.NET Core 8.0.11** - RESTful API framework
-- **Entity Framework Core 8.0.11** - ORM for data access
+- **Entity Framework Core 9.0.7** - ORM for data access (compatible with .NET 8.0)
 - **JWT Bearer 8.1.2** - Token-based authentication
-- **FluentValidation 11.9.2** - Input validation
+- **FluentValidation 12.0.0** - Input validation
 - **Argon2 1.3.1** - Secure password hashing
-- **MySQL/MariaDB** - Database support (MySqlConnector 2.3.7, Pomelo.EntityFrameworkCore.MySql 8.0.2)
+- **MySQL/MariaDB** - Database support (MySqlConnector 2.4.0, Pomelo.EntityFrameworkCore.MySql 9.0.0)
 - **Swagger/OpenAPI 6.8.1** - API documentation
 - **AutoMapper 13.0.1** - Object mapping
+- **Foundation.Base 1.0.0** - Base infrastructure library (.NET 8.0 compatible)
 
 ### 📦 Recommended NuGet Dependencies
 
 ```xml
 <!-- Core ASP.NET Core and EF Core packages -->
 <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
-<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
-<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.11" />
-<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.11" />
-<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" />
-<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.11" />
+<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.7" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.7" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.7" />
+<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.7" />
 
 <!-- Database providers -->
-<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
-<PackageReference Include="MySqlConnector" Version="2.3.7" />
+<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
+<PackageReference Include="MySqlConnector" Version="2.4.0" />
 
 <!-- Object mapping and validation -->
 <PackageReference Include="AutoMapper" Version="13.0.1" />
-<PackageReference Include="FluentValidation" Version="11.9.2" />
-<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.2" />
+<PackageReference Include="FluentValidation" Version="12.0.0" />
+<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+
+<!-- Foundation library -->
+<PackageReference Include="Foundation.Base" Version="1.0.0" />
 
 <!-- API documentation -->
 <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.1" />
@@ -143,7 +147,10 @@ The repository follows a clean, organized structure:
 <!-- Code analysis -->
 <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" />
 <PackageReference Include="SonarAnalyzer.CSharp" Version="9.32.0.97167" />
+<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
 ```
+
+**Important Note**: This template uses **.NET 8.0 framework (net8.0)** but includes some **EF Core 9.0.7** packages which are compatible with .NET 8.0 runtime. This configuration is required by the Foundation.Base 1.0.0 dependency.
 
 ## 🚀 Development (Quick Start)
 

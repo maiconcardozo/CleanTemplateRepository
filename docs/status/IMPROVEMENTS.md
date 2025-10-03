@@ -61,16 +61,18 @@ The Authentication project has been significantly enhanced with a complete Found
 - **Application Project**: `CleanTemplate.Application.csproj` → .NET 8.0
 - **Tests Project**: `CleanTemplate.Tests.csproj` → .NET 8.0
 
-#### Package Version Updates (aligned to .NET 8.0)
+#### Package Version Updates (configured for .NET 8.0)
+- `Foundation.Base`: 1.0.0 (.NET 8.0 compatible version)
 - `Microsoft.AspNetCore.OpenApi`: 8.0.11
-- `Microsoft.EntityFrameworkCore`: 8.0.11
-- `Microsoft.EntityFrameworkCore.Abstractions`: 8.0.11
-- `Microsoft.EntityFrameworkCore.Relational`: 8.0.11
-- `Microsoft.EntityFrameworkCore.Tools`: 8.0.11
-- `Pomelo.EntityFrameworkCore.MySql`: 8.0.2
+- `Microsoft.EntityFrameworkCore`: 9.0.7 (compatible with .NET 8.0)
+- `Microsoft.EntityFrameworkCore.Abstractions`: 9.0.7
+- `Microsoft.EntityFrameworkCore.Relational`: 9.0.7
+- `Microsoft.EntityFrameworkCore.Tools`: 9.0.7
+- `Pomelo.EntityFrameworkCore.MySql`: 9.0.0
+- `MySqlConnector`: 2.4.0
 - `Swashbuckle.AspNetCore.*`: 6.8.1
 - `AutoMapper`: 13.0.1
-- `FluentValidation`: 11.9.2
+- `FluentValidation`: 12.0.0
 
 ### 3. Database Migration Fixes 🗄️
 
