@@ -27,6 +27,10 @@ namespace Authentication.Login.Infrastructure.Data
 
         public DbSet<ApplicationClaim> DbApplicationClaim { get; set; }
 
+        public DbSet<Product> DbProduct { get; set; }
+
+        public DbSet<ProductVariant> DbProductVariant { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             LoadModel(modelBuilder);
@@ -41,6 +45,8 @@ namespace Authentication.Login.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new AccountClaimActionMap());
             modelBuilder.ApplyConfiguration(new ApplicationMap());
             modelBuilder.ApplyConfiguration(new ApplicationClaimMap());
+            modelBuilder.ApplyConfiguration(new ProductMap());
+            modelBuilder.ApplyConfiguration(new ProductVariantMap());
         }
     }
 }

@@ -96,6 +96,8 @@ namespace Authentication.API
             services.AddTransient<FluentValidation.IValidator<ClaimPayLoadDTO>, ClaimPayloadValidator>();
             services.AddTransient<FluentValidation.IValidator<ApplicationPayLoadDTO>, ApplicationPayloadValidator>();
             services.AddTransient<FluentValidation.IValidator<ApplicationClaimPayLoadDTO>, ApplicationClaimPayloadValidator>();
+            services.AddTransient<FluentValidation.IValidator<ProductPayLoadDTO>, ProductPayloadValidator>();
+            services.AddTransient<FluentValidation.IValidator<ProductVariantPayLoadDTO>, ProductVariantPayloadValidator>();
 
             // ==============================
             // SWAGGER
