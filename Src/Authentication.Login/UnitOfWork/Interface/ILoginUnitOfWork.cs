@@ -14,5 +14,9 @@ namespace Authentication.Login.UnitOfWork.Interface
         IClaimActionRepository ClaimActionRepository { get; }
 
         IAccountClaimActionRepository AccountClaimActionRepository { get; }
+
+        IProductRepository ProductRepository { get; }
+
+        IProductVariantRepository ProductVariantRepository { get; }
     }
 }

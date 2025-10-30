@@ -347,5 +347,113 @@ namespace Authentication.Login.Resource {
                 return ResourceManager.GetString("DeletedByMustMost100Characters", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name is required..
+        /// </summary>
+        public static string NameIsRequired {
+            get {
+                return ResourceManager.GetString("NameIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name must be at most 100 characters..
+        /// </summary>
+        public static string NameMaxLength100 {
+            get {
+                return ResourceManager.GetString("NameMaxLength100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description must be at most 500 characters..
+        /// </summary>
+        public static string DescriptionMaxLength500 {
+            get {
+                return ResourceManager.GetString("DescriptionMaxLength500", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price must be positive or zero..
+        /// </summary>
+        public static string PriceMustBePositive {
+            get {
+                return ResourceManager.GetString("PriceMustBePositive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CreatedBy must be at most 100 characters..
+        /// </summary>
+        public static string CreatedByMaxLength100 {
+            get {
+                return ResourceManager.GetString("CreatedByMaxLength100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpdatedBy must be at most 100 characters..
+        /// </summary>
+        public static string UpdatedByMaxLength100 {
+            get {
+                return ResourceManager.GetString("UpdatedByMaxLength100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product ID is required..
+        /// </summary>
+        public static string IdProductIsRequired {
+            get {
+                return ResourceManager.GetString("IdProductIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SKU is required..
+        /// </summary>
+        public static string SKUIsRequired {
+            get {
+                return ResourceManager.GetString("SKUIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SKU must be at most 50 characters..
+        /// </summary>
+        public static string SKUMaxLength50 {
+            get {
+                return ResourceManager.GetString("SKUMaxLength50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color must be at most 50 characters..
+        /// </summary>
+        public static string ColorMaxLength50 {
+            get {
+                return ResourceManager.GetString("ColorMaxLength50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size must be at most 20 characters..
+        /// </summary>
+        public static string SizeMaxLength20 {
+            get {
+                return ResourceManager.GetString("SizeMaxLength20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stock quantity must be positive or zero..
+        /// </summary>
+        public static string StockQuantityMustBePositive {
+            get {
+                return ResourceManager.GetString("StockQuantityMustBePositive", resourceCulture);
+            }
+        }
     }
 }

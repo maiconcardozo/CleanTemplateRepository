@@ -213,4 +213,40 @@
   <data name="DeletedByMustMost100Characters" xml:space="preserve">
     <value>DeletedBy must be at most 100 characters.</value>
   </data>
+  <data name="NameIsRequired" xml:space="preserve">
+    <value>Name is required.</value>
+  </data>
+  <data name="NameMaxLength100" xml:space="preserve">
+    <value>Name must be at most 100 characters.</value>
+  </data>
+  <data name="DescriptionMaxLength500" xml:space="preserve">
+    <value>Description must be at most 500 characters.</value>
+  </data>
+  <data name="PriceMustBePositive" xml:space="preserve">
+    <value>Price must be positive or zero.</value>
+  </data>
+  <data name="CreatedByMaxLength100" xml:space="preserve">
+    <value>CreatedBy must be at most 100 characters.</value>
+  </data>
+  <data name="UpdatedByMaxLength100" xml:space="preserve">
+    <value>UpdatedBy must be at most 100 characters.</value>
+  </data>
+  <data name="IdProductIsRequired" xml:space="preserve">
+    <value>Product ID is required.</value>
+  </data>
+  <data name="SKUIsRequired" xml:space="preserve">
+    <value>SKU is required.</value>
+  </data>
+  <data name="SKUMaxLength50" xml:space="preserve">
+    <value>SKU must be at most 50 characters.</value>
+  </data>
+  <data name="ColorMaxLength50" xml:space="preserve">
+    <value>Color must be at most 50 characters.</value>
+  </data>
+  <data name="SizeMaxLength20" xml:space="preserve">
+    <value>Size must be at most 20 characters.</value>
+  </data>
+  <data name="StockQuantityMustBePositive" xml:space="preserve">
+    <value>Stock quantity must be positive or zero.</value>
+  </data>
 </root>

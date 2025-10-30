@@ -23,6 +23,8 @@ namespace Authentication.Login.Extensions
             services.AddScoped<IAccountClaimActionService, AccountClaimActionService>();
             services.AddScoped<IApplicationService, ApplicationService>();
             services.AddScoped<IApplicationClaimService, ApplicationClaimService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductVariantService, ProductVariantService>();
 
             // Repositories
             services.AddScoped<IAccountRepository, AccountRepository>();
@@ -32,6 +34,8 @@ namespace Authentication.Login.Extensions
             services.AddScoped<IAccountClaimActionRepository, AccountClaimActionRepository>();
             services.AddScoped<IApplicationRepository, ApplicationRepository>();
             services.AddScoped<IApplicationClaimRepository, ApplicationClaimRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductVariantRepository, ProductVariantRepository>();
 
             // Unit of Work
             services.AddScoped<ILoginUnitOfWork, LoginUnitOfWork>();
