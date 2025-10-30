@@ -228,4 +228,37 @@
   <data name="DeleteApplicationClaim" xml:space="preserve">
     <value>DeleteApplicationClaim/{id}</value>
   </data>
+  <data name="GetProducts" xml:space="preserve">
+    <value>GetProducts</value>
+  </data>
+  <data name="GetProductById" xml:space="preserve">
+    <value>GetProductById/{id}</value>
+  </data>
+  <data name="AddProduct" xml:space="preserve">
+    <value>AddProduct</value>
+  </data>
+  <data name="UpdateProduct" xml:space="preserve">
+    <value>UpdateProduct</value>
+  </data>
+  <data name="DeleteProduct" xml:space="preserve">
+    <value>DeleteProduct/{id}</value>
+  </data>
+  <data name="GetProductVariants" xml:space="preserve">
+    <value>GetProductVariants</value>
+  </data>
+  <data name="GetProductVariantById" xml:space="preserve">
+    <value>GetProductVariantById/{id}</value>
+  </data>
+  <data name="GetProductVariantsByProductId" xml:space="preserve">
+    <value>GetProductVariantsByProductId/{productId}</value>
+  </data>
+  <data name="AddProductVariant" xml:space="preserve">
+    <value>AddProductVariant</value>
+  </data>
+  <data name="UpdateProductVariant" xml:space="preserve">
+    <value>UpdateProductVariant</value>
+  </data>
+  <data name="DeleteProductVariant" xml:space="preserve">
+    <value>DeleteProductVariant/{id}</value>
+  </data>
 </root>

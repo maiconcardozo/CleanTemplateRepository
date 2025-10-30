@@ -53,6 +53,18 @@ namespace Authentication.Login.Mapping
             CreateMap<ApplicationClaim, ApplicationClaimPayLoadDTO>();
             CreateMap<ApplicationClaim, ApplicationClaimResponseDTO>();
             CreateMap<ApplicationClaimResponseDTO, ApplicationClaim>();
+
+            // Product mappings - CreatedBy can now be provided in PayLoadDTO for create operations
+            CreateMap<ProductPayLoadDTO, Product>();
+            CreateMap<Product, ProductPayLoadDTO>();
+            CreateMap<Product, ProductResponseDTO>();
+            CreateMap<ProductResponseDTO, Product>();
+
+            // ProductVariant mappings - CreatedBy can now be provided in PayLoadDTO for create operations
+            CreateMap<ProductVariantPayLoadDTO, ProductVariant>();
+            CreateMap<ProductVariant, ProductVariantPayLoadDTO>();
+            CreateMap<ProductVariant, ProductVariantResponseDTO>();
+            CreateMap<ProductVariantResponseDTO, ProductVariant>();
         }
     }
 }

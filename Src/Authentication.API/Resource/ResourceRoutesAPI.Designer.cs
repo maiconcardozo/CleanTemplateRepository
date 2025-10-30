@@ -392,5 +392,104 @@ namespace Authentication.API.Resource {
                 return ResourceManager.GetString("DeleteApplicationClaim", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GetProducts.
+        /// </summary>
+        public static string GetProducts {
+            get {
+                return ResourceManager.GetString("GetProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GetProductById/{id}.
+        /// </summary>
+        public static string GetProductById {
+            get {
+                return ResourceManager.GetString("GetProductById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AddProduct.
+        /// </summary>
+        public static string AddProduct {
+            get {
+                return ResourceManager.GetString("AddProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpdateProduct.
+        /// </summary>
+        public static string UpdateProduct {
+            get {
+                return ResourceManager.GetString("UpdateProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DeleteProduct/{id}.
+        /// </summary>
+        public static string DeleteProduct {
+            get {
+                return ResourceManager.GetString("DeleteProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GetProductVariants.
+        /// </summary>
+        public static string GetProductVariants {
+            get {
+                return ResourceManager.GetString("GetProductVariants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GetProductVariantById/{id}.
+        /// </summary>
+        public static string GetProductVariantById {
+            get {
+                return ResourceManager.GetString("GetProductVariantById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GetProductVariantsByProductId/{productId}.
+        /// </summary>
+        public static string GetProductVariantsByProductId {
+            get {
+                return ResourceManager.GetString("GetProductVariantsByProductId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AddProductVariant.
+        /// </summary>
+        public static string AddProductVariant {
+            get {
+                return ResourceManager.GetString("AddProductVariant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpdateProductVariant.
+        /// </summary>
+        public static string UpdateProductVariant {
+            get {
+                return ResourceManager.GetString("UpdateProductVariant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DeleteProductVariant/{id}.
+        /// </summary>
+        public static string DeleteProductVariant {
+            get {
+                return ResourceManager.GetString("DeleteProductVariant", resourceCulture);
+            }
+        }
     }
 }

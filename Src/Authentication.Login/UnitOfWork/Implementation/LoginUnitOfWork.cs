@@ -17,13 +17,19 @@ namespace Authentication.Login.UnitOfWork.Implementation
 
         public IAccountClaimActionRepository AccountClaimActionRepository { get; }
 
+        public IProductRepository ProductRepository { get; }
+
+        public IProductVariantRepository ProductVariantRepository { get; }
+
         public LoginUnitOfWork(
             DbContext context,
             IAccountRepository accountRepository,
             IClaimRepository claimRepository,
             IActionRepository actionRepository,
             IClaimActionRepository claimActionRepository,
-            IAccountClaimActionRepository accountClaimActionRepository)
+            IAccountClaimActionRepository accountClaimActionRepository,
+            IProductRepository productRepository,
+            IProductVariantRepository productVariantRepository)
             : base(context)
         {
             AccountRepository = accountRepository;
@@ -31,6 +37,8 @@ namespace Authentication.Login.UnitOfWork.Implementation
             ActionRepository = actionRepository;
             ClaimActionRepository = claimActionRepository;
             AccountClaimActionRepository = accountClaimActionRepository;
+            ProductRepository = productRepository;
+            ProductVariantRepository = productVariantRepository;
         }
     }
 }
