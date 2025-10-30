@@ -1,5 +1,0 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Dummy solution file for test content root discovery
-# This file allows WebApplicationFactory to find a solution root
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.Tests", "Authentication.Tests.csproj", "{C1F0B2A1-8E3D-4567-9ABC-DEF123456789}"
-EndProject
