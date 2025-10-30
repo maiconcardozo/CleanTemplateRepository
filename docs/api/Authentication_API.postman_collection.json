@@ -1,0 +1,1015 @@
+{
+"info": {
+"_postman_id": "authentication-api-collection",
+"name": "Authentication API - Complete Collection",
+"description": "Coleção completa de endpoints dos controllers da Authentication API para importação no Postman. Inclui todos os endpoints de Autenticação, Conta, Claims, Actions, ClaimActions, AccountClaimActions, Applications e ApplicationClaims.",
+"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+},
+"variable": [
+{
+"key": "baseUrl",
+"value": "https://localhost:7001",
+"type": "string"
+},
+{
+"key": "authToken",
+"value": "",
+"type": "string"
+}
+],
+"item": [
+{
+"name": "Authentication",
+"item": [
+{
+"name": "Generate Token",
+"event": [
+{
+"listen": "test",
+"script": {
+"exec": [
+"if (pm.response.code === 200) {",
+"    const jsonData = pm.response.json();",
+"    if (jsonData.data && jsonData.data.accessToken) {",
+"        pm.collectionVariables.set('authToken', jsonData.data.accessToken);",
+"        console.log('Token saved: ' + jsonData.data.accessToken);",
+"    }",
+"}"
+],
+"type": "text/javascript"
+}
+}
+],
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"userName\": \"admin\",\n  \"password\": \"AdminPassword123!\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Authentication/GenerateToken",
+"host": ["{{baseUrl}}"],
+"path": ["Authentication", "GenerateToken"]
+},
+"description": "Generates a JWT token for authentication. Use the returned token for subsequent requests."
+},
+"response": []
+}
+],
+"description": "Endpoints para autenticação e geração de tokens JWT."
+},
+{
+"name": "Account",
+"item": [
+{
+"name": "Get All Accounts",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Account/GetAccounts",
+"host": ["{{baseUrl}}"],
+"path": ["Account", "GetAccounts"]
+},
+"description": "Retrieves all user accounts in the system."
+},
+"response": []
+},
+{
+"name": "Get Account By Id",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Account/GetAccountById?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["Account", "GetAccountById"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Retrieves a specific account by ID."
+},
+"response": []
+},
+{
+"name": "Add Account",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 0,\n  \"userName\": \"newuser\",\n  \"password\": \"NewPassword123!\",\n  \"email\": \"newuser@example.com\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Account/AddAccount",
+"host": ["{{baseUrl}}"],
+"path": ["Account", "AddAccount"]
+},
+"description": "Creates a new user account."
+},
+"response": []
+},
+{
+"name": "Update Account",
+"request": {
+"method": "PUT",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 1,\n  \"userName\": \"updateduser\",\n  \"password\": \"UpdatedPassword123!\",\n  \"email\": \"updated@example.com\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Account/UpdateAccount",
+"host": ["{{baseUrl}}"],
+"path": ["Account", "UpdateAccount"]
+},
+"description": "Updates an existing user account."
+},
+"response": []
+},
+{
+"name": "Delete Account",
+"request": {
+"method": "DELETE",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Account/DeleteAccount?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["Account", "DeleteAccount"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Deletes a user account by ID."
+},
+"response": []
+}
+],
+"description": "Endpoints para gerenciamento de contas de usuários."
+},
+{
+"name": "Claim",
+"item": [
+{
+"name": "Get All Claims",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Claim/GetClaims",
+"host": ["{{baseUrl}}"],
+"path": ["Claim", "GetClaims"]
+},
+"description": "Retrieves all claims in the system."
+},
+"response": []
+},
+{
+"name": "Get Claim By Id",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Claim/GetClaimById?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["Claim", "GetClaimById"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Retrieves a specific claim by ID."
+},
+"response": []
+},
+{
+"name": "Add Claim",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 0,\n  \"type\": \"Role\",\n  \"value\": \"Administrator\",\n  \"description\": \"Administrator role with full access\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Claim/AddClaim",
+"host": ["{{baseUrl}}"],
+"path": ["Claim", "AddClaim"]
+},
+"description": "Creates a new claim."
+},
+"response": []
+},
+{
+"name": "Update Claim",
+"request": {
+"method": "PUT",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 1,\n  \"type\": \"Role\",\n  \"value\": \"Administrator\",\n  \"description\": \"Updated administrator role description\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Claim/UpdateClaim",
+"host": ["{{baseUrl}}"],
+"path": ["Claim", "UpdateClaim"]
+},
+"description": "Updates an existing claim."
+},
+"response": []
+},
+{
+"name": "Delete Claim",
+"request": {
+"method": "DELETE",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Claim/DeleteClaim?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["Claim", "DeleteClaim"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Deletes a claim by ID."
+},
+"response": []
+}
+],
+"description": "Endpoints para gerenciamento de claims (permissões baseadas em tipos e valores)."
+},
+{
+"name": "Action",
+"item": [
+{
+"name": "Get All Actions",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Action/GetActions",
+"host": ["{{baseUrl}}"],
+"path": ["Action", "GetActions"]
+},
+"description": "Retrieves all actions in the system."
+},
+"response": []
+},
+{
+"name": "Get Action By Id",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Action/GetActionById?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["Action", "GetActionById"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Retrieves a specific action by ID."
+},
+"response": []
+},
+{
+"name": "Add Action",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 0,\n  \"name\": \"CreateUser\",\n  \"description\": \"Permission to create new users\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Action/AddAction",
+"host": ["{{baseUrl}}"],
+"path": ["Action", "AddAction"]
+},
+"description": "Creates a new action."
+},
+"response": []
+},
+{
+"name": "Update Action",
+"request": {
+"method": "PUT",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 1,\n  \"name\": \"CreateUser\",\n  \"description\": \"Updated permission to create new users\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Action/UpdateAction",
+"host": ["{{baseUrl}}"],
+"path": ["Action", "UpdateAction"]
+},
+"description": "Updates an existing action."
+},
+"response": []
+},
+{
+"name": "Delete Action",
+"request": {
+"method": "DELETE",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Action/DeleteAction?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["Action", "DeleteAction"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Deletes an action by ID."
+},
+"response": []
+}
+],
+"description": "Endpoints para gerenciamento de actions (ações/permissões disponíveis no sistema)."
+},
+{
+"name": "ClaimAction",
+"item": [
+{
+"name": "Get All ClaimActions",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/ClaimAction/GetClaimActions",
+"host": ["{{baseUrl}}"],
+"path": ["ClaimAction", "GetClaimActions"]
+},
+"description": "Retrieves all claim-action associations."
+},
+"response": []
+},
+{
+"name": "Get ClaimAction By Id",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/ClaimAction/GetClaimActionById?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["ClaimAction", "GetClaimActionById"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Retrieves a specific claim-action association by ID."
+},
+"response": []
+},
+{
+"name": "Add ClaimAction",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 0,\n  \"idClaim\": 1,\n  \"idAction\": 1\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/ClaimAction/AddClaimAction",
+"host": ["{{baseUrl}}"],
+"path": ["ClaimAction", "AddClaimAction"]
+},
+"description": "Creates a new claim-action association."
+},
+"response": []
+},
+{
+"name": "Update ClaimAction",
+"request": {
+"method": "PUT",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 1,\n  \"idClaim\": 1,\n  \"idAction\": 2\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/ClaimAction/UpdateClaimAction",
+"host": ["{{baseUrl}}"],
+"path": ["ClaimAction", "UpdateClaimAction"]
+},
+"description": "Updates an existing claim-action association."
+},
+"response": []
+},
+{
+"name": "Delete ClaimAction",
+"request": {
+"method": "DELETE",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/ClaimAction/DeleteClaimAction?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["ClaimAction", "DeleteClaimAction"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Deletes a claim-action association by ID."
+},
+"response": []
+}
+],
+"description": "Endpoints para gerenciamento de associações entre Claims e Actions."
+},
+{
+"name": "AccountClaimAction",
+"item": [
+{
+"name": "Get AccountClaimActions",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/AccountClaimAction/GetAccountClaimActions?idAccount=1",
+"host": ["{{baseUrl}}"],
+"path": ["AccountClaimAction", "GetAccountClaimActions"],
+"query": [
+{
+"key": "idAccount",
+"value": "1"
+},
+{
+"key": "idClaimAction",
+"value": "1",
+"disabled": true
+}
+]
+},
+"description": "Retrieves account-claim-action associations filtered by account or claim action."
+},
+"response": []
+},
+{
+"name": "Get AccountClaimAction By Id",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/AccountClaimAction/GetAccountClaimActionById?idAccount=1&idClaimAction=1",
+"host": ["{{baseUrl}}"],
+"path": ["AccountClaimAction", "GetAccountClaimActionById"],
+"query": [
+{
+"key": "idAccount",
+"value": "1"
+},
+{
+"key": "idClaimAction",
+"value": "1"
+}
+]
+},
+"description": "Retrieves a specific account-claim-action association."
+},
+"response": []
+},
+{
+"name": "Add AccountClaimAction",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 0,\n  \"idAccount\": 1,\n  \"idClaimAction\": 1\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/AccountClaimAction/AddAccountClaimAction",
+"host": ["{{baseUrl}}"],
+"path": ["AccountClaimAction", "AddAccountClaimAction"]
+},
+"description": "Creates a new account-claim-action association (assigns permission to user)."
+},
+"response": []
+},
+{
+"name": "Update AccountClaimAction",
+"request": {
+"method": "PUT",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 1,\n  \"idAccount\": 1,\n  \"idClaimAction\": 2\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/AccountClaimAction/UpdateAccountClaimAction",
+"host": ["{{baseUrl}}"],
+"path": ["AccountClaimAction", "UpdateAccountClaimAction"]
+},
+"description": "Updates an existing account-claim-action association."
+},
+"response": []
+},
+{
+"name": "Delete AccountClaimAction",
+"request": {
+"method": "DELETE",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/AccountClaimAction/DeleteAccountClaimAction?idAccount=1&idClaimAction=1",
+"host": ["{{baseUrl}}"],
+"path": ["AccountClaimAction", "DeleteAccountClaimAction"],
+"query": [
+{
+"key": "idAccount",
+"value": "1"
+},
+{
+"key": "idClaimAction",
+"value": "1"
+}
+]
+},
+"description": "Deletes an account-claim-action association (removes permission from user)."
+},
+"response": []
+}
+],
+"description": "Endpoints para gerenciamento de permissões atribuídas aos usuários (associações entre Account, Claim e Action)."
+},
+{
+"name": "Application",
+"item": [
+{
+"name": "Get All Applications",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Application/GetApplications",
+"host": ["{{baseUrl}}"],
+"path": ["Application", "GetApplications"]
+},
+"description": "Retrieves all applications in the system."
+},
+"response": []
+},
+{
+"name": "Get Application By Id",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Application/GetApplicationById?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["Application", "GetApplicationById"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Retrieves a specific application by ID."
+},
+"response": []
+},
+{
+"name": "Add Application",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 0,\n  \"name\": \"WebPortal\",\n  \"description\": \"Main web portal application\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Application/AddApplication",
+"host": ["{{baseUrl}}"],
+"path": ["Application", "AddApplication"]
+},
+"description": "Creates a new application for multi-tenant discrimination."
+},
+"response": []
+},
+{
+"name": "Update Application",
+"request": {
+"method": "PUT",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 1,\n  \"name\": \"WebPortal\",\n  \"description\": \"Updated web portal application description\"\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/Application/UpdateApplication",
+"host": ["{{baseUrl}}"],
+"path": ["Application", "UpdateApplication"]
+},
+"description": "Updates an existing application."
+},
+"response": []
+},
+{
+"name": "Delete Application",
+"request": {
+"method": "DELETE",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/Application/DeleteApplication?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["Application", "DeleteApplication"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Deletes an application by ID."
+},
+"response": []
+}
+],
+"description": "Endpoints para gerenciamento de aplicações (usado para discriminação multi-tenant)."
+},
+{
+"name": "ApplicationClaim",
+"item": [
+{
+"name": "Get All ApplicationClaims",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/ApplicationClaim/GetApplicationClaims",
+"host": ["{{baseUrl}}"],
+"path": ["ApplicationClaim", "GetApplicationClaims"]
+},
+"description": "Retrieves all application-claim mappings."
+},
+"response": []
+},
+{
+"name": "Get ApplicationClaim By Id",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/ApplicationClaim/GetApplicationClaimById?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["ApplicationClaim", "GetApplicationClaimById"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Retrieves a specific application-claim mapping by ID."
+},
+"response": []
+},
+{
+"name": "Get ApplicationClaims By ApplicationId",
+"request": {
+"method": "GET",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/ApplicationClaim/GetApplicationClaimsByApplicationId?applicationId=1",
+"host": ["{{baseUrl}}"],
+"path": ["ApplicationClaim", "GetApplicationClaimsByApplicationId"],
+"query": [
+{
+"key": "applicationId",
+"value": "1"
+}
+]
+},
+"description": "Retrieves all claims associated with a specific application."
+},
+"response": []
+},
+{
+"name": "Add ApplicationClaim",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 0,\n  \"idApplication\": 1,\n  \"idClaim\": 1\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/ApplicationClaim/AddApplicationClaim",
+"host": ["{{baseUrl}}"],
+"path": ["ApplicationClaim", "AddApplicationClaim"]
+},
+"description": "Creates a new application-claim mapping."
+},
+"response": []
+},
+{
+"name": "Update ApplicationClaim",
+"request": {
+"method": "PUT",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+},
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"id\": 1,\n  \"idApplication\": 1,\n  \"idClaim\": 2\n}"
+},
+"url": {
+"raw": "{{baseUrl}}/ApplicationClaim/UpdateApplicationClaim",
+"host": ["{{baseUrl}}"],
+"path": ["ApplicationClaim", "UpdateApplicationClaim"]
+},
+"description": "Updates an existing application-claim mapping."
+},
+"response": []
+},
+{
+"name": "Delete ApplicationClaim",
+"request": {
+"method": "DELETE",
+"header": [
+{
+"key": "Authorization",
+"value": "Bearer {{authToken}}"
+}
+],
+"url": {
+"raw": "{{baseUrl}}/ApplicationClaim/DeleteApplicationClaim?id=1",
+"host": ["{{baseUrl}}"],
+"path": ["ApplicationClaim", "DeleteApplicationClaim"],
+"query": [
+{
+"key": "id",
+"value": "1"
+}
+]
+},
+"description": "Deletes an application-claim mapping by ID."
+},
+"response": []
+}
+],
+"description": "Endpoints para gerenciamento de associações entre Applications e Claims (discriminação de claims por aplicação)."
+}
+]
+}

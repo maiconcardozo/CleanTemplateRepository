@@ -1,0 +1,17 @@
+﻿services:
+  mariadb:
+    image: mariadb:11
+    container_name: mariadb_auth
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: Authentication
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: ewufexop$     
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data:
