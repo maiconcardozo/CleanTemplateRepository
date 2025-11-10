@@ -56,25 +56,15 @@ public class AuthenticationWebApplicationFactory : WebApplicationFactory<Program
         context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
 
-        // Adiciona dados de teste
-        context.DbAction.Add(new Authentication.Login.Domain.Implementation.Action
+        // Add test data for EntityTemplateExample
+        context.DbEntityTemplateExample.Add(new EntityTemplateExample
         {
             Id = 1,
-            Name = "Test Action",
-        });
-
-        context.DbClaimAction.Add(new ClaimAction
-        {
-            Id = 1,
-            IdClaim = 1,
-            IdAction = 1,
-        });
-
-        context.DbAccountClaimAction.Add(new AccountClaimAction
-        {
-            Id = 1,
-            IdAccount = 1,
-            IdClaimAction = 1,
+            Pro1 = "Test Example",
+            Pro2 = 100,
+            Pro3 = 99.99m,
+            Pro4 = DateTime.Now,
+            Pro5 = true,
         });
 
         context.SaveChanges();

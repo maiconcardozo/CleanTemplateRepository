@@ -1,8 +1,6 @@
 ﻿using Authentication.Login.Domain.Implementation;
-using Authentication.Login.Infrastructure.Implementation;
 using Authentication.Login.Infrastructure.Interface;
 using Microsoft.EntityFrameworkCore;
-using Action = Authentication.Login.Domain.Implementation.Action;
 
 namespace Authentication.Login.Infrastructure.Data
 {
@@ -13,23 +11,7 @@ namespace Authentication.Login.Infrastructure.Data
         {
         }
 
-        public DbSet<Account> DbAccount { get; set; }
-
-        public DbSet<Claim> DbClaim { get; set; }
-
-        public DbSet<Action> DbAction { get; set; }
-
-        public DbSet<ClaimAction> DbClaimAction { get; set; }
-
-        public DbSet<AccountClaimAction> DbAccountClaimAction { get; set; }
-
-        public DbSet<Application> DbApplication { get; set; }
-
-        public DbSet<ApplicationClaim> DbApplicationClaim { get; set; }
-
-        public DbSet<Product> DbProduct { get; set; }
-
-        public DbSet<ProductVariant> DbProductVariant { get; set; }
+        public DbSet<EntityTemplateExample> DbEntityTemplateExample { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,15 +20,7 @@ namespace Authentication.Login.Infrastructure.Data
 
         public static void LoadModel(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AccountMap());
-            modelBuilder.ApplyConfiguration(new ClaimMap());
-            modelBuilder.ApplyConfiguration(new ActionMap());
-            modelBuilder.ApplyConfiguration(new ClaimActionMap());
-            modelBuilder.ApplyConfiguration(new AccountClaimActionMap());
-            modelBuilder.ApplyConfiguration(new ApplicationMap());
-            modelBuilder.ApplyConfiguration(new ApplicationClaimMap());
-            modelBuilder.ApplyConfiguration(new ProductMap());
-            modelBuilder.ApplyConfiguration(new ProductVariantMap());
+            modelBuilder.ApplyConfiguration(new EntityTemplateExampleMap());
         }
     }
 }

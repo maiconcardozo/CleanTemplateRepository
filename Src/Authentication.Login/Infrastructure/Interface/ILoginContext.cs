@@ -5,6 +5,6 @@ namespace Authentication.Login.Infrastructure.Interface
 {
     public interface ILoginContext
     {
-        public DbSet<Account> DbAccount { get; set; }
+        public DbSet<EntityTemplateExample> DbEntityTemplateExample { get; set; }
     }
 }

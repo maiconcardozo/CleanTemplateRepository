@@ -16,26 +16,10 @@ namespace Authentication.Login.Extensions
         public static IServiceCollection AddAuthenticationLoginServices(this IServiceCollection services, string connectionString)
         {
             // Services
-            services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<IClaimService, ClaimService>();
-            services.AddScoped<IActionService, ActionService>();
-            services.AddScoped<IClaimActionService, ClaimActionService>();
-            services.AddScoped<IAccountClaimActionService, AccountClaimActionService>();
-            services.AddScoped<IApplicationService, ApplicationService>();
-            services.AddScoped<IApplicationClaimService, ApplicationClaimService>();
-            services.AddScoped<IProductService, ProductService>();
-            services.AddScoped<IProductVariantService, ProductVariantService>();
+            services.AddScoped<IEntityTemplateExampleService, EntityTemplateExampleService>();
 
             // Repositories
-            services.AddScoped<IAccountRepository, AccountRepository>();
-            services.AddScoped<IClaimRepository, ClaimRepository>();
-            services.AddScoped<IActionRepository, ActionRepository>();
-            services.AddScoped<IClaimActionRepository, ClaimActionRepository>();
-            services.AddScoped<IAccountClaimActionRepository, AccountClaimActionRepository>();
-            services.AddScoped<IApplicationRepository, ApplicationRepository>();
-            services.AddScoped<IApplicationClaimRepository, ApplicationClaimRepository>();
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IProductVariantRepository, ProductVariantRepository>();
+            services.AddScoped<IEntityTemplateExampleRepository, EntityTemplateExampleRepository>();
 
             // Unit of Work
             services.AddScoped<ILoginUnitOfWork, LoginUnitOfWork>();
